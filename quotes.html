@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quotes</title>
+  <style>
+    :root {
+      --ink: #17201b;
+      --muted: #66706b;
+      --paper: #fffaf1;
+      --surface: rgba(255, 255, 255, 0.78);
+      --surface-strong: #ffffff;
+      --line: rgba(23, 32, 27, 0.12);
+      --accent: #0f766e;
+      --accent-dark: #0d514d;
+      --warm: #d97706;
+      --rose: #be123c;
+      --shadow: 0 24px 70px rgba(32, 41, 36, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 18% 14%, rgba(15, 118, 110, 0.18), transparent 30%),
+        radial-gradient(circle at 82% 8%, rgba(217, 119, 6, 0.15), transparent 28%),
+        linear-gradient(145deg, #f6f1e7 0%, #e7f3ee 48%, #f8e9e7 100%);
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 54px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+
+    .headline {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 250, 241, 0.72);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .eyebrow {
+      width: fit-content;
+      margin: 0 0 18px;
+      padding: 7px 11px;
+      color: var(--accent-dark);
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      border: 1px solid rgba(15, 118, 110, 0.24);
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.08);
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 7vw, 6.8rem);
+      line-height: 0.88;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 680px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.22rem);
+      line-height: 1.65;
+    }
+
+    .spotlight {
+      position: relative;
+      display: flex;
+      min-height: 300px;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 28px;
+      color: white;
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(13, 81, 77, 0.96), rgba(15, 118, 110, 0.86)),
+        linear-gradient(45deg, var(--accent), var(--rose));
+      box-shadow: var(--shadow);
+    }
+
+    .spotlight::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, black, transparent 86%);
+      pointer-events: none;
+    }
+
+    .spotlight > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .mark {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      color: var(--accent-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 3.6rem;
+      line-height: 1;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .featured-text {
+      margin: 34px 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.7rem;
+      line-height: 1.16;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      gap: 12px;
+      align-items: center;
+      margin: 24px 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+      backdrop-filter: blur(16px);
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+
+    .search-wrap span {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      color: var(--muted);
+      transform: translateY(-52%);
+      pointer-events: none;
+    }
+
+    .search {
+      width: 100%;
+      min-height: 46px;
+      padding: 0 16px 0 42px;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface-strong);
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: rgba(15, 118, 110, 0.6);
+      box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+    }
+
+    .stat {
+      min-height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface-strong);
+      white-space: nowrap;
+    }
+
+    .shuffle {
+      min-height: 46px;
+      padding: 0 16px;
+      color: white;
+      font-weight: 800;
+      border: 0;
+      border-radius: 8px;
+      background: var(--accent);
+      cursor: pointer;
+      transition: transform 160ms ease, background 160ms ease;
+    }
+
+    .shuffle:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .quote-card {
+      position: relative;
+      min-height: 214px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 14px 42px rgba(32, 41, 36, 0.08);
+      backdrop-filter: blur(15px);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .quote-card:nth-child(3n + 2) {
+      background: rgba(255, 247, 237, 0.82);
+    }
+
+    .quote-card:nth-child(3n) {
+      background: rgba(240, 253, 250, 0.78);
+    }
+
+    .quote-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(15, 118, 110, 0.34);
+      box-shadow: 0 20px 56px rgba(32, 41, 36, 0.13);
+    }
+
+    .quote-card::before {
+      content: "\"";
+      position: absolute;
+      right: 16px;
+      top: -28px;
+      color: rgba(15, 118, 110, 0.09);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 9rem;
+      line-height: 1;
+    }
+
+    .quote-text {
+      position: relative;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      line-height: 1.35;
+    }
+
+    .empty {
+      display: none;
+      padding: 40px 20px;
+      color: var(--muted);
+      text-align: center;
+      border: 1px dashed rgba(23, 32, 27, 0.24);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .error {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 14px;
+      color: #8a1c1c;
+      border: 1px solid rgba(190, 18, 60, 0.24);
+      border-radius: 8px;
+      background: rgba(255, 241, 242, 0.82);
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 22px, 1180px);
+        padding-top: 20px;
+      }
+
+      .headline,
+      .spotlight {
+        min-height: 250px;
+        padding: 22px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quote-text {
+        font-size: 1.22rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-label="Quotes introduction">
+      <div class="headline">
+        <p class="eyebrow">Collected thoughts</p>
+        <h1>Quotes worth keeping close.</h1>
+        <p class="subtitle">A quiet shelf for sharp lines, useful reminders, and the occasional joke that refuses to leave.</p>
+      </div>
+
+      <aside class="spotlight" aria-label="Featured quote">
+        <div class="mark">"</div>
+        <div>
+          <p class="featured-text" id="featuredText">Loading a quote...</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="toolbar" aria-label="Quote controls">
+      <label class="search-wrap">
+        <span aria-hidden="true">⌕</span>
+        <input class="search" id="searchInput" type="search" placeholder="Search quotes" autocomplete="off">
+      </label>
+      <div class="stat" id="quoteCount">0 quotes</div>
+      <button class="shuffle" id="shuffleButton" type="button">Shuffle</button>
+    </section>
+
+    <p class="error" id="errorMessage"></p>
+    <section class="grid" id="quotesGrid" aria-live="polite"></section>
+    <p class="empty" id="emptyState">No quotes matched your search.</p>
+  </main>
+
+  <script>
+    const grid = document.getElementById("quotesGrid");
+    const searchInput = document.getElementById("searchInput");
+    const quoteCount = document.getElementById("quoteCount");
+    const featuredText = document.getElementById("featuredText");
+    const shuffleButton = document.getElementById("shuffleButton");
+    const emptyState = document.getElementById("emptyState");
+    const errorMessage = document.getElementById("errorMessage");
+
+    let quotes = [];
+    let visibleQuotes = [];
+
+    function normalizeQuote(item, index) {
+      if (typeof item === "string") {
+        return {
+          text: item.trim(),
+          id: `quote-${index}`
+        };
+      }
+
+      return {
+        text: String(item.text || item.quote || "").trim(),
+        id: item.id || `quote-${index}`
+      };
+    }
+
+    function setFeatured(list = visibleQuotes) {
+      if (!list.length) {
+        featuredText.textContent = "No quote selected.";
+        return;
+      }
+
+      const quote = list[Math.floor(Math.random() * list.length)];
+      featuredText.textContent = quote.text;
+    }
+
+    function renderCards(list) {
+      grid.innerHTML = "";
+
+      const fragment = document.createDocumentFragment();
+      list.forEach((quote) => {
+        const card = document.createElement("article");
+        card.className = "quote-card";
+
+        const text = document.createElement("p");
+        text.className = "quote-text";
+        text.textContent = quote.text;
+
+        card.append(text);
+        fragment.appendChild(card);
+      });
+
+      grid.appendChild(fragment);
+      emptyState.style.display = list.length ? "none" : "block";
+      quoteCount.textContent = `${list.length} ${list.length === 1 ? "quote" : "quotes"}`;
+    }
+
+    function filterQuotes() {
+      const term = searchInput.value.trim().toLowerCase();
+      visibleQuotes = quotes.filter((quote) => {
+        return quote.text.toLowerCase().includes(term);
+      });
+
+      renderCards(visibleQuotes);
+      setFeatured(visibleQuotes);
+    }
+
+    async function loadQuotes() {
+      try {
+        const response = await fetch("quotes.json", { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`Could not load quotes.json (${response.status})`);
+        }
+
+        const data = await response.json();
+        if (!Array.isArray(data)) {
+          throw new Error("quotes.json must contain an array of quotes.");
+        }
+
+        quotes = data
+          .map(normalizeQuote)
+          .filter((quote) => quote.text.length > 0);
+
+        visibleQuotes = quotes;
+        renderCards(visibleQuotes);
+        setFeatured(visibleQuotes);
+      } catch (error) {
+        errorMessage.textContent = `${error.message} Open this page through a local server so the browser can fetch quotes.json.`;
+        errorMessage.style.display = "block";
+        featuredText.textContent = "Quotes could not be loaded.";
+      }
+    }
+
+    searchInput.addEventListener("input", filterQuotes);
+    shuffleButton.addEventListener("click", () => setFeatured(visibleQuotes));
+
+    loadQuotes();
+  </script>
+</body>
+</html>
