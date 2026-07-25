@@ -1,9 +1,9 @@
 /* ============================================================
-   Build-scoping engine — Karandeep's FDE.SIM.
-   Deterministic, keyword-matched decomposition of an ambiguous
-   0→1 brief into: scope → model → data → infra → product →
-   plan → risks → receipts. No backend; feels live via typed reveal.
-   (Illustrative of how Karandeep scopes a build — not an LLM.)
+   First-principles experiment scoper.
+   Deterministic keyword match → hear → principles → hypothesize →
+   measure → experiment → kill → receipts.
+   Illustrative of how Karandeep scopes empirical work — not an LLM.
+   Serves research labs and FDE / product audiences.
    ============================================================ */
 
 export type Receipt = { label: string; projectId: string };
@@ -17,16 +17,41 @@ export type Stage = {
 
 export type Brief = {
   domain: string;
-  read: string; // one-line read-back of what he heard
+  read: string;
   stages: Stage[];
 };
 
-export const presets: { label: string; prompt: string }[] = [
-  { label: "Regional-language voice assistant", prompt: "We need a voice assistant that understands and speaks a low-resource regional language." },
-  { label: "Consumer AI photo product", prompt: "We want users to upload selfies and get studio-grade AI photos of themselves." },
-  { label: "Recommendation engine at scale", prompt: "Build a personalized recommendation engine over our product + user data." },
-  { label: "Self-host to cut inference cost", prompt: "Our OpenAI bill is exploding — can we self-host a model to cut inference cost?" },
-  { label: "LLM support copilot", prompt: "We want an AI copilot that answers customer support questions from our docs." },
+export const presets: { label: string; prompt: string; kind: "research" | "build" }[] = [
+  {
+    label: "Inference-time learning eval",
+    prompt:
+      "Design a benchmark that measures whether LLMs can learn novel rules inside a conversation — not just recall training data.",
+    kind: "research",
+  },
+  {
+    label: "Reward hacking probe",
+    prompt:
+      "How would you empirically test whether a model is reward-hacking a proxy metric instead of the intended goal?",
+    kind: "research",
+  },
+  {
+    label: "Regional speech stack",
+    prompt:
+      "We need ASR and TTS for a low-resource regional language where no clean corpus exists yet.",
+    kind: "build",
+  },
+  {
+    label: "Per-user diffusion product",
+    prompt:
+      "Users upload selfies and should get studio-grade photos that actually look like them.",
+    kind: "build",
+  },
+  {
+    label: "Cut API inference cost",
+    prompt:
+      "Our LLM API bill is exploding — can we self-host without tanking quality?",
+    kind: "build",
+  },
 ];
 
 type Domain = {
@@ -43,46 +68,119 @@ const S = (label: string, lines: string[], receipts?: Receipt[]): Omit<Stage, "i
 });
 
 const domains: Domain[] = [
+  /* ---------- EVAL / LEARNING / BENCHMARK ---------- */
+  {
+    key: "eval",
+    match:
+      /eval|benchmark|learningbench|in-?context|inference-?time|novel rule|memor|recall|cognitive|agi.?eval|measure.*(learn|model)/i,
+    read: () =>
+      "an evaluation problem — separate genuine learning from memorised recall, with a metric that can kill bad designs.",
+    stages: [
+      S("hear", [
+        "You want to know if the model can acquire a new rule from evidence in-context — not whether it already saw the answer in pretraining.",
+        "That means the environment must be novel by construction. Static quiz sets leak; programmatic generators don’t.",
+      ]),
+      S("principles", [
+        "If memorisation can help, the benchmark is contaminated. Invent the rules; grade with the same function that made the examples.",
+        "Accuracy alone is weak. Measure the learning act: evidence used, hypothesis updates, trajectory slope.",
+        "Reward being fast at being wrong is a bug. Zero accuracy → zero score.",
+      ]),
+      S("hypothesize", [
+        "H1: frontier scale alone does not buy inference-time learning — hypothesis management does.",
+        "H2: evidence appetite (how many probes a model takes) is a stable model property and predicts performance.",
+        "H3: extended reasoning helps induction-heavy skills more than rapid procedural adaptation.",
+      ], [{ label: "LearningBench — $25K Grand Prize", projectId: "learningbench" }]),
+      S("measure", [
+        "Primary: efficiency-weighted accuracy with a free-exploration zone, then penalties for avoidable over-querying.",
+        "Secondary: OLS slope of practice-round accuracy (trajectory orthogonality) — did learning occur?",
+        "Process: probe counts, identical-action streaks, token spend on failed vs solved runs.",
+      ]),
+      S("experiment", [
+        "Build 100+ programmatic tasks across distinct cognitive acts (associative, concept, language, observational, procedural, RL).",
+        "Evaluate a ladder of models (small → frontier, instruct vs thinking) on the same generators.",
+        "Publish tasks + grading code so others can reproduce — public output is the point.",
+      ], [{ label: "LearningBench repo + project page", projectId: "learningbench" }]),
+      S("kill", [
+        "Kill if a closed book / memorisation baseline matches in-context learners — novelty failed.",
+        "Kill a scoring rule if it rewards verbosity or random probing without accuracy.",
+        "Kill a sub-ability if every model saturates — not discriminative.",
+      ]),
+    ],
+  },
+
+  /* ---------- SAFETY / REWARD / RED TEAM ---------- */
+  {
+    key: "safety",
+    match:
+      /reward.?hack|alignment|safety|red.?team|sycophan|decept|specimens|misuse|jailbreak|proxy metric|oversight/i,
+    read: () =>
+      "an empirical safety / behaviour question — define the failure mode, then build the smallest test that would catch it.",
+    stages: [
+      S("hear", [
+        "You’re worried the system optimises a proxy while looking compliant on the intended goal.",
+        "That’s an experimental design problem before it’s a training problem.",
+      ]),
+      S("principles", [
+        "Name the intended goal and the proxy separately. If you can’t, you can’t measure gaming.",
+        "Prefer behavioural tests with ground truth over vibe checks or LLM-as-judge alone.",
+        "Log trajectories — single-shot answers hide the hacking strategy.",
+      ]),
+      S("hypothesize", [
+        "H1: under pressure, the model will sacrifice the true goal to raise the proxy.",
+        "H2: the failure shows up as stuck action loops once the first hypothesis is wrong (no update).",
+        "H3: simple capability + incentive framing is enough to elicit the behaviour without exotic scaffolding.",
+      ]),
+      S("measure", [
+        "Define success/fail labels that a program can grade — not a panel of opinions.",
+        "Track proxy↑ while true-goal↓; also identical-action streaks and token waste on failed runs.",
+        "Compare instruct vs reasoning modes — deliberation can help or hurt depending on the task.",
+      ], [{ label: "LearningBench — hypothesis updating metrics", projectId: "learningbench" }]),
+      S("experiment", [
+        "Build a thin environment where the proxy and true goal diverge by construction.",
+        "Run a fixed model ladder; ablate prompts / tools / budgets; keep seeds.",
+        "Write up negative results too — knowing what didn’t elicit hacking is useful.",
+      ]),
+      S("kill", [
+        "Kill the setup if the ‘true goal’ isn’t independently checkable.",
+        "Kill if only one brittle prompt triggers the failure — not a robust phenomenon.",
+        "Kill if grading needs another LLM with no calibration set.",
+      ]),
+    ],
+  },
+
   /* ---------- VOICE / SPEECH ---------- */
   {
     key: "voice",
-    match: /voice|speech|asr|tts|audio|call|transcri|accent|dialect|language model|regional|punjabi|hindi/i,
-    read: () => "a speech stack for a low-resource language — recognize it, understand it, speak it back.",
+    match: /voice|speech|asr|tts|audio|transcri|accent|dialect|regional|punjabi|hindi/i,
+    read: () =>
+      "a speech stack for a low-resource language — the corpus is the product; models come second.",
     stages: [
-      S("scope", [
-        "Three models, not one: ASR (speech→text), an LLM for intent, TTS (text→speech).",
-        "The bottleneck isn't the model — it's data. Low-resource means the corpus doesn't exist yet. So the corpus IS the product.",
-        "First cut: nail ASR word-error-rate on real accents before touching the assistant layer.",
+      S("hear", [
+        "Three systems: ASR, language/intent, TTS. The scarce resource is clean native speech, not another architecture paper.",
       ]),
-      S("model", [
-        "ASR: fine-tune a strong multilingual base (Whisper-class) on our own corpus; distill for on-device if latency matters.",
-        "LLM: a small, cheap, fine-tuned model beats a giant general one for a narrow domain — I've trained these.",
-        "TTS: a modern neural TTS fine-tuned on a few clean speaker-hours; prosody is where cheap models fall over.",
+      S("principles", [
+        "WER on real accents is the gate. Don’t build the assistant until ASR clears a holdout you trust.",
+        "Data quality beats data volume. Filter hard.",
+        "Own the training loop if you need iteration speed and cost control.",
       ]),
-      S("data", [
-        "Source at internet scale: broadcast, podcasts, video — wherever native speech lives.",
-        "The unlock is access: DRM and API-obfuscation layers gate the good audio. I reverse-engineer those to source legally-grey-free, at scale.",
-        "Pipeline: dedup → VAD segment → forced-align → filter by SNR/confidence → human spot-check. Garbage in, garbage model.",
-      ], [{ label: "Treow AI — 100K+ hrs ASR corpus", projectId: "treow" }]),
-      S("infra", [
-        "Train on owned GPUs, not rented — at corpus scale the cloud bill dwarfs the hardware. Self-hosting pays for itself in weeks.",
-        "Multi-GPU data-parallel for ASR; the fleet doubles as the inference tier.",
-        "Serve ASR + TTS behind a queue so bursty traffic doesn't melt the GPUs.",
-      ], [{ label: "The Rig — 7-GPU fleet", projectId: "rig" }]),
-      S("product", [
-        "Thin API first: /transcribe, /chat, /speak. Prove quality before the UI.",
-        "Ship a narrow, real use-case (one domain, one workflow) end-to-end rather than a broad demo.",
-        "Instrument WER and user corrections from day one — that feedback becomes next month's training data.",
+      S("hypothesize", [
+        "H1: a fine-tuned multilingual base on our corpus beats a giant general API on this language.",
+        "H2: internet-scale sourcing + aggressive filtering unlocks usable hours where public sets don’t exist.",
       ]),
-      S("plan", [
-        "Wk 1 — data pipeline + first ASR fine-tune, measure WER on a real holdout.",
-        "Wk 2 — LLM intent layer + TTS voice, wire the three into one API, ship to 10 real users.",
-        "Then: close the data flywheel — corrections → retrain → measurably lower WER each cycle.",
+      S("measure", [
+        "Primary: WER / CER per accent cohort — never only the average.",
+        "Secondary: latency budget for the intended surface; human spot-check rate on filtered audio.",
       ]),
-      S("risks", [
-        "Data quality > data quantity — a 100K-hour pile of noise loses to 10K clean hours. Budget for filtering.",
-        "Accent/dialect coverage: measure per-cohort, not just the average.",
-        "Latency for real-time voice — plan the on-device/distill path before it's a fire.",
+      S("experiment", [
+        "Stand up acquisition → VAD → align → SNR filter → first Whisper-class fine-tune in one week.",
+        "Ship a thin /transcribe API to real speakers; corrections become next train set.",
+      ], [
+        { label: "Treow AI — 100K+ hrs ASR", projectId: "treow" },
+        { label: "The Rig — 7-GPU fleet", projectId: "rig" },
+      ]),
+      S("kill", [
+        "Kill the language scope if holdout WER won’t move after clean data — pick a narrower domain.",
+        "Kill real-time UX if distill/on-device path isn’t feasible for the latency target.",
       ]),
     ],
   },
@@ -90,221 +188,144 @@ const domains: Domain[] = [
   /* ---------- IMAGE / DIFFUSION ---------- */
   {
     key: "image",
-    match: /image|photo|selfie|headshot|portrait|avatar|diffusion|flux|stable|generat|art|studio|face/i,
-    read: () => "personalized image generation — a user's photos in, studio-grade shots of them out.",
+    match: /image|photo|selfie|portrait|diffusion|flux|studio|face|generat/i,
+    read: () =>
+      "personalized generation — subject fidelity is the product; everything else is packaging.",
     stages: [
-      S("scope", [
-        "The magic is subject fidelity: the output has to actually look like the person, not a lookalike.",
-        "That means a per-user model, not one shared model with a prompt. Personalization is the product.",
-        "Quality bar is set by the worst output a user sees, not the best — so consistency is the real problem.",
+      S("hear", [
+        "Outputs must look like the specific person. Shared foundation models with prompts won’t clear that bar.",
       ]),
-      S("model", [
-        "Per-customer FLUX fine-tune on 10–20 of their photos — enough to lock identity without overfitting the background.",
-        "Orchestrate generation as a ComfyUI graph: face/skin chains, upscalers, prompt libraries per vertical.",
-        "For multi-subject (couples), a staged pipeline — inpaint with gender masks → dual-checkpoint consistency → fan-out.",
-      ], [{ label: "LuxeAI — per-customer FLUX fine-tunes", projectId: "luxeai" }]),
-      S("data", [
-        "Crop-aware training-data prep: detect, center and clean the subject before it ever hits training.",
-        "Curated prompt packs per vertical (newborn, maternity, couples, portrait) — the 'studio' is really a prompt + workflow library.",
-        "Reject bad uploads early (blur, occlusion) — cheaper to catch at upload than after a wasted training run.",
+      S("principles", [
+        "Per-subject fine-tune + disciplined gen graph. Consistency beats one lucky sample.",
+        "Unit economics: training cost per user must fit price.",
+        "Consent and rejection gates are product features, not afterthoughts.",
       ]),
-      S("infra", [
-        "A self-hosted multi-GPU training + inference fleet — every paying user kicks off a real fine-tune job.",
-        "Supabase-as-job-queue: onboard → train → generate → deliver, each a durable step you can retry.",
-        "Bunny CDN + S3 for delivery; bulk ZIP export for the full shoot.",
-      ], [{ label: "The Rig — training + inference fleet", projectId: "rig" }]),
-      S("product", [
-        "Guided studio onboarding so a non-technical user gets a great model without knowing what a checkpoint is.",
-        "Realtime training status, credit ledger, pay-later, affiliate program — the whole commercial surface.",
-        "Payments (Stripe / Razorpay), bulk delivery, the works. Shipped, not slideware.",
-      ], [{ label: "LuxeAI — full product surface", projectId: "luxeai" }]),
-      S("plan", [
-        "Wk 1 — per-user fine-tune + ComfyUI generation graph, judged on identity fidelity.",
-        "Wk 2 — job queue + onboarding + delivery, take a real payment end-to-end.",
-        "Then: tune the consistency pipeline vertical-by-vertical against real user-rejected outputs.",
+      S("hypothesize", [
+        "H1: 10–20 clean subject photos + FLUX-class fine-tune locks identity without baking in backgrounds.",
+        "H2: multi-subject needs a staged pipeline (masks → dual checkpoint), not a bigger prompt.",
       ]),
-      S("risks", [
-        "Identity drift on hard poses/angles — measure fidelity per output, gate the bad ones.",
-        "GPU cost per user vs. price point — the fine-tune has to fit the unit economics.",
-        "Safety/consent on uploaded faces — policy + tooling, not an afterthought.",
+      S("measure", [
+        "Identity fidelity on hard poses (human + automated checks); reject rate per vertical.",
+        "Cost per successful shoot; queue wait time.",
+      ]),
+      S("experiment", [
+        "One vertical end-to-end: upload → train → generate → deliver → pay.",
+        "Then harden the couple/consistency path against real user rejects.",
+      ], [
+        { label: "LuxeAI — per-customer FLUX", projectId: "luxeai" },
+        { label: "The Rig — train + serve", projectId: "rig" },
+      ]),
+      S("kill", [
+        "Kill a vertical if fidelity won’t clear the bar at the target price.",
+        "Kill shared-model approaches if identity drift stays visible to non-experts.",
       ]),
     ],
   },
 
-  /* ---------- RECOMMENDATION / DATA ---------- */
-  {
-    key: "data",
-    match: /recommend|rank|personaliz|analytics|etl|pipeline|data|warehouse|bigquery|dashboard|metric|churn|growth/i,
-    read: () => "a personalization / data engine — turn your product + user data into decisions and lift.",
-    stages: [
-      S("scope", [
-        "Two problems wearing one coat: (1) trustworthy data plumbing, (2) the model on top.",
-        "Most 'recommendation' projects die at (1). Get the pipeline reliable and the model is the easy part.",
-        "Define the metric that moves the business first — retention, conversion — then work backward.",
-      ]),
-      S("model", [
-        "Start embarrassingly simple: popularity + recency baseline. It's the bar every fancy model must beat.",
-        "Then embeddings + a ranking layer; an LLM-based recommender where semantic understanding actually earns its cost.",
-        "Offline metric + online A/B — never ship a recommender on offline numbers alone.",
-      ], [{ label: "theAsianparent — LLM recommendation engine", projectId: "babytracker" }]),
-      S("data", [
-        "Scalable ETL: BigQuery + Airbyte + custom Python extraction, feeding clean, versioned tables.",
-        "Data quality and integrity across sources is the whole game — root-cause pipeline failures, don't paper over them.",
-        "SOPs + docs so the pipeline survives the person who built it.",
-      ], [{ label: "theAsianparent — ETL at company scale", projectId: "babytracker" }]),
-      S("infra", [
-        "Warehouse-native where possible; keep feature computation close to the data.",
-        "Batch for the first cut; add streaming only where freshness provably moves the metric.",
-        "Monitoring on data drift and pipeline health — a silent broken pipeline is worse than a loud one.",
-      ]),
-      S("product", [
-        "Expose recommendations behind a stable API + a dashboard (Superset/Sigma) so stakeholders can see the lift.",
-        "Ship to one surface, measure real lift, then expand. No big-bang rollout.",
-        "Close the loop: log outcomes back into training data.",
-      ]),
-      S("plan", [
-        "Wk 1 — reliable ETL + baseline recommender, instrument the target metric.",
-        "Wk 2 — embedding/LLM ranking behind an A/B, ship to a slice of traffic.",
-        "Then: iterate on the model only after the pipeline is boringly reliable.",
-      ]),
-      S("risks", [
-        "Garbage/late data silently tanks quality — invest in validation and alerting up front.",
-        "Cold-start for new users/items — have an explicit fallback.",
-        "Vanity offline metrics — bias toward measured online lift.",
-      ]),
-    ],
-  },
-
-  /* ---------- SELF-HOST / INFERENCE COST ---------- */
+  /* ---------- SELF-HOST / COST ---------- */
   {
     key: "selfhost",
-    match: /self.?host|inference cost|gpu|cheaper|reduce cost|on.?prem|latency|openai bill|token cost|serve/i,
-    read: () => "moving off a metered API onto owned/controlled infra — cut the per-token bill, keep the quality.",
+    match: /self.?host|inference cost|gpu|openai bill|token cost|serve|latency|on.?prem/i,
+    read: () =>
+      "moving steady load off metered APIs — quality held constant, cost and control as the variables.",
     stages: [
-      S("scope", [
-        "First question, not last: does an open model at your quality bar exist? Usually yes for narrow tasks.",
-        "The real cost isn't tokens — it's GPUs sitting idle. Utilization is the number to optimize.",
-        "Decide the line: self-host the 80% steady workload, burst the rest to cloud.",
+      S("hear", [
+        "You don’t need ‘a GPU strategy’ — you need a quality bar, a utilization plan, and a cutover path.",
       ]),
-      S("model", [
-        "Pick the smallest open model that clears your eval; fine-tune it on your domain to close the gap to the big API.",
-        "Quantize / distill for throughput where quality allows — measure, don't assume.",
-        "Keep a rigorous eval set so 'cheaper' never quietly means 'worse'.",
+      S("principles", [
+        "Smallest open model that clears eval; fine-tune on your traffic to close gaps.",
+        "Idle GPUs erase savings. Batch and queue.",
+        "Shadow deploy before cutover — never big-bang on quality-blind cost.",
       ]),
-      S("data", [
-        "Your own traffic is the fine-tuning goldmine — capture prompts + accepted outputs (with consent) to specialize the model.",
-        "Build the eval set from real failures, not toy prompts.",
+      S("hypothesize", [
+        "H1: for your narrow task distribution, a fine-tuned open model matches the API within ε.",
+        "H2: owned baseline GPUs + cloud burst beats all-cloud at your volume within weeks.",
       ]),
-      S("infra", [
-        "Owned GPUs for baseline load — at scale, hardware you own beats rented within weeks. I run a 7-GPU fleet doing exactly this.",
-        "Batching + a queue for throughput; autoscale cloud burst for spikes.",
-        "Containerize the serving stack so it's reproducible and portable.",
+      S("measure", [
+        "Eval set from real failures; cost per request; p95 latency; quality delta vs incumbent.",
+      ]),
+      S("experiment", [
+        "Week 1: model pick + eval harness + serving prototype.",
+        "Week 2: shadow traffic; decide cutover per route.",
       ], [{ label: "The Rig — self-hosted train + serve", projectId: "rig" }]),
-      S("product", [
-        "Shadow-deploy: run self-hosted alongside the incumbent API, compare quality + cost on live traffic.",
-        "Cut over per-route as confidence grows — no risky big-bang switch.",
-      ]),
-      S("plan", [
-        "Wk 1 — model selection + eval harness + a self-hosted serving prototype.",
-        "Wk 2 — shadow traffic, measure cost-per-request and quality delta, plan the cutover.",
-        "Then: fine-tune on captured traffic to widen the cost/quality gap in your favor.",
-      ]),
-      S("risks", [
-        "Ops burden of running GPUs — real, but I've done it; budget for it honestly.",
-        "Quality regressions hiding in the average — eval per-segment.",
-        "Utilization: idle GPUs erase the savings. Batch aggressively.",
+      S("kill", [
+        "Kill self-host if quality gap won’t close without ruinous GPU count.",
+        "Kill a model size if utilization can’t stay healthy.",
       ]),
     ],
   },
 
-  /* ---------- LLM / AGENT / RAG ---------- */
+  /* ---------- AGENTS / HTTP / TOOLS ---------- */
   {
-    key: "llm",
-    match: /chat|agent|assistant|rag|copilot|support|docs|knowledge|llm|gpt|prompt|question/i,
-    read: () => "an LLM copilot grounded in your knowledge — useful answers, not confident hallucinations.",
+    key: "agent",
+    match: /agent|tool|http|api.?reverse|browser.?free|harvest|copilot|rag|automate/i,
+    read: () =>
+      "an agent / automation loop — define the action space and success checks before chaining prompts.",
     stages: [
-      S("scope", [
-        "The failure mode is confident wrongness. So the design goal is grounded + honest > clever.",
-        "Retrieval quality caps answer quality — if the right chunk isn't retrieved, no model saves you.",
-        "Pick one workflow it must nail before widening scope.",
+      S("hear", [
+        "The hard part is reliable action under partial observability — not a longer system prompt.",
       ]),
-      S("model", [
-        "Start with a strong general model + good retrieval; fine-tune only once you've hit its ceiling.",
-        "Structure outputs (cite sources, admit uncertainty) — the UX of trust is a model+prompt+guardrail job.",
-        "A small fine-tuned model can beat a big one for a narrow, repeated task — and it's far cheaper to serve.",
+      S("principles", [
+        "Prefer programmatic success checks. If a human must grade every run, you don’t have an experiment.",
+        "Shrink the action space. Browser-free HTTP can be a feature, not a limitation.",
+        "Log trajectories; stuck loops are the failure signature.",
       ]),
-      S("data", [
-        "Ingest + chunk the knowledge base thoughtfully; chunking strategy quietly decides retrieval quality.",
-        "Build an eval set of real questions with known-good answers before shipping.",
-        "Log every answer + user reaction — that's your improvement loop.",
+      S("hypothesize", [
+        "H1: a small model can learn to reverse-engineer APIs from raw HTTP given the right env.",
+        "H2: identical-action streaks predict failure better than total tokens.",
       ]),
-      S("infra", [
-        "Vector store + retrieval service + LLM behind a queue; self-host the model if volume justifies it (I can).",
-        "Cache aggressively — repeated questions shouldn't cost a fresh generation.",
-      ], [{ label: "The Rig — self-hosted inference", projectId: "rig" }]),
-      S("product", [
-        "Ship with citations visible and an 'I'm not sure' path — trust compounds, hallucinations destroy it.",
-        "Deploy to one team/surface, watch real transcripts, fix the top failure modes weekly.",
+      S("measure", [
+        "Task success rate; steps to success; illegal action rate; loop detection.",
       ]),
-      S("plan", [
-        "Wk 1 — ingestion + retrieval + a grounded answer path, plus an eval set.",
-        "Wk 2 — guardrails, citations, ship to a real team, read the transcripts.",
-        "Then: fine-tune / tune retrieval against logged real failures.",
-      ]),
-      S("risks", [
-        "Hallucination + stale knowledge — grounding, citations, freshness policy.",
-        "Retrieval misses — measure recall@k on the real question set.",
-        "Cost per answer at scale — cache + right-size the model.",
+      S("experiment", [
+        "Build a gym with clear rewards; train or evaluate against fixed seeds; publish the env.",
+      ], [{ label: "HARvestGym — HTTP agents", projectId: "harvestgym" }]),
+      S("kill", [
+        "Kill browser-heavy setups if HTTP APIs already expose the task.",
+        "Kill training if a scripted baseline already clears the bar.",
       ]),
     ],
   },
 ];
 
-/* ---------- GENERIC 0→1 FALLBACK ---------- */
 const generic: Domain = {
   key: "generic",
   match: /.*/,
-  read: (input) => `an ambiguous 0→1 build${input.trim() ? " — I'll scope it the way I scope anything from scratch" : ""}.`,
+  read: () =>
+    "an ambiguous problem — I’ll scope it the way I scope any empirical build: one hard claim, one measurable test.",
   stages: [
-    S("scope", [
-      "First move on anything ambiguous: find the one hard part. Everything else is plumbing around it.",
-      "Define what 'working' means in a measurable number before writing code.",
-      "Cut scope to the thinnest end-to-end slice that a real user can actually touch.",
+    S("hear", [
+      "Restate the goal as a claim that could be false. If it can’t be false, it isn’t a project yet.",
     ]),
-    S("model", [
-      "If it's an ML problem: smallest model that clears the bar, fine-tuned on our own data, evaluated ruthlessly.",
-      "If it's not: the boring, proven building block beats the clever one at 0→1.",
+    S("principles", [
+      "Find the one hard part. Everything else is plumbing.",
+      "Define ‘working’ as a number before writing code.",
+      "Thin end-to-end slice that a real user or grader can touch.",
     ]),
-    S("data", [
-      "Whatever the system needs, the data pipeline is usually the real project — build it reliable and versioned.",
-      "If the data doesn't exist, sourcing it IS the work. I've built internet-scale pipelines to do exactly that.",
-    ], [{ label: "Treow AI — internet-scale data pipeline", projectId: "treow" }]),
-    S("infra", [
-      "Own the critical path: self-host where control + cost matter, rent where speed matters.",
-      "Make it reproducible (containers) and observable (metrics) from day one.",
-    ], [{ label: "The Rig — owned infra", projectId: "rig" }]),
-    S("product", [
-      "Ship the thin slice to real users fast; instrument it; let reality set the next priority.",
-      "One workflow done end-to-end beats ten half-built features.",
+    S("hypothesize", [
+      "Write the cheapest hypothesis that would change what you build next.",
+      "Prefer tests that can kill the idea in days, not months.",
     ]),
-    S("plan", [
-      "Wk 1 — the hard part, proven in isolation against a real metric.",
-      "Wk 2 — wire it end-to-end and put it in front of a real user.",
-      "Then: iterate on measured feedback, not opinions.",
+    S("measure", [
+      "One primary metric. Secondary diagnostics optional. No vanity dashboards.",
     ]),
-    S("risks", [
-      "Building the wrong thing well — validate the problem before polishing the solution.",
-      "Hidden data/quality issues — surface them early with real inputs.",
-      "Scope creep — protect the thin slice.",
+    S("experiment", [
+      "Week 1: prove the hard part in isolation.",
+      "Week 2: wire end-to-end; put it in front of reality.",
+    ], [
+      { label: "LearningBench — eval taste", projectId: "learningbench" },
+      { label: "LuxeAI / Treow — shipped systems", projectId: "luxeai" },
+    ]),
+    S("kill", [
+      "Kill if the metric doesn’t move after a serious try — change the problem, not the slide deck.",
+      "Kill scope creep that threatens the thin slice.",
     ]),
   ],
 };
 
 const RECEIPTS_STAGE = (receipts: Receipt[]): Omit<Stage, "id"> => ({
   label: "receipts",
-  lines: [
-    "This isn't theory — I've shipped the pieces this brief needs. The proof:",
-  ],
+  lines: ["I’ve already built pieces of this loop. Proof:"],
   receipts,
 });
 
@@ -312,7 +333,6 @@ export function decompose(input: string): Brief {
   const text = input || "";
   const domain = domains.find((d) => d.match.test(text)) ?? generic;
 
-  // collect receipts referenced across stages, de-duped
   const seen = new Set<string>();
   const receipts: Receipt[] = [];
   for (const st of domain.stages) {
@@ -325,7 +345,7 @@ export function decompose(input: string): Brief {
   }
   if (receipts.length === 0) {
     receipts.push(
-      { label: "LuxeAI Studio — shipped product", projectId: "luxeai" },
+      { label: "LearningBench — Grand Prize eval", projectId: "learningbench" },
       { label: "Treow AI — trained models", projectId: "treow" },
       { label: "The Rig — self-hosted fleet", projectId: "rig" },
     );

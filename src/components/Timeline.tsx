@@ -1,56 +1,67 @@
-import { timeline, education, honors } from "../data/content";
+import { education, timeline, trajectoryIntro } from "../data/content";
 import { Reveal } from "./ui";
 
 export default function Timeline() {
   return (
-    <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 lg:gap-14">
-      {/* timeline */}
-      <div className="relative">
-        <div className="absolute left-[5px] top-1 bottom-1 w-px bg-[var(--color-line)]" />
-        <div className="space-y-8">
-          {timeline.map((job, i) => (
-            <Reveal key={i} delay={i * 0.04}>
-              <div className="relative pl-7">
-                <span className="absolute left-0 top-1.5 h-[11px] w-[11px] rounded-full border-2 border-acid bg-bg" />
-                <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-                  <h3 className="text-[15px] font-semibold text-txt">{job.role}</h3>
-                  <span className="mono text-[11px] text-dim">{job.period}</span>
-                </div>
-                <div className="mono text-[13px] text-acid/80 mt-0.5">{job.org}</div>
-                <p className="mt-2 text-[13.5px] text-muted leading-relaxed">{job.note}</p>
+    <div>
+      <Reveal>
+        <p className="mb-10 max-w-2xl text-[15px] text-muted leading-relaxed">{trajectoryIntro}</p>
+      </Reveal>
+
+      <div className="space-y-0">
+        {timeline.map((j, i) => (
+          <Reveal key={j.org + j.role + j.period} delay={i * 0.04}>
+            <article className="grid md:grid-cols-[12.5rem_1fr] gap-2 md:gap-8 border-t border-[var(--color-line)] py-6 md:py-7">
+              <div className="pt-0.5">
+                <div className="mono text-[12px] text-dim leading-snug">{j.period}</div>
+                <div className="mono text-[11px] text-acid mt-1.5">{j.duration}</div>
               </div>
-            </Reveal>
-          ))}
-        </div>
+              <div>
+                <h3 className="text-[16px] font-semibold text-txt tracking-tight">{j.role}</h3>
+                <div className="mt-1 text-[14px] text-muted">
+                  {j.href ? (
+                    <a
+                      href={j.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-acid transition-colors"
+                    >
+                      {j.org}
+                    </a>
+                  ) : (
+                    j.org
+                  )}
+                </div>
+                <p className="mt-3 text-[14px] text-muted leading-relaxed">{j.summary}</p>
+                <ul className="mt-3.5 space-y-2">
+                  {j.bullets.map((b, bi) => (
+                    <li
+                      key={bi}
+                      className="flex gap-2.5 text-[13.5px] text-txt/85 leading-relaxed"
+                    >
+                      <span className="acid-text mt-1 shrink-0">▸</span>
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          </Reveal>
+        ))}
       </div>
 
-      {/* education + honors */}
-      <div className="space-y-5">
-        <Reveal>
-          <div className="panel p-5">
-            <div className="label mb-3">education</div>
-            <h3 className="text-[15px] font-semibold text-txt">{education.school}</h3>
-            <p className="text-[13.5px] text-muted mt-1">{education.degree}</p>
-            <div className="flex items-center gap-3 mt-2 mono text-[11px] text-dim">
-              <span>{education.period}</span>
-              <span className="acid-text">{education.gpa}</span>
-            </div>
-          </div>
-        </Reveal>
-        <Reveal delay={0.06}>
-          <div className="panel p-5">
-            <div className="label mb-3">honors</div>
-            <ul className="space-y-2.5">
-              {honors.map((h, i) => (
-                <li key={i} className="flex gap-2.5 text-[13px] text-muted leading-relaxed">
-                  <span className="acid-text shrink-0">✦</span>
-                  <span>{h}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
-      </div>
+      <Reveal delay={0.12}>
+        <div className="mt-8 border-t border-[var(--color-line)] pt-5">
+          <div className="label mb-2">Education</div>
+          <p className="text-[14px] text-txt">
+            {education.degree}
+            <span className="text-muted"> · {education.school}</span>
+          </p>
+          <p className="mono text-[12px] text-dim mt-1">
+            {education.period} · {education.gpa}
+          </p>
+        </div>
+      </Reveal>
     </div>
   );
 }

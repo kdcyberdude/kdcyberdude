@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Karandeep Singh — founder-engineer personal site",
+  "description": "Karandeep Singh — applied ML research & engineering",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

@@ -1,4 +1,50 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+
+export type Theme = "dark" | "light";
+
+const THEME_KEY = "kd-theme";
+
+export function getStoredTheme(): Theme {
+  try {
+    const v = localStorage.getItem(THEME_KEY);
+    if (v === "light" || v === "dark") return v;
+  } catch {
+    /* ignore */
+  }
+  return "dark";
+}
+
+export function applyTheme(theme: Theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute("content", theme === "dark" ? "#08090b" : "#f3f5f7");
+}
+
+/** Dark-default theme with localStorage persistence. */
+export function useTheme() {
+  const [theme, setThemeState] = useState<Theme>(() =>
+    typeof document !== "undefined"
+      ? ((document.documentElement.getAttribute("data-theme") as Theme) || "dark")
+      : "dark",
+  );
+
+  useEffect(() => {
+    applyTheme(theme);
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch {
+      /* ignore */
+    }
+  }, [theme]);
+
+  const toggle = useCallback(() => {
+    setThemeState((t) => (t === "dark" ? "light" : "dark"));
+  }, []);
+
+  const setTheme = useCallback((t: Theme) => setThemeState(t), []);
+
+  return { theme, setTheme, toggle };
+}
 
 /** True if the user prefers reduced motion. */
 export function useReducedMotion(): boolean {

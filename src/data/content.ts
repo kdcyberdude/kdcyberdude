@@ -1,45 +1,101 @@
 /* ============================================================
-   Single source of truth for all site copy + metrics.
-   Karandeep — edit this file to update the site's content.
+   Single source of truth — Karandeep Singh / kdcyberdude.com
+   Tuned for Anthropic Fellows + applied ML / FDE audiences.
    ============================================================ */
 
 export const profile = {
   name: "Karandeep Singh",
   handle: "kdcyberdude",
-  triad: ["I train the models,", "build the product,", "and run the infra."],
-  subline: "Founder-engineer · 0→1 · self-hosted GPU infra",
-  location: "Chandigarh, India · open to relocation",
+  headline: "I turn ambiguous problems into measurable experiments.",
+  subline:
+    "Applied ML engineer — evals, model training, self-hosted infra. Empirical research through production.",
+  location: "Jalandhar, India · open to relocation / remote",
   availability: {
-    status: "Open to work",
-    roles: ["Founding Engineer", "Forward-Deployed Engineer", "Member of Technical Staff"],
-    geos: "US & Europe",
+    status: "Open to research labs & ambitious teams",
+    roles: [
+      "Anthropic Fellows / research eng",
+      "Applied ML Researcher",
+      "Forward-Deployed / Founding Engineer",
+      "Member of Technical Staff",
+    ],
+    geos: "US, UK, Canada & remote-friendly teams",
   },
   summary:
-    "Founder-engineer across the full AI stack. I trained LLM / ASR / TTS models on internet-scale data (100K+ hours of speech), architected a self-hosted multi-GPU fleet, and shipped consumer products to 100K+ daily active users. At home in ambiguous, zero-to-one problems — from research through production.",
+    "I design evaluations, train models, and run the hardware that makes the loop real. $25K Grand Prize winner (Google DeepMind × Kaggle) for LearningBench — a benchmark of inference-time learning. Built ASR/TTS/LLMs on 100K+ hours of speech (6.96–10.18% WER on IndicSUPERB), a 7-GPU self-hosted fleet, and consumer AI products.",
   links: {
     email: "kdsingh.cyberdude@gmail.com",
     phone: "+91 62871 18222",
-    linkedin: "https://linkedin.com/in/kdcyberdude",
+    linkedin: "https://www.linkedin.com/in/kdcyberdude",
     github: "https://github.com/kdcyberdude",
     huggingface: "https://huggingface.co/kdcyberdude",
     site: "https://kdcyberdude.com",
     resume: "/Karandeep_Singh_Resume.pdf",
-    /** Optional public Bitbucket profile — set when you want it linked */
-    bitbucket: "" as string,
+    learningBench:
+      "https://learningbench-project-page-918170344855.us-west1.run.app/",
+    learningBenchRepo: "https://github.com/kdcyberdude/LearningBench",
+    learningBenchWriteup:
+      "https://www.kaggle.com/competitions/kaggle-measuring-agi/writeups/learningbench",
+    kaggleBenchmark: "https://www.kaggle.com/benchmarks",
+    treow: "https://www.treowintelligence.com/",
+    asrModel: "https://huggingface.co/kdcyberdude/w2v-multilingual-v1.4-scratch",
+    ttsModel: "https://huggingface.co/kdcyberdude/tts-pa-v0.1",
+    llmModel: "https://huggingface.co/kdcyberdude/gemma_sft_galbat_v1",
+    rigPost:
+      "https://www.reddit.com/r/comfyui/comments/1pd072e/i_built_a_7gpu_ai_monster_rig_at_home_35090_44090/",
   },
 };
 
-/* Headline metrics — the numbers that matter */
 export const stats: { value: string; label: string; accent?: boolean }[] = [
-  { value: "100K+", label: "hrs of speech, ASR corpus", accent: true },
-  { value: "100K+", label: "daily active users shipped" },
-  { value: "7", label: "GPU self-hosted fleet", accent: true },
-  { value: "0→1", label: "products, research to prod" },
+  { value: "$25K", label: "DeepMind × Kaggle Grand Prize", accent: true },
+  { value: "135", label: "LearningBench tasks · 14 models", accent: true },
+  { value: "100K+", label: "hrs speech · ASR corpus" },
+  { value: "7", label: "GPU self-hosted fleet" },
 ];
 
-/* ---- §01 Build-scoping simulator presets live in sim/decompose.ts ---- */
+/* ---- LearningBench flagship ---- */
+export const learningBench = {
+  name: "LearningBench",
+  award: "$25,000 Grand Prize · Google DeepMind × Kaggle",
+  kicker: "Measuring inference-time learning in LLMs",
+  year: "Mar – Apr 2026",
+  summary:
+    "Existing benchmarks measure what models already know. LearningBench measures how they learn — from scratch, inside a single conversation, on systems that have never existed before. No memorisation can help.",
+  bullets: [
+    "Won the $25,000 Grand Prize as a solo, first-time Kaggle competitor against 1,068 teams — Learning track in DeepMind’s “Measuring Progress Toward AGI: Cognitive Abilities.”",
+    "Presents frontier models with entirely new systems they must learn the rules of inside a single conversation — testing in-context learning, not pretrained knowledge recall.",
+    "135 programmatic tasks across 6 cognitive sub-abilities; evaluated 14 models from small to frontier.",
+    "Featured on Kaggle’s official benchmark page; #2 most-voted community benchmark.",
+  ],
+  metrics: [
+    { k: "tasks", v: "135" },
+    { k: "models", v: "14" },
+    { k: "sub-abilities", v: "6" },
+    { k: "novelty", v: "100%" },
+  ],
+  findings: [
+    {
+      title: "Scale ≠ learning",
+      blurb:
+        "11 of 14 models scored below 0.50 when genuine in-context learning was required. Larger models are not automatically better learners.",
+    },
+    {
+      title: "Reasoning helps induction",
+      blurb:
+        "Qwen Thinking vs Instruct: +183% on Concept Formation; extended reasoning lifts induction-heavy skills more than scale alone.",
+    },
+    {
+      title: "Evidence appetite predicts skill",
+      blurb:
+        "Models that seek less evidence score higher (ρ = −0.52). Stalling ≠ learning — hypothesis updating matters.",
+    },
+  ],
+  href: "https://learningbench-project-page-918170344855.us-west1.run.app/",
+  writeup:
+    "https://www.kaggle.com/competitions/kaggle-measuring-agi/writeups/learningbench",
+  repo: "https://github.com/kdcyberdude/LearningBench",
+};
 
-/* ---- §02 Evidence / selected work ---- */
+/* ---- Selected work ---- */
 export type Project = {
   id: string;
   name: string;
@@ -57,195 +113,222 @@ export const projects: Project[] = [
   {
     id: "luxeai",
     name: "LuxeAI Studio",
-    kicker: "Consumer AI photography",
+    kicker: "Consumer AI photography · end-to-end",
     href: "https://console.luxeai.studio",
     year: "2024 → now",
     role: "Co-Founder & CTO · Treow Intelligence",
     summary:
-      "Users upload real photos, get a fully personalized diffusion model trained on their subject, and receive studio-grade shoots across newborn, maternity, couples, kids and portrait verticals. Built end-to-end — model, pipeline, product.",
+      "Users upload real photos, get a personalized diffusion model, and receive studio-grade shoots. Model, pipeline, and product — owned end-to-end on self-hosted GPUs.",
     metrics: [
-      { k: "per-customer", v: "FLUX fine-tunes" },
-      { k: "pipeline", v: "3-stage couple-gen" },
+      { k: "fine-tunes", v: "per-customer FLUX" },
+      { k: "pipeline", v: "1290+ ComfyUI nodes" },
       { k: "surface", v: "full product" },
     ],
-    stack: ["FLUX fine-tuning", "ComfyUI", "Supabase job-queue", "EC2 / S3", "Stripe / Razorpay", "Bunny CDN"],
+    stack: ["FLUX", "ComfyUI", "Supabase", "EC2 / S3", "Stripe / Razorpay"],
     bullets: [
-      "Architected a self-hosted multi-GPU training + inference fleet with per-customer FLUX fine-tunes and ComfyUI worker orchestration, using Supabase as the job queue.",
-      "Engineered a 3-stage couple-generation pipeline: Comfy inpaint with gender masks → dual-checkpoint subject consistency → multi-GPU fan-out.",
-      "Shipped the entire product surface — guided studio onboarding, crop-aware training pipeline, realtime status, credit ledger, pay-later, affiliate program and bulk ZIP delivery.",
+      "Shipped end-to-end: studio console (crop-aware training, realtime generation streams), billing (credit ledger, Stripe/Razorpay, pay-later), and growth (affiliates, bulk delivery, third-party API).",
+      "Productionized a multi-stage ComfyUI pipeline — 1290+ nodes covering segmentation-driven inpainting, ControlNet conditioning, and multi-model scaling — as a parameterized backend service.",
+      "Supabase + EC2 route requests to a self-hosted home GPU server for training and inference.",
     ],
   },
   {
     id: "treow",
     name: "Treow AI",
-    kicker: "Regional-language speech & language models",
-    href: "https://huggingface.co/kdcyberdude",
+    kicker: "Regional speech & language models",
+    href: "https://www.treowintelligence.com/",
     year: "2024 → now",
     role: "Co-Founder · Treow Intelligence",
     summary:
-      "Proprietary Punjabi speech and language models trained on a self-built, internet-scale corpus. Owned the full research-to-production loop: sourcing, processing, training and evaluation.",
+      "Proprietary Punjabi ASR / TTS and small LLMs on a self-built internet-scale corpus. Full loop: source → process → train → evaluate.",
     metrics: [
       { k: "ASR", v: "100K+ hrs" },
+      { k: "WER", v: "6.96–10.18%" },
       { k: "TTS", v: "1K+ hrs" },
-      { k: "LLMs", v: "Punjabi, small" },
     ],
-    stack: ["ASR / TTS training", "small LLMs", "internet-scale data pipeline", "self-hosted GPUs"],
+    stack: ["ASR / TTS", "small LLMs", "data pipelines", "self-hosted GPUs"],
     bullets: [
-      "Built proprietary ASR (100K+ hrs) and TTS (1K+ hrs) models and trained Punjabi small LLMs on a self-built, large-scale corpus.",
-      "Engineered an internet-scale data pipeline for sourcing and processing speech + text; reverse-engineered DRM and API-obfuscation layers to unlock Punjabi / Hindi / English audio at scale.",
-      "Ran the whole stack on a self-built 7-GPU rig — among the most powerful personal AI setups in North India.",
-    ],
-  },
-  {
-    id: "babytracker",
-    name: "Baby Tracker",
-    kicker: "Parenting super-app · theAsianparent",
-    year: "2021 → 2023",
-    role: "Full-Stack Developer · The Parentinc",
-    summary:
-      "Architected and built a feature used by 100K+ daily active users inside theAsianparent — one of Southeast Asia's largest parenting platforms. Owned app architecture and state / data flow.",
-    metrics: [
-      { k: "scale", v: "100K+ DAU" },
-      { k: "app size", v: "−30%" },
-      { k: "platforms", v: "iOS + Android" },
-    ],
-    stack: ["Flutter", "Android / iOS", "state architecture", "CI/CD", "Mojito TMS"],
-    bullets: [
-      "Architected and built Baby Tracker (100K+ daily active users), owning app architecture and state / data flow.",
-      "Led Flutter integration into existing Android / iOS apps; cut app size 30% via targeted optimization.",
-      "Built an auto-translation library wired into CI/CD (Mojito TMS) for localization at ship-time.",
+      "Built proprietary ASR (100K+ hours; 6.96–10.18% WER on AI4Bharat’s IndicSUPERB) and TTS (1K+ hours); trained Punjabi small LLMs on a self-built synthetic dataset.",
+      "Engineered an internet-scale ETL pipeline for speech + text; sourced Punjabi, Hindi, and English audio at scale.",
+      "Models on Hugging Face: multilingual ASR, Punjabi TTS, and Punjabi Gemma SFT — all trained on the self-hosted 7-GPU rig.",
     ],
   },
   {
     id: "rig",
     name: "The Rig",
-    kicker: "7-GPU self-hosted training & inference fleet",
+    kicker: "7-GPU training & inference fleet",
+    href: "https://www.reddit.com/r/comfyui/comments/1pd072e/i_built_a_7gpu_ai_monster_rig_at_home_35090_44090/",
     year: "2024 → now",
     role: "Designed, built & operated",
     summary:
-      "A self-built 7-GPU fleet running every training and inference workload behind Treow and LuxeAI — among the most powerful personal AI setups in North India. Self-hosting is a moat: full control of the stack, no per-token bill, faster iteration.",
+      "Self-built multi-GPU fleet behind Treow and LuxeAI — control the stack, kill the per-token bill, iterate at hardware speed.",
     metrics: [
-      { k: "GPUs", v: "3× RTX 5090" },
-      { k: "+", v: "4× RTX 4090" },
+      { k: "GPUs", v: "3× 5090 + 4× 4090" },
       { k: "workloads", v: "train + serve" },
+      { k: "ops", v: "self-hosted" },
     ],
-    stack: ["multi-GPU training", "self-hosted inference", "Docker", "AWS (EC2 / S3)", "Cloudflare"],
+    stack: ["multi-GPU", "Docker", "AWS EC2 / S3", "Cloudflare", "ComfyUI / vLLM"],
     bullets: [
-      "3× RTX 5090 + 4× RTX 4090, orchestrated for both fine-tuning and production inference.",
-      "Runs the LuxeAI per-customer training fleet and the Treow ASR/TTS/LLM training jobs.",
-      "Why self-host: control the whole stack, kill the per-token bill, iterate at the speed of hardware you own.",
+      "Assembled and run a 7-GPU training rig (3× RTX 5090 + 4× RTX 4090) — among the most powerful personal AI setups in North India.",
+      "Runs LuxeAI customer training/inference and Treow ASR/TTS/LLM jobs on owned hardware.",
+      "Self-hosting as a moat: full control, lower marginal cost, faster experiment loops.",
+    ],
+  },
+  {
+    id: "babytracker",
+    name: "Baby Tracker",
+    kicker: "Parenting super-app · 100K+ DAU",
+    href: "https://play.google.com/store/apps/details?id=com.tickledmedia.ParentTown&hl=en_IN",
+    year: "2021 → 2024",
+    role: "Full-Stack → ML & Data · The Parentinc",
+    summary:
+      "Architected a feature used by 100K+ daily active users inside theAsianparent. Later owned analytics migration and an LLM recommendation engine.",
+    metrics: [
+      { k: "scale", v: "100K+ DAU" },
+      { k: "app size", v: "−30%" },
+      { k: "data", v: "Airbyte → Sigma" },
+    ],
+    stack: ["Flutter", "Airbyte", "Sigma", "LLM recsys", "CI/CD"],
+    bullets: [
+      "Architected Baby Tracker (100K+ DAU); integrated Flutter into legacy Android/iOS codebases, cutting app size ~30%.",
+      "Led vendor evaluation and migrated Grow Analytics to Sigma; unified analytics via Airbyte while resolving cross-source consistency issues.",
+      "Built an LLM-based recommendation engine injecting in-shop product recommendations into thousands of existing articles; CI/CD with Mojito TMS auto-translation.",
     ],
   },
 ];
 
-/* ---- §04 How I work — traits shown through evidence ---- */
 export const traits: { title: string; proof: string }[] = [
   {
-    title: "High agency",
+    title: "Empirical first",
     proof:
-      "Built a 7-GPU training rig at home and reverse-engineered DRM to unlock the data no one was giving me. When the tool didn't exist, I built the tool.",
+      "LearningBench wasn’t a vibes eval — 135 programmatic tasks, programmatic ground truth, trajectory metrics. I measure learning, not just accuracy.",
+  },
+  {
+    title: "First principles → thin experiment",
+    proof:
+      "Find the one hard claim, define the observable, run the smallest test that could kill the idea. Then scale what survives.",
   },
   {
     title: "Full-stack ML depth",
     proof:
-      "Same person trains the FLUX fine-tune, writes the ComfyUI pipeline, stands up the Supabase job queue, and wires Stripe into the checkout. No hand-off, no seams.",
+      "Same person designs the eval, trains the model, stands up the GPU job queue, and ships the product surface.",
   },
   {
-    title: "Ships to real users",
+    title: "High agency",
     proof:
-      "100K+ daily active users on Baby Tracker; a full paid product surface on LuxeAI. I optimize for shipped and used, not demoed.",
-  },
-  {
-    title: "Founder instinct",
-    proof:
-      "Co-founded and ran a 0→1 research-and-product studio — set the technical direction, made the trade-offs, owned the outcome end-to-end.",
-  },
-  {
-    title: "High integrity",
-    proof:
-      "Every number on this page is sourced from real work. The simulators are labeled as illustrative. I'd rather under-claim and over-deliver.",
-  },
-  {
-    title: "Relentless energy",
-    proof:
-      "Research through production, model through infra through product — I compound output because I don't wait for permission or hand-offs.",
+      "Built a 7-GPU fleet at home and sourced internet-scale regional speech when the corpus didn’t exist. When the tool is missing, I build it.",
   },
 ];
 
-export const growing =
-  "What I'm still growing into: I've built at startup scale and personal-rig scale — I'm hungry for the discipline of a strong senior team, larger distributed systems, and the bar that comes with world-class peers.";
-
-/* ---- §05 Experience timeline ---- */
 export type Job = {
   org: string;
   role: string;
   period: string;
-  note: string;
+  /** Human tenure, e.g. "3 yrs" or "1 yr 2 mo" */
+  duration: string;
+  summary: string;
+  bullets: string[];
+  href?: string;
 };
+
+/** Arc summary shown above the timeline */
+export const trajectoryIntro =
+  "Full-stack product engineer → ML & data → research / training on owned infra. ~3 years shipping at theAsianparent (apps at 100K+ DAU, then company data + ML), then building Treow end-to-end — models, fleet, and product — plus LearningBench.";
 
 export const timeline: Job[] = [
   {
     org: "Treow Intelligence",
     role: "Co-Founder & CTO",
     period: "Oct 2024 — Present",
-    note: "AI research-and-product studio: LuxeAI Studio (consumer AI photography) + Treow AI (regional-language speech & language models), all on self-hosted infra.",
+    duration: "~1 yr 10 mo",
+    href: "https://www.treowintelligence.com/",
+    summary:
+      "AI-native studio on self-hosted GPUs: consumer diffusion product (LuxeAI) + regional speech/LLM work (Treow AI). LearningBench Grand Prize in parallel.",
+    bullets: [
+      "Own the loop: dataset → train / fine-tune → eval → serve — on a 7-GPU fleet (3× 5090 + 4× 4090).",
+      "LuxeAI: crop-aware training, realtime generation, ComfyUI orchestration (1290+ nodes), full paid product surface.",
+      "Treow AI: ASR on 100K+ hrs (6.96–10.18% WER on IndicSUPERB), TTS, Punjabi small LLMs; internet-scale data pipelines.",
+      "LearningBench (Mar–Apr 2026): $25K DeepMind × Kaggle Grand Prize — inference-time learning benchmark.",
+    ],
   },
   {
     org: "The Parentinc · theAsianparent",
     role: "Machine Learning & Data Engineer",
     period: "Feb 2023 — Mar 2024",
-    note: "Scalable ETL (BigQuery, Airbyte, Sigma, Apache Superset) + custom Python extraction; LLM-based recommendation engine; root-cause fixes and SOPs that cut onboarding time.",
+    duration: "1 yr 2 mo",
+    href: "https://theparentinc.com/",
+    summary:
+      "Moved from full-stack into the data / ML track at Southeast Asia’s parenting super-app — analytics platform migration and LLM personalization.",
+    bullets: [
+      "Led vendor evaluation and migrated Grow Analytics to Sigma; unified analytics, production, and shopping-platform data via Airbyte.",
+      "Built an LLM-based recommendation engine injecting in-shop product recommendations into thousands of existing articles.",
+    ],
   },
   {
     org: "The Parentinc · theAsianparent",
     role: "Full-Stack Developer",
     period: "Apr 2021 — Jun 2023",
-    note: "Built Baby Tracker (100K+ DAU); Flutter integration into native apps; −30% app size; auto-translation library wired into CI/CD.",
+    duration: "2 yrs 3 mo",
+    href: "https://theparentinc.com/",
+    summary:
+      "Product engineering on mobile at scale. Overlapped the last months with the ML & Data role as I transitioned into recommendations and pipelines.",
+    bullets: [
+      "Architected Baby Tracker — used by 100K+ daily active users inside theAsianparent.",
+      "Led Flutter integration into existing Android / iOS apps; cut app size ~30%.",
+      "Built CI/CD covering validation, build distribution, and auto-translation (Mojito TMS).",
+    ],
   },
   {
-    org: "Freelance & Artistic Hobby",
-    role: "Founder / Cross-platform Developer",
+    org: "Independent",
+    role: "Founder / Freelance developer",
     period: "2019 — 2021",
-    note: "Founded Artistic Hobby (artist collaboration platform). Shipped a cross-platform e-commerce app end-to-end on a single Flutter codebase.",
+    duration: "~2 yrs",
+    summary:
+      "Early 0→1 before full-time: artist collaboration platform and a cross-platform Flutter e-commerce app.",
+    bullets: [
+      "Shipped an artist collaboration platform and a freelance Flutter e-commerce app (iOS + Android, one codebase).",
+    ],
   },
 ];
 
 export const education = {
   school: "Lyallpur Khalsa College of Engineering",
-  degree: "B.Tech — Mathematics & Computer Science",
+  degree: "B.Tech — Computer Science",
   period: "2016 — 2020",
   gpa: "GPA 8.61 / 10",
 };
 
-export const honors = [
-  "Runner-up · 24-hr Hackathon, ADVITIYA Techfest, IIT Ropar",
-  "2nd Place · The Geek Showdown Hackathon, CGC Landran",
-  "Winner · Code Debugging & Software Showcase, PLASMA Techfest",
-];
-
-/* ---- §06 Skills matrix ---- */
 export const skills: { group: string; items: string[] }[] = [
   {
-    group: "AI / ML",
-    items: ["LLM training & fine-tuning", "ASR", "TTS", "diffusion models", "ComfyUI", "dataset engineering"],
+    group: "Research / Eval",
+    items: [
+      "benchmark design",
+      "inference-time learning",
+      "model evaluation",
+      "experiment design",
+      "dataset engineering",
+    ],
   },
   {
-    group: "Data / Pipelines",
-    items: ["internet-scale acquisition", "ETL", "BigQuery", "Airbyte", "Apache Superset", "Sigma", "web scraping", "SQL"],
+    group: "AI / ML",
+    items: ["LLM fine-tuning", "ASR", "TTS", "diffusion / FLUX", "ComfyUI", "PyTorch"],
   },
   {
     group: "Infra / MLOps",
-    items: ["multi-GPU training & inference", "self-hosted GPU fleets", "AWS (EC2 / S3)", "Supabase", "Bunny CDN", "Cloudflare", "Docker"],
+    items: [
+      "multi-GPU training & inference",
+      "self-hosted fleets",
+      "AWS",
+      "Docker",
+      "Supabase",
+      "vLLM",
+    ],
   },
   {
-    group: "Languages / Product",
-    items: ["Python", "Dart", "C / C++", "Java", "JavaScript", "SQL", "Flutter (iOS / Android)", "Stripe / Razorpay"],
+    group: "Product / Eng",
+    items: ["Python", "TypeScript", "Flutter", "full-stack", "Stripe / Razorpay"],
   },
 ];
 
-/* ---- §07 Probes / open work — partial builds, agents, forks ----
-   Framing: high-agency scratchpad, not a polished product gallery.
-   Edit freely — add Bitbucket URLs when you're ready to share them. */
 export type ProbeStatus = "public" | "private" | "fork" | "probe";
 
 export type Probe = {
@@ -256,39 +339,23 @@ export type Probe = {
   blurb: string;
   stack: string[];
   href?: string;
-  /** Where it lives when not on the public GitHub profile */
   host?: "github" | "bitbucket" | "local";
 };
 
 export const probesIntro =
-  "I write a lot of code. Most of it never touches the public GitHub contribution graph — private product, Bitbucket, self-hosted training repos, local agent stacks. What's below is a sample of the reach: agents, evals, speech scratch, and upstream digs I open when the work needs them. Partial is fine. The graph is not the work.";
-
-export const probesNote =
-  "If you're hiring off greens: look at the shipped systems above, then ask me to walk a private repo. Happy to.";
+  "Public GitHub is a slice. Private product and training repos live on the rig — curated samples below.";
 
 export const probes: Probe[] = [
   {
-    id: "tess",
-    name: "TESS",
-    kicker: "Personal agent stack",
-    status: "probe",
+    id: "learningbench",
+    name: "LearningBench",
+    kicker: "Inference-time learning eval",
+    status: "public",
     host: "github",
-    href: "https://github.com/kdcyberdude/tess-plugins",
+    href: "https://github.com/kdcyberdude/LearningBench",
     blurb:
-      "A Cursor-inspired agent environment — skills, manifests, hooks — aimed at a Salvation-series style \"test super-intelligent system.\" Plugin surface for goal state + SPOC evolutionary memory; wired for Cursor / Claude / Codex session hooks.",
-    stack: ["agent plugins", "hooks", "Cursor", "Claude / Codex", "skills"],
-  },
-  {
-    id: "browser-recall",
-    name: "Browser Recall",
-    kicker: "Browser agent / memory",
-    status: "private",
-    host: "bitbucket",
-    // TODO: paste Bitbucket (or public) URL when shareable
-    href: undefined,
-    blurb:
-      "A browser-side recall / agent experiment — remembering what was seen and acting on it across sessions. Lives on Bitbucket while I still own the iteration loop; happy to walk through it on a call.",
-    stack: ["browser agent", "session memory", "Bitbucket"],
+      "135 tasks · 6 cognitive sub-abilities. DeepMind × Kaggle Grand Prize. Also on Kaggle’s official benchmarks.",
+    stack: ["eval", "in-context learning", "Kaggle"],
   },
   {
     id: "harvestgym",
@@ -298,19 +365,8 @@ export const probes: Probe[] = [
     host: "github",
     href: "https://github.com/kdcyberdude/HARvestGym",
     blurb:
-      "RL env that trains a small model to reverse-engineer a web app's APIs and complete real tasks over raw HTTP — no browser, no docs, just a URL and a goal. Browser-free automation as a training problem.",
-    stack: ["RL", "API reverse-engineering", "HTTP agents", "WebArena"],
-  },
-  {
-    id: "learningbench",
-    name: "LearningBench",
-    kicker: "Inference-time learning eval",
-    status: "public",
-    host: "github",
-    href: "https://github.com/kdcyberdude/LearningBench",
-    blurb:
-      "Benchmark for how LLMs learn inside a conversation — associative learning, concept formation, language induction — on systems that have never existed before. Also on Kaggle.",
-    stack: ["eval", "in-context learning", "Kaggle", "135 tasks"],
+      "RL env: reverse-engineer a web app’s APIs and complete tasks over raw HTTP — URL + goal, no browser.",
+    stack: ["RL", "HTTP agents", "API reverse-engineering"],
   },
   {
     id: "punjabi-asr",
@@ -320,66 +376,17 @@ export const probes: Probe[] = [
     host: "github",
     href: "https://github.com/kdcyberdude/Punjabi_ASR",
     blurb:
-      "Public notebooks and scratch for Punjabi speech recognition — a window into the larger Treow ASR corpus work (100K+ hrs) that mostly lives off GitHub.",
-    stack: ["ASR", "Punjabi", "notebooks"],
+      "Public notebooks into the larger Treow ASR corpus (100K+ hrs; 6.96–10.18% WER on IndicSUPERB).",
+    stack: ["ASR", "Punjabi", "IndicSUPERB"],
   },
   {
-    id: "json-mojito",
-    name: "json_file_generator",
-    kicker: "Flutter · localization CI",
-    status: "public",
+    id: "tess",
+    name: "TESS",
+    kicker: "Personal agent stack",
+    status: "probe",
     host: "github",
-    href: "https://github.com/kdcyberdude/json_file_generator",
-    blurb:
-      "Dart package that turns strings into Mojito TMS JSON in the CD pipeline — the localization automation I shipped while building Baby Tracker at theAsianparent.",
-    stack: ["Flutter", "Dart", "Mojito TMS", "CI/CD"],
-  },
-];
-
-/** Upstream digs — forks / patches when the tool didn't do what I needed. */
-export const digs: { name: string; note: string; href: string }[] = [
-  {
-    name: "ComfyUI",
-    note: "Fork — diffusion graph tooling for LuxeAI pipelines",
-    href: "https://github.com/kdcyberdude/ComfyUI",
-  },
-  {
-    name: "vLLM",
-    note: "Fork — high-throughput serving when self-hosting inference",
-    href: "https://github.com/kdcyberdude/vllm",
-  },
-  {
-    name: "Unsloth",
-    note: "Fork — faster / leaner fine-tunes on owned GPUs",
-    href: "https://github.com/kdcyberdude/unsloth",
-  },
-  {
-    name: "gstack",
-    note: "Fork — agent/CEO tooling stack I run and extend",
-    href: "https://github.com/kdcyberdude/gstack",
-  },
-  {
-    name: "RealtimeTTS",
-    note: "Fork — low-latency speech for voice stacks",
-    href: "https://github.com/kdcyberdude/RealtimeTTS",
-  },
-];
-
-/* ---- Writing — placeholder stubs Karandeep fills later ---- */
-export const writing: { title: string; blurb: string; href?: string; soon?: boolean }[] = [
-  {
-    title: "Why I self-host 7 GPUs instead of renting cloud",
-    blurb: "The economics and the iteration speed of owning your training hardware.",
-    soon: true,
-  },
-  {
-    title: "Building an internet-scale Punjabi speech corpus",
-    blurb: "Sourcing, DRM, and the data pipeline behind a 100K-hour ASR dataset.",
-    soon: true,
-  },
-  {
-    title: "Per-customer diffusion fine-tunes in production",
-    blurb: "The LuxeAI pipeline: from a user's photos to a studio-grade shoot.",
-    soon: true,
+    href: "https://github.com/kdcyberdude/tess-plugins",
+    blurb: "Agent environment — skills, manifests, hooks — for Cursor / Claude / Codex sessions.",
+    stack: ["agents", "hooks", "skills"],
   },
 ];

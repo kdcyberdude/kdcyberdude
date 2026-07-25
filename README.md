@@ -1,7 +1,7 @@
 # kdcyberdude.com
 
-Personal site for **Karandeep Singh** — founder-engineer portfolio with an interactive
-build-scoping simulator (FDE.SIM), ML lab telemetry, and a diffusion denoiser.
+Personal site for **Karandeep Singh** — applied ML research & engineering.
+LearningBench flagship, first-principles experiment scoper, shipped systems.
 
 ## Quick start
 

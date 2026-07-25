@@ -3,22 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#08090B" />
+    <meta name="theme-color" content="#08090b" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("kd-theme");
+          if (t !== "light" && t !== "dark") t = "dark";
+          document.documentElement.setAttribute("data-theme", t);
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute("content", t === "dark" ? "#08090b" : "#f3f5f7");
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
 
-    <title>Karandeep Singh — Founder-Engineer · Trains models, ships product, runs infra</title>
+    <title>Karandeep Singh — Applied ML · Evals, Training, Infra</title>
     <meta
       name="description"
-      content="Karandeep Singh is a founder-engineer who trains models (ASR/TTS/LLMs), ships consumer AI product, and runs a self-hosted 7-GPU fleet. Open to Founding Engineer / Forward-Deployed Engineer / MTS roles in the US & Europe."
+      content="Karandeep Singh — applied ML engineer. $25K Google DeepMind × Kaggle Grand Prize for LearningBench. Trains models, designs evals, runs a self-hosted GPU fleet. Open to research labs and ambitious teams."
     />
     <meta name="author" content="Karandeep Singh" />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Karandeep Singh — Founder-Engineer" />
+    <meta property="og:title" content="Karandeep Singh — Applied ML Research & Engineering" />
     <meta
       property="og:description"
-      content="I train the models, build the product, and run the infra. Open to Founding / Forward-Deployed Engineer roles — US & Europe."
+      content="I turn ambiguous problems into measurable experiments. LearningBench Grand Prize · model training · self-hosted infra."
     />
     <meta property="og:url" content="https://kdcyberdude.com" />
     <meta name="twitter:card" content="summary_large_image" />

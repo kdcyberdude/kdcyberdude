@@ -3,23 +3,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import { projects, type Project } from "../data/content";
 import { useReducedMotion } from "../hooks";
 
-function ProjectCard({
-  p,
-  highlighted,
-}: {
-  p: Project;
-  highlighted: boolean;
-}) {
+function ProjectCard({ p, highlighted }: { p: Project; highlighted: boolean }) {
   const [open, setOpen] = useState(false);
   const reduced = useReducedMotion();
 
   return (
     <div
       id={`project-${p.id}`}
-      className={`panel p-5 md:p-6 flex flex-col scroll-mt-28 transition-shadow duration-500 ${
-        highlighted ? "ring-1 ring-[var(--color-acid)]/60" : ""
+      className={`border-t border-[var(--color-line-bright)] pt-5 md:pt-6 flex flex-col scroll-mt-28 transition-colors duration-500 ${
+        highlighted ? "border-[var(--color-acid)]" : ""
       }`}
-      style={highlighted ? { boxShadow: "0 0 50px -18px rgba(199,247,62,0.5)" } : undefined}
     >
       <div className="flex items-start justify-between gap-3">
         <div>
@@ -44,20 +37,15 @@ function ProjectCard({
 
       <p className="mt-4 text-[14px] text-muted leading-relaxed">{p.summary}</p>
 
-      {/* metric chips */}
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
         {p.metrics.map((m, i) => (
-          <span
-            key={i}
-            className="inline-flex items-baseline gap-1.5 rounded-md bg-white/[0.03] border border-[var(--color-line)] px-2.5 py-1"
-          >
+          <span key={i} className="inline-flex items-baseline gap-1.5">
             <span className="mono text-[10px] text-dim uppercase tracking-wide">{m.k}</span>
             <span className="mono text-[12px] text-acid font-medium">{m.v}</span>
           </span>
         ))}
       </div>
 
-      {/* expand */}
       <button
         onClick={() => setOpen((v) => !v)}
         className="mt-5 self-start mono text-[12px] text-muted hover:text-acid transition-colors"
@@ -87,7 +75,7 @@ function ProjectCard({
               {p.stack.map((s) => (
                 <span
                   key={s}
-                  className="mono text-[10.5px] text-muted border border-[var(--color-line)] rounded px-2 py-0.5"
+                  className="mono text-[10.5px] text-muted border border-[var(--color-line)] rounded-sm px-2 py-0.5"
                 >
                   {s}
                 </span>
@@ -106,6 +94,10 @@ export default function EvidenceGrid() {
   useEffect(() => {
     const on = (e: Event) => {
       const id = (e as CustomEvent).detail as string;
+      if (id === "learningbench" || id === "harvestgym") {
+        document.getElementById("research")?.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
       setFocus(id);
       requestAnimationFrame(() => {
         document.getElementById(`project-${id}`)?.scrollIntoView({
@@ -120,7 +112,7 @@ export default function EvidenceGrid() {
   }, []);
 
   return (
-    <div className="grid md:grid-cols-2 gap-4 md:gap-5">
+    <div className="grid md:grid-cols-2 gap-x-10 gap-y-2">
       {projects.map((p) => (
         <ProjectCard key={p.id} p={p} highlighted={focus === p.id} />
       ))}

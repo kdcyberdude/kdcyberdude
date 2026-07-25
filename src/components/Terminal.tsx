@@ -21,22 +21,34 @@ function runCommand(cmd: string, close: () => void): Line[] {
       return [
         { type: "out", text: "available commands:" },
         { type: "out", text: "  whoami       who is karandeep" },
+        { type: "out", text: "  research     LearningBench" },
+        { type: "out", text: "  lab          experiment scoper" },
         { type: "out", text: "  projects     selected work" },
         { type: "out", text: "  probes       agents, evals, forks" },
         { type: "out", text: "  experience   career timeline" },
-        { type: "out", text: "  rig          the 7-GPU fleet" },
-        { type: "out", text: "  skills       what i work with" },
-        { type: "out", text: "  hire         why hire me / open roles" },
-        { type: "out", text: "  contact      how to reach me" },
-        { type: "out", text: "  resume       open my résumé (pdf)" },
+        { type: "out", text: "  stack        tools" },
+        { type: "out", text: "  hire         open roles" },
+        { type: "out", text: "  contact      reach me" },
+        { type: "out", text: "  resume       open résumé (pdf)" },
         { type: "out", text: "  clear        clear the screen" },
       ];
     case "whoami":
       return [
-        { type: "out", text: profile.name + " — founder-engineer." },
-        { type: "out", text: "i train the models, build the product, and run the infra." },
+        { type: "out", text: profile.name + " — applied ML engineer." },
+        { type: "out", text: profile.headline },
         { type: "out", text: profile.location },
       ];
+    case "research":
+    case "learningbench":
+      return [
+        { type: "out", text: "LearningBench — $25K DeepMind × Kaggle Grand Prize" },
+        { type: "out", text: "inference-time learning eval · 135 tasks · 14 models" },
+        { type: "sys", text: "→ opening research…" },
+        ...(go("research"), []),
+      ];
+    case "lab":
+    case "scope":
+      return [{ type: "sys", text: "→ opening experiment lab…" }, ...(go("lab"), [])];
     case "projects":
     case "ls":
     case "work":
@@ -62,23 +74,24 @@ function runCommand(cmd: string, close: () => void): Line[] {
     case "experience":
       return timeline.map((j) => ({
         type: "out" as const,
-        text: `  ${j.period.padEnd(22)} ${j.role} · ${j.org}`,
+        text: `  ${j.period.padEnd(22)} ${j.duration.padEnd(12)} ${j.role} · ${j.org}`,
       }));
     case "rig":
       return [
         { type: "out", text: "the rig — 7× GPU, self-hosted:" },
         { type: "out", text: "  3× RTX 5090  +  4× RTX 4090" },
-        { type: "out", text: "  runs every treow + luxeai training & inference job." },
-        { type: "sys", text: "→ jumping to systems…" },
-        ...(go("systems"), []),
+        { type: "out", text: "  runs treow + luxeai training & inference." },
+        { type: "sys", text: "→ jumping to work…" },
+        ...(go("work"), []),
       ];
     case "skills":
-      return [{ type: "sys", text: "→ opening systems…" }, ...(go("systems"), [])];
+    case "stack":
+      return [{ type: "sys", text: "→ opening stack…" }, ...(go("stack"), [])];
     case "hire":
       return [
         { type: "out", text: "open to: " + profile.availability.roles.join(" / ") },
         { type: "out", text: "geos: " + profile.availability.geos },
-        { type: "out", text: "looking for the right people on the right mission." },
+        { type: "out", text: "empirical research + shipping systems." },
         { type: "sys", text: "→ let's talk…" },
         ...(go("contact"), []),
       ];
@@ -179,12 +192,7 @@ export default function Terminal({ open, onClose }: { open: boolean; onClose: ()
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
             onMouseDown={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[var(--color-line)] bg-white/[0.02]">
-              <span className="flex gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]/70" />
-              </span>
+            <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[var(--color-line)] bg-panel-2">
               <span className="mono text-[11px] text-dim ml-1">kd@rig — zsh</span>
               <button
                 onClick={onClose}

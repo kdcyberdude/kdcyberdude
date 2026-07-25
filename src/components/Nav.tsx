@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import { profile } from "../data/content";
+import { useTheme } from "../hooks";
 
 const LINKS = [
-  { href: "#brief", label: "Brief me" },
-  { href: "#work", label: "Work" },
+  { href: "#research", label: "Research" },
   { href: "#lab", label: "Lab" },
-  { href: "#probes", label: "Probes" },
-  { href: "#how", label: "How I work" },
+  { href: "#work", label: "Work" },
+  { href: "#experience", label: "Path" },
   { href: "#contact", label: "Contact" },
 ];
 
 export default function Nav({ onTerminal }: { onTerminal: () => void }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { theme, toggle } = useTheme();
 
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 24);
@@ -24,53 +25,72 @@ export default function Nav({ onTerminal }: { onTerminal: () => void }) {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-bg/80 backdrop-blur-md border-b border-[var(--color-line)]" : "border-b border-transparent"
+        scrolled
+          ? "bg-bg/85 backdrop-blur-md border-b border-[var(--color-line)]"
+          : "border-b border-transparent"
       }`}
     >
       <nav className="wrap flex h-14 items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group" aria-label="Home">
-          <span className="relative flex h-2.5 w-2.5">
+        <a href="#top" className="flex items-center gap-2.5 group" aria-label="Home">
+          <span className="relative flex h-2 w-2">
             <span className="glow-dot absolute inline-flex h-full w-full rounded-full bg-acid" />
-            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-acid" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-acid" />
           </span>
           <span className="mono text-sm font-medium tracking-tight text-txt">
             {profile.handle}
           </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-0.5">
           {LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="px-3 py-1.5 text-[13px] text-muted hover:text-txt transition-colors rounded-md"
+              className="px-3 py-1.5 text-[13px] text-muted hover:text-txt transition-colors"
             >
               {l.label}
             </a>
           ))}
           <button
+            onClick={toggle}
+            className="ml-1 mono text-[12px] text-dim hover:text-acid border border-[var(--color-line)] hover:border-[var(--color-acid)]/40 rounded-sm px-2.5 py-1.5 transition-colors"
+            aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+            title={theme === "dark" ? "Light" : "Dark"}
+          >
+            {theme === "dark" ? "☀︎" : "☾"}
+          </button>
+          <button
             onClick={onTerminal}
-            className="ml-1 mono text-[12px] text-dim hover:text-acid border border-[var(--color-line)] hover:border-[var(--color-acid)]/40 rounded-md px-2.5 py-1.5 transition-colors"
+            className="mono text-[12px] text-dim hover:text-acid border border-[var(--color-line)] hover:border-[var(--color-acid)]/40 rounded-sm px-2.5 py-1.5 transition-colors"
             aria-label="Open terminal"
           >
             ⌘K
           </button>
           <a
             href={profile.links.resume}
-            className="ml-2 text-[13px] font-medium text-bg bg-acid hover:bg-acid/90 rounded-md px-3.5 py-1.5 transition-colors"
+            className="ml-2 text-[13px] font-semibold on-acid bg-acid hover:bg-acid-dim rounded-sm px-3.5 py-1.5 transition-colors"
           >
             Résumé
           </a>
         </div>
 
-        <button
-          className="md:hidden mono text-sm text-txt p-2 -mr-2"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-        >
-          {open ? "✕" : "≡"}
-        </button>
+        <div className="md:hidden flex items-center gap-1">
+          <button
+            onClick={toggle}
+            className="mono text-sm text-muted p-2"
+            aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+          >
+            {theme === "dark" ? "☀︎" : "☾"}
+          </button>
+          <button
+            className="mono text-sm text-txt p-2 -mr-2"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+            aria-expanded={open}
+          >
+            {open ? "✕" : "≡"}
+          </button>
+        </div>
       </nav>
 
       {open && (
@@ -92,13 +112,13 @@ export default function Nav({ onTerminal }: { onTerminal: () => void }) {
                   setOpen(false);
                   onTerminal();
                 }}
-                className="flex-1 mono text-[13px] text-acid border border-[var(--color-acid)]/30 rounded-md py-2"
+                className="flex-1 mono text-[13px] text-acid border border-[var(--color-acid)]/30 rounded-sm py-2"
               >
                 terminal
               </button>
               <a
                 href={profile.links.resume}
-                className="flex-1 text-center text-[14px] font-medium text-bg bg-acid rounded-md py-2"
+                className="flex-1 text-center text-[14px] font-semibold on-acid bg-acid rounded-sm py-2"
               >
                 Résumé
               </a>

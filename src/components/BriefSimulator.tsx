@@ -2,7 +2,20 @@ import { useEffect, useRef, useState } from "react";
 import { decompose, presets, type Brief, type Receipt } from "../sim/decompose";
 import { useReducedMotion } from "../hooks";
 
-const STAGE_ORDER = ["scope", "model", "data", "infra", "product", "plan", "risks", "receipts"];
+const STAGE_ORDER = [
+  "hear",
+  "principles",
+  "hypothesize",
+  "measure",
+  "experiment",
+  "kill",
+  "receipts",
+];
+
+function receiptTarget(projectId: string): string {
+  if (projectId === "learningbench" || projectId === "harvestgym") return "research";
+  return "work";
+}
 
 function ReceiptChips({ receipts }: { receipts: Receipt[] }) {
   return (
@@ -10,11 +23,15 @@ function ReceiptChips({ receipts }: { receipts: Receipt[] }) {
       {receipts.map((r, i) => (
         <a
           key={i}
-          href={`#work`}
+          href={`#${receiptTarget(r.projectId)}`}
           onClick={() => {
+            if (r.projectId === "learningbench") {
+              document.getElementById("research")?.scrollIntoView({ behavior: "smooth" });
+              return;
+            }
             window.dispatchEvent(new CustomEvent("focus-project", { detail: r.projectId }));
           }}
-          className="group inline-flex items-center gap-1.5 rounded-md border border-[var(--color-acid)]/25 bg-[var(--color-acid)]/[0.05] px-2.5 py-1.5 text-[12px] text-txt hover:border-[var(--color-acid)]/60 hover:bg-[var(--color-acid)]/10 transition-colors"
+          className="group inline-flex items-center gap-1.5 border border-[var(--color-acid)]/30 bg-[var(--color-acid)]/[0.06] px-2.5 py-1.5 text-[12px] text-txt hover:border-[var(--color-acid)]/70 transition-colors rounded-sm"
         >
           <span className="acid-text">▸</span>
           {r.label}
@@ -30,10 +47,9 @@ export default function BriefSimulator() {
   const [input, setInput] = useState("");
   const [brief, setBrief] = useState<Brief | null>(null);
   const [typed, setTyped] = useState<string[][]>([]);
-  const [progress, setProgress] = useState(0); // completed stage count
+  const [progress, setProgress] = useState(0);
   const [phase, setPhase] = useState<"idle" | "running" | "done">("idle");
   const cancelRef = useRef(false);
-  const logRef = useRef<HTMLDivElement | null>(null);
 
   const run = (text: string) => {
     const b = decompose(text);
@@ -44,7 +60,6 @@ export default function BriefSimulator() {
     setPhase("running");
   };
 
-  // typewriter driver
   useEffect(() => {
     if (phase !== "running" || !brief) return;
 
@@ -55,14 +70,16 @@ export default function BriefSimulator() {
       return;
     }
 
+    let cancelled = false;
     let sIdx = 0;
     let lIdx = 0;
     let cIdx = 0;
     let timer: ReturnType<typeof setTimeout>;
-    const CHARS = 2; // chars per tick
+    const CHARS = 2;
+    const stageCount = brief.stages.length;
 
     const step = () => {
-      if (cancelRef.current) return;
+      if (cancelled || cancelRef.current) return;
       const stage = brief.stages[sIdx];
       if (!stage) {
         setPhase("done");
@@ -70,9 +87,18 @@ export default function BriefSimulator() {
       }
       const line = stage.lines[lIdx] ?? "";
       cIdx = Math.min(line.length, cIdx + CHARS);
+      // Capture indices before setState — the updater runs later, and
+      // sIdx/lIdx are mutated below when a line/stage finishes.
+      const writeStage = sIdx;
+      const writeLine = lIdx;
+      const writeText = line.slice(0, cIdx);
       setTyped((prev) => {
-        const next = prev.map((a) => a.slice());
-        next[sIdx][lIdx] = line.slice(0, cIdx);
+        const next = Array.from({ length: stageCount }, (_, i) =>
+          Array.isArray(prev[i]) ? prev[i].slice() : [],
+        );
+        const row = (next[writeStage] ?? []).slice();
+        row[writeLine] = writeText;
+        next[writeStage] = row;
         return next;
       });
 
@@ -84,17 +110,20 @@ export default function BriefSimulator() {
           setProgress(finished);
           sIdx++;
           lIdx = 0;
-          timer = setTimeout(step, 300);
+          timer = setTimeout(step, 280);
           return;
         }
-        timer = setTimeout(step, 120);
+        timer = setTimeout(step, 110);
         return;
       }
-      timer = setTimeout(step, 12);
+      timer = setTimeout(step, 11);
     };
 
-    timer = setTimeout(step, 160);
-    return () => clearTimeout(timer);
+    timer = setTimeout(step, 140);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, brief, reduced]);
 
@@ -121,28 +150,24 @@ export default function BriefSimulator() {
     run(input.trim());
   };
 
+  const researchPresets = presets.filter((p) => p.kind === "research");
+  const buildPresets = presets.filter((p) => p.kind === "build");
+
   return (
-    <div className="panel overflow-hidden">
-      {/* window chrome */}
-      <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[var(--color-line)] bg-white/[0.015]">
-        <span className="flex gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]/70" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]/70" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]/70" />
-        </span>
-        <span className="mono text-[11px] text-dim ml-1">fde.sim — kd@rig</span>
-        <span className="ml-auto mono text-[10px] text-dim hidden sm:inline">
-          {phase === "running" ? "decomposing…" : phase === "done" ? "complete" : "ready"}
+    <div className="panel overflow-hidden shadow-[0_24px_60px_-40px_rgba(15,23,32,0.35)]">
+      <div className="flex items-center gap-3 px-4 py-3 border-b border-[var(--color-line)] bg-panel-2">
+        <span className="mono text-[11px] text-dim tracking-wide">exp.scope — first principles</span>
+        <span className="ml-auto mono text-[10px] text-dim">
+          {phase === "running" ? "thinking…" : phase === "done" ? "complete" : "ready"}
         </span>
       </div>
 
       <div className="p-4 md:p-6">
-        {/* prompt */}
         <form onSubmit={submit}>
-          <label className="label block mb-2">describe an ambiguous 0→1 problem</label>
+          <label className="label block mb-2">drop an ambiguous problem</label>
           <div className="flex flex-col sm:flex-row gap-2.5">
-            <div className="flex items-start gap-2 flex-1 rounded-lg border border-[var(--color-line-bright)] bg-black/30 px-3 py-2.5 focus-within:border-[var(--color-acid)]/50 transition-colors">
-              <span className="acid-text mono text-sm mt-0.5">$</span>
+            <div className="flex items-start gap-2 flex-1 border border-[var(--color-line-bright)] bg-bg-elev px-3 py-2.5 focus-within:border-[var(--color-acid)]/55 transition-colors rounded-sm">
+              <span className="acid-text mono text-sm mt-0.5">›</span>
               <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -152,45 +177,61 @@ export default function BriefSimulator() {
                     submit(e);
                   }
                 }}
-                rows={1}
-                placeholder="e.g. build us a voice assistant for a low-resource language…"
-                className="flex-1 resize-none bg-transparent text-[14px] text-txt placeholder:text-dim outline-none mono leading-relaxed"
+                rows={2}
+                placeholder="e.g. measure whether models learn novel rules in-context…"
+                className="flex-1 resize-none bg-transparent text-[14px] text-txt placeholder:text-dim outline-none leading-relaxed"
               />
             </div>
             <button
               type="submit"
-              className="shrink-0 rounded-lg bg-acid px-5 py-2.5 text-[14px] font-semibold text-bg hover:bg-acid/90 transition-colors"
+              className="shrink-0 rounded-sm bg-acid px-5 py-2.5 text-[14px] font-semibold on-acid hover:bg-acid-dim transition-colors self-stretch sm:self-auto"
             >
               Scope it →
             </button>
           </div>
         </form>
 
-        {/* presets */}
         {phase === "idle" && (
-          <div className="mt-4">
-            <div className="label mb-2">or try one</div>
-            <div className="flex flex-wrap gap-2">
-              {presets.map((p) => (
-                <button
-                  key={p.label}
-                  onClick={() => {
-                    setInput(p.prompt);
-                    run(p.prompt);
-                  }}
-                  className="text-[12.5px] text-muted border border-[var(--color-line)] rounded-full px-3 py-1.5 hover:border-[var(--color-acid)]/40 hover:text-acid transition-colors"
-                >
-                  {p.label}
-                </button>
-              ))}
+          <div className="mt-5 space-y-4">
+            <div>
+              <div className="label mb-2">research</div>
+              <div className="flex flex-wrap gap-2">
+                {researchPresets.map((p) => (
+                  <button
+                    key={p.label}
+                    onClick={() => {
+                      setInput(p.prompt);
+                      run(p.prompt);
+                    }}
+                    className="text-[12.5px] text-muted border border-[var(--color-line)] rounded-sm px-3 py-1.5 hover:border-[var(--color-acid)]/45 hover:text-acid transition-colors"
+                  >
+                    {p.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <div className="label mb-2">build / systems</div>
+              <div className="flex flex-wrap gap-2">
+                {buildPresets.map((p) => (
+                  <button
+                    key={p.label}
+                    onClick={() => {
+                      setInput(p.prompt);
+                      run(p.prompt);
+                    }}
+                    className="text-[12.5px] text-muted border border-[var(--color-line)] rounded-sm px-3 py-1.5 hover:border-[var(--color-acid)]/45 hover:text-acid transition-colors"
+                  >
+                    {p.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         )}
 
-        {/* output */}
         {brief && (
           <div className="mt-6">
-            {/* stage progress rail */}
             <div className="flex flex-wrap items-center gap-1.5 mb-5">
               {STAGE_ORDER.map((label) => {
                 const idx = brief.stages.findIndex((s) => s.label === label);
@@ -200,28 +241,27 @@ export default function BriefSimulator() {
                 return (
                   <span
                     key={label}
-                    className={`mono text-[10px] px-2 py-1 rounded transition-colors ${
+                    className={`mono text-[10px] px-2 py-1 rounded-sm transition-colors ${
                       active
                         ? "text-acid bg-[var(--color-acid)]/10"
                         : current
-                          ? "text-txt bg-white/5"
+                          ? "text-txt bg-bg-elev"
                           : "text-dim"
                     }`}
                   >
                     {label}
-                    {active && " ✓"}
+                    {active ? " ✓" : ""}
                   </span>
                 );
               })}
             </div>
 
-            {/* read-back */}
             <p className="text-[14px] text-muted mb-5 leading-relaxed">
-              <span className="acid-text mono">I hear:</span>{" "}
-              <span className="text-txt">{brief.read}</span>
+              <span className="acid-text mono text-[12px]">I hear</span>
+              <span className="text-txt"> — {brief.read}</span>
             </p>
 
-            <div ref={logRef} className="space-y-5">
+            <div className="space-y-5">
               {brief.stages.map((stage, si) => {
                 const lines = typed[si] ?? [];
                 if (lines.length === 0) return null;
@@ -229,7 +269,7 @@ export default function BriefSimulator() {
                 return (
                   <div key={stage.id} className="border-l-2 border-[var(--color-line-bright)] pl-4">
                     <div className="mono text-[11px] tracking-wide acid-text uppercase mb-1.5">
-                      ▸ {stage.label}
+                      {stage.label}
                     </div>
                     <div className="space-y-1.5">
                       {lines.map((ln, li) => (
@@ -249,7 +289,6 @@ export default function BriefSimulator() {
               )}
             </div>
 
-            {/* controls */}
             <div className="mt-6 flex items-center gap-3 pt-4 border-t border-[var(--color-line)]">
               {phase === "running" && (
                 <button
@@ -263,15 +302,15 @@ export default function BriefSimulator() {
                 <>
                   <button
                     onClick={reset}
-                    className="text-[13px] font-medium text-bg bg-acid rounded-md px-4 py-2 hover:bg-acid/90 transition-colors"
+                    className="text-[13px] font-medium on-acid bg-acid rounded-sm px-4 py-2 hover:bg-acid-dim transition-colors"
                   >
-                    ↺ Try another brief
+                    ↺ Another problem
                   </button>
                   <a
                     href="#contact"
                     className="text-[13px] text-muted hover:text-acid transition-colors"
                   >
-                    …or just talk to me →
+                    Talk to me →
                   </a>
                 </>
               )}
