@@ -1,5 +1,5 @@
-import { education, timeline, trajectoryIntro } from "../data/content";
-import { Reveal } from "./ui";
+import { certifications, education, timeline, trajectoryIntro } from "../data/content";
+import { LinkedText, Reveal } from "./ui";
 
 export default function Timeline() {
   return (
@@ -40,7 +40,7 @@ export default function Timeline() {
                       className="flex gap-2.5 text-[13.5px] text-txt/85 leading-relaxed"
                     >
                       <span className="acid-text mt-1 shrink-0">▸</span>
-                      <span>{b}</span>
+                      <LinkedText text={b} />
                     </li>
                   ))}
                 </ul>
@@ -58,8 +58,48 @@ export default function Timeline() {
             <span className="text-muted"> · {education.school}</span>
           </p>
           <p className="mono text-[12px] text-dim mt-1">
-            {education.period} · {education.gpa}
+            {education.period} ·{" "}
+            <a
+              href={education.transcript}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-acid transition-colors"
+            >
+              {education.gpa}
+            </a>
+            <span className="mx-1.5">·</span>
+            <a
+              href={education.transcript}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-acid transition-colors"
+            >
+              transcript ↗
+            </a>
           </p>
+        </div>
+      </Reveal>
+
+      <Reveal delay={0.16}>
+        <div className="mt-8 border-t border-[var(--color-line)] pt-5">
+          <div className="label mb-3">Certifications</div>
+          <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-3">
+            {certifications.map((c) => (
+              <li key={c.href}>
+                <a
+                  href={c.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group block"
+                >
+                  <div className="text-[14px] text-acid underline underline-offset-2 decoration-[var(--color-acid)]/35 group-hover:decoration-[var(--color-acid)] transition-colors">
+                    {c.name}
+                  </div>
+                  <div className="mono text-[11px] text-dim mt-0.5">{c.issuer}</div>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </Reveal>
     </div>

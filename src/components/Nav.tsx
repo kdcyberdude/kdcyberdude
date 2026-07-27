@@ -4,9 +4,9 @@ import { useTheme } from "../hooks";
 
 const LINKS = [
   { href: "#research", label: "Research" },
-  { href: "#lab", label: "Lab" },
-  { href: "#work", label: "Work" },
   { href: "#experience", label: "Path" },
+  { href: "#work", label: "Work" },
+  { href: "#lab", label: "Lab" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -52,16 +52,8 @@ export default function Nav({ onTerminal }: { onTerminal: () => void }) {
             </a>
           ))}
           <button
-            onClick={toggle}
-            className="ml-1 mono text-[12px] text-dim hover:text-acid border border-[var(--color-line)] hover:border-[var(--color-acid)]/40 rounded-sm px-2.5 py-1.5 transition-colors"
-            aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
-            title={theme === "dark" ? "Light" : "Dark"}
-          >
-            {theme === "dark" ? "☀︎" : "☾"}
-          </button>
-          <button
             onClick={onTerminal}
-            className="mono text-[12px] text-dim hover:text-acid border border-[var(--color-line)] hover:border-[var(--color-acid)]/40 rounded-sm px-2.5 py-1.5 transition-colors"
+            className="ml-1 mono text-[12px] text-dim hover:text-acid border border-[var(--color-line)] hover:border-[var(--color-acid)]/40 rounded-sm px-2.5 py-1.5 transition-colors"
             aria-label="Open terminal"
           >
             ⌘K
@@ -72,23 +64,31 @@ export default function Nav({ onTerminal }: { onTerminal: () => void }) {
           >
             Résumé
           </a>
+          <button
+            onClick={toggle}
+            className="ml-2 mono text-[12px] text-dim hover:text-acid border border-[var(--color-line)] hover:border-[var(--color-acid)]/40 rounded-sm px-2.5 py-1.5 transition-colors"
+            aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+            title={theme === "dark" ? "Light" : "Dark"}
+          >
+            {theme === "dark" ? "☀︎" : "☾"}
+          </button>
         </div>
 
         <div className="md:hidden flex items-center gap-1">
           <button
-            onClick={toggle}
-            className="mono text-sm text-muted p-2"
-            aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
-          >
-            {theme === "dark" ? "☀︎" : "☾"}
-          </button>
-          <button
-            className="mono text-sm text-txt p-2 -mr-2"
+            className="mono text-sm text-txt p-2"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
             aria-expanded={open}
           >
             {open ? "✕" : "≡"}
+          </button>
+          <button
+            onClick={toggle}
+            className="mono text-sm text-muted p-2 -mr-1"
+            aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+          >
+            {theme === "dark" ? "☀︎" : "☾"}
           </button>
         </div>
       </nav>

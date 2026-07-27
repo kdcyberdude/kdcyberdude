@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { profile, stats } from "../data/content";
+import { platforms, profile, stats } from "../data/content";
 import { useReducedMotion } from "../hooks";
 
 export default function Hero() {
@@ -42,7 +42,27 @@ export default function Hero() {
           {profile.subline}
         </motion.p>
 
-        <motion.div {...rise(0.36)} className="mt-9 flex flex-wrap gap-3">
+        <motion.div
+          {...rise(0.34)}
+          className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl"
+        >
+          {platforms.map((p) => (
+            <a
+              key={p.label}
+              href={p.href}
+              target={p.external ? "_blank" : undefined}
+              rel={p.external ? "noreferrer" : undefined}
+              className="group border-t border-[var(--color-line-bright)] pt-3 hover:border-[var(--color-acid)]/50 transition-colors"
+            >
+              <div className="label mb-1">{p.label}</div>
+              <div className="mono text-[11px] sm:text-[12px] text-txt group-hover:text-acid transition-colors break-all leading-snug">
+                {p.handle}
+              </div>
+            </a>
+          ))}
+        </motion.div>
+
+        <motion.div {...rise(0.4)} className="mt-9 flex flex-wrap gap-3">
           <a
             href="#research"
             className="inline-flex items-center rounded-sm bg-acid px-5 py-3 text-[14px] font-semibold on-acid hover:bg-acid-dim transition-colors"
@@ -51,21 +71,15 @@ export default function Hero() {
             LearningBench →
           </a>
           <a
-            href="#lab"
+            href="#work"
             className="inline-flex items-center rounded-sm border border-[var(--color-line-bright)] bg-panel px-5 py-3 text-[14px] font-medium text-txt hover:border-[var(--color-acid)]/50 transition-colors"
           >
-            Watch me scope a problem
-          </a>
-          <a
-            href={profile.links.resume}
-            className="inline-flex items-center rounded-sm px-4 py-3 text-[14px] font-medium text-muted hover:text-acid transition-colors"
-          >
-            Résumé
+            Built & shipped
           </a>
         </motion.div>
 
         <motion.div
-          {...rise(0.48)}
+          {...rise(0.5)}
           className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 border-t border-[var(--color-line)] pt-8"
         >
           {stats.map((s) => (

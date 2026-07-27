@@ -11,15 +11,14 @@ export default function Contact() {
   return (
     <section id="contact" className="wrap scroll-mt-24 py-20 md:py-28">
       <div className="border-t border-[var(--color-line-bright)] pt-12 md:pt-16">
-        <div className="sec-tag mb-4">08 / contact</div>
+        <div className="sec-tag mb-4">07 / contact</div>
         <h2 className="serif text-3xl md:text-5xl font-medium tracking-tight leading-[1.05] max-w-2xl">
-          Looking for labs and teams that care about{" "}
-          <span className="acid-text">empirical work</span>.
+          Open to labs and teams doing{" "}
+          <span className="acid-text">serious work</span>.
         </h2>
         <p className="mt-5 max-w-xl text-muted text-[15px] md:text-base leading-relaxed">
-          Open to Anthropic Fellows / research engineering, applied ML research, and founding /
-          forward-deployed seats — {profile.availability.geos}. If you’re building something
-          rigorous, I’d like to hear about it.
+          Researcher, applied ML, engineering, or forward-deployed. If the problems are hard
+          and the bar is high, I’d like to hear about it.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
@@ -35,14 +34,6 @@ export default function Contact() {
             className="inline-flex items-center gap-2 rounded-sm border border-[var(--color-line-bright)] bg-panel px-5 py-3 text-[15px] font-medium text-txt hover:border-[var(--color-acid)]/40 hover:text-acid transition-colors"
           >
             Download résumé
-          </a>
-          <a
-            href={profile.links.learningBench}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-sm px-4 py-3 text-[15px] font-medium text-muted hover:text-acid transition-colors"
-          >
-            LearningBench ↗
           </a>
         </div>
 

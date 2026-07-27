@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { learningBench } from "../data/content";
-import { Reveal } from "./ui";
+import { ExtLinks, LinkedText, Reveal } from "./ui";
 
 export default function LearningBench() {
   return (
@@ -22,6 +22,9 @@ export default function LearningBench() {
         </p>
         <p className="mt-5 max-w-2xl text-[15px] md:text-base text-muted leading-relaxed">
           {learningBench.summary}
+        </p>
+        <p className="mt-4 max-w-2xl text-[14px] md:text-[15px] text-dim leading-relaxed">
+          {learningBench.story}
         </p>
       </Reveal>
 
@@ -45,7 +48,7 @@ export default function LearningBench() {
             {learningBench.bullets.map((b, i) => (
               <li key={i} className="flex gap-3 text-[14px] md:text-[15px] text-muted leading-relaxed">
                 <span className="mono text-acid mt-0.5 shrink-0">{String(i + 1).padStart(2, "0")}</span>
-                <span>{b}</span>
+                <LinkedText text={b} />
               </li>
             ))}
           </ul>
@@ -67,6 +70,14 @@ export default function LearningBench() {
               Kaggle writeup
             </a>
             <a
+              href={learningBench.benchmarks}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center rounded-sm border border-[var(--color-line-bright)] bg-panel px-4 py-2.5 text-[13px] font-medium text-txt hover:border-[var(--color-acid)]/40 transition-colors"
+            >
+              Kaggle benchmarks
+            </a>
+            <a
               href={learningBench.repo}
               target="_blank"
               rel="noreferrer"
@@ -75,6 +86,12 @@ export default function LearningBench() {
               GitHub
             </a>
           </div>
+          <ExtLinks
+            links={[
+              { label: "Kaggle profile", href: learningBench.kaggleProfile },
+              { label: "Local press", href: learningBench.press },
+            ]}
+          />
         </Reveal>
 
         <Reveal delay={0.16}>

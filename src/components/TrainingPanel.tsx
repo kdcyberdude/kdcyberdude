@@ -125,7 +125,7 @@ export default function TrainingPanel({ variant = "full" }: { variant?: "full" |
 
       <div className="mt-3 pt-3 border-t border-[var(--color-line)]">
         <span className="mono text-[10px] text-dim">
-          illustrative telemetry — a stand-in for the real 7-GPU fleet
+          illustrative telemetry — a stand-in for the real 7-GPU home lab
         </span>
       </div>
     </div>

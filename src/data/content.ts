@@ -1,27 +1,26 @@
 /* ============================================================
    Single source of truth — Karandeep Singh / kdcyberdude.com
-   Tuned for Anthropic Fellows + applied ML / FDE audiences.
+   Storytelling CV for research labs & deep-tech teams.
    ============================================================ */
 
 export const profile = {
   name: "Karandeep Singh",
   handle: "kdcyberdude",
-  headline: "I turn ambiguous problems into measurable experiments.",
+  headline: "I turn ambiguous problems into measurable experiments — then ship them.",
   subline:
-    "Applied ML engineer — evals, model training, self-hosted infra. Empirical research through production.",
-  location: "Jalandhar, India · open to relocation / remote",
+    "Model training & evaluation · self-hosted GPU infra · 0→1 product.",
+  location: "Jalandhar, India · open to relocation",
   availability: {
-    status: "Open to research labs & ambitious teams",
+    status: "Open to research labs & deep-tech teams",
     roles: [
-      "Anthropic Fellows / research eng",
-      "Applied ML Researcher",
-      "Forward-Deployed / Founding Engineer",
+      "Researcher / Research Engineer",
+      "Applied ML Engineer",
+      "Forward-Deployed Engineer",
       "Member of Technical Staff",
     ],
-    geos: "US, UK, Canada & remote-friendly teams",
   },
   summary:
-    "I design evaluations, train models, and run the hardware that makes the loop real. $25K Grand Prize winner (Google DeepMind × Kaggle) for LearningBench — a benchmark of inference-time learning. Built ASR/TTS/LLMs on 100K+ hours of speech (6.96–10.18% WER on IndicSUPERB), a 7-GPU self-hosted fleet, and consumer AI products.",
+    "I design evaluations, train models, and run the hardware that makes the loop real. $25K Grand Prize winner (Google DeepMind × Kaggle) for LearningBench — a benchmark of inference-time learning. Built ASR/TTS/LLMs on 100K+ hours of speech (6.96–10.18% WER on IndicSUPERB), a 7-GPU home lab, and consumer AI products.",
   links: {
     email: "kdsingh.cyberdude@gmail.com",
     phone: "+91 62871 18222",
@@ -35,21 +34,63 @@ export const profile = {
     learningBenchRepo: "https://github.com/kdcyberdude/LearningBench",
     learningBenchWriteup:
       "https://www.kaggle.com/competitions/kaggle-measuring-agi/writeups/learningbench",
+    kaggleProfile: "https://www.kaggle.com/kdcyberdude",
     kaggleBenchmark: "https://www.kaggle.com/benchmarks",
+    pressCoverage:
+      "https://prabhattimes.com/news/er-karandeep-singh-google-deepmind",
+    harvestGym: "https://github.com/kdcyberdude/HARvestGym",
     treow: "https://www.treowintelligence.com/",
+    luxeai: "https://console.luxeai.studio",
     asrModel: "https://huggingface.co/kdcyberdude/w2v-multilingual-v1.4-scratch",
     ttsModel: "https://huggingface.co/kdcyberdude/tts-pa-v0.1",
     llmModel: "https://huggingface.co/kdcyberdude/gemma_sft_galbat_v1",
     rigPost:
       "https://www.reddit.com/r/comfyui/comments/1pd072e/i_built_a_7gpu_ai_monster_rig_at_home_35090_44090/",
+    mojitoBlog:
+      "https://medium.com/@kdsingh.cyberdude/automate-the-process-of-localization-using-mojito-translation-management-system-tms-in-android-and-5c4d26953fb5",
+    parentinc: "https://theparentinc.com/",
+    babyTrackerApp:
+      "https://play.google.com/store/apps/details?id=com.tickledmedia.ParentTown&hl=en_IN",
   },
 };
+
+/** Primary platforms — shown prominently in the hero */
+export const platforms: {
+  label: string;
+  href: string;
+  handle: string;
+  external?: boolean;
+}[] = [
+  {
+    label: "GitHub",
+    href: "https://github.com/kdcyberdude",
+    handle: "kdcyberdude",
+    external: true,
+  },
+  {
+    label: "Hugging Face",
+    href: "https://huggingface.co/kdcyberdude",
+    handle: "kdcyberdude",
+    external: true,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/kdcyberdude",
+    handle: "in/kdcyberdude",
+    external: true,
+  },
+  {
+    label: "Email",
+    href: "mailto:kdsingh.cyberdude@gmail.com",
+    handle: "kdsingh.cyberdude@gmail.com",
+  },
+];
 
 export const stats: { value: string; label: string; accent?: boolean }[] = [
   { value: "$25K", label: "DeepMind × Kaggle Grand Prize", accent: true },
   { value: "135", label: "LearningBench tasks · 14 models", accent: true },
   { value: "100K+", label: "hrs speech · ASR corpus" },
-  { value: "7", label: "GPU self-hosted fleet" },
+  { value: "7", label: "GPUs · home lab" },
 ];
 
 /* ---- LearningBench flagship ---- */
@@ -59,12 +100,14 @@ export const learningBench = {
   kicker: "Measuring inference-time learning in LLMs",
   year: "Mar – Apr 2026",
   summary:
-    "Existing benchmarks measure what models already know. LearningBench measures how they learn — from scratch, inside a single conversation, on systems that have never existed before. No memorisation can help.",
+    "Existing benchmarks measure what models already know. LearningBench measures how they learn — from scratch, inside a single conversation, on systems that have never existed before. No memorisation can help. I built it as a solo, first-time Kaggle competitor and won the Grand Prize against 1,068 teams.",
+  story:
+    "The question that drove it: can a frontier model acquire a genuinely new system — rules it has never seen — inside one conversation, or is “intelligence” mostly retrieval of pretraining? LearningBench forces the former. Every task is programmatic, with ground truth and trajectory metrics, so the score reflects learning behavior rather than vibes.",
   bullets: [
     "Won the $25,000 Grand Prize as a solo, first-time Kaggle competitor against 1,068 teams — Learning track in DeepMind’s “Measuring Progress Toward AGI: Cognitive Abilities.”",
+    "Featured on [Kaggle’s official benchmark page](https://www.kaggle.com/benchmarks); #2 most-voted community benchmark. [Project page →](https://learningbench-project-page-918170344855.us-west1.run.app/)",
     "Presents frontier models with entirely new systems they must learn the rules of inside a single conversation — testing in-context learning, not pretrained knowledge recall.",
     "135 programmatic tasks across 6 cognitive sub-abilities; evaluated 14 models from small to frontier.",
-    "Featured on Kaggle’s official benchmark page; #2 most-voted community benchmark.",
   ],
   metrics: [
     { k: "tasks", v: "135" },
@@ -93,9 +136,14 @@ export const learningBench = {
   writeup:
     "https://www.kaggle.com/competitions/kaggle-measuring-agi/writeups/learningbench",
   repo: "https://github.com/kdcyberdude/LearningBench",
+  benchmarks: "https://www.kaggle.com/benchmarks",
+  kaggleProfile: "https://www.kaggle.com/kdcyberdude",
+  press: "https://prabhattimes.com/news/er-karandeep-singh-google-deepmind",
 };
 
 /* ---- Selected work ---- */
+export type ExtLink = { label: string; href: string };
+
 export type Project = {
   id: string;
   name: string;
@@ -106,31 +154,12 @@ export type Project = {
   summary: string;
   metrics: { k: string; v: string }[];
   stack: string[];
+  /** Bullets support `[label](url)` markdown for deep links */
   bullets: string[];
+  links?: ExtLink[];
 };
 
 export const projects: Project[] = [
-  {
-    id: "luxeai",
-    name: "LuxeAI Studio",
-    kicker: "Consumer AI photography · end-to-end",
-    href: "https://console.luxeai.studio",
-    year: "2024 → now",
-    role: "Co-Founder & CTO · Treow Intelligence",
-    summary:
-      "Users upload real photos, get a personalized diffusion model, and receive studio-grade shoots. Model, pipeline, and product — owned end-to-end on self-hosted GPUs.",
-    metrics: [
-      { k: "fine-tunes", v: "per-customer FLUX" },
-      { k: "pipeline", v: "1290+ ComfyUI nodes" },
-      { k: "surface", v: "full product" },
-    ],
-    stack: ["FLUX", "ComfyUI", "Supabase", "EC2 / S3", "Stripe / Razorpay"],
-    bullets: [
-      "Shipped end-to-end: studio console (crop-aware training, realtime generation streams), billing (credit ledger, Stripe/Razorpay, pay-later), and growth (affiliates, bulk delivery, third-party API).",
-      "Productionized a multi-stage ComfyUI pipeline — 1290+ nodes covering segmentation-driven inpainting, ControlNet conditioning, and multi-model scaling — as a parameterized backend service.",
-      "Supabase + EC2 route requests to a self-hosted home GPU server for training and inference.",
-    ],
-  },
   {
     id: "treow",
     name: "Treow AI",
@@ -139,7 +168,7 @@ export const projects: Project[] = [
     year: "2024 → now",
     role: "Co-Founder · Treow Intelligence",
     summary:
-      "Proprietary Punjabi ASR / TTS and small LLMs on a self-built internet-scale corpus. Full loop: source → process → train → evaluate.",
+      "Punjabi ASR / TTS and small LLMs on a self-built corpus — from ~550 public hours to 100,000+ hours of speech.",
     metrics: [
       { k: "ASR", v: "100K+ hrs" },
       { k: "WER", v: "6.96–10.18%" },
@@ -149,18 +178,52 @@ export const projects: Project[] = [
     bullets: [
       "Built proprietary ASR (100K+ hours; 6.96–10.18% WER on AI4Bharat’s IndicSUPERB) and TTS (1K+ hours); trained Punjabi small LLMs on a self-built synthetic dataset.",
       "Engineered an internet-scale ETL pipeline for speech + text; sourced Punjabi, Hindi, and English audio at scale.",
-      "Models on Hugging Face: multilingual ASR, Punjabi TTS, and Punjabi Gemma SFT — all trained on the self-hosted 7-GPU rig.",
+      "Teacher–student style curation to grow usable training data far beyond what was publicly available for Punjabi.",
+      "Open models on Hugging Face: [multilingual ASR](https://huggingface.co/kdcyberdude/w2v-multilingual-v1.4-scratch), [Punjabi TTS](https://huggingface.co/kdcyberdude/tts-pa-v0.1), and [Punjabi Gemma SFT](https://huggingface.co/kdcyberdude/gemma_sft_galbat_v1).",
+    ],
+    links: [
+      { label: "Treow", href: "https://www.treowintelligence.com/" },
+      { label: "Hugging Face", href: "https://huggingface.co/kdcyberdude" },
+      { label: "ASR model", href: "https://huggingface.co/kdcyberdude/w2v-multilingual-v1.4-scratch" },
+      { label: "TTS model", href: "https://huggingface.co/kdcyberdude/tts-pa-v0.1" },
+      { label: "LLM", href: "https://huggingface.co/kdcyberdude/gemma_sft_galbat_v1" },
     ],
   },
   {
-    id: "rig",
-    name: "The Rig",
-    kicker: "7-GPU training & inference fleet",
+    id: "luxeai",
+    name: "LuxeAI Studio",
+    kicker: "Consumer AI photography",
+    href: "https://console.luxeai.studio",
+    year: "2024 → now",
+    role: "Co-Founder & CTO · Treow Intelligence",
+    summary:
+      "Users upload real photos, get a personalized diffusion model, and receive studio-grade shoots — model, pipeline, and product on self-hosted GPUs.",
+    metrics: [
+      { k: "fine-tunes", v: "300+ FLUX" },
+      { k: "pipeline", v: "1290+ ComfyUI nodes" },
+      { k: "surface", v: "full product" },
+    ],
+    stack: ["FLUX", "ComfyUI", "Supabase", "EC2 / S3", "Stripe / Razorpay"],
+    bullets: [
+      "Shipped end-to-end: studio console (crop-aware training, realtime generation streams), billing (credit ledger, Stripe/Razorpay, pay-later), and growth (affiliates, bulk delivery, third-party API).",
+      "Productionized a multi-stage ComfyUI pipeline — 1290+ nodes covering segmentation-driven inpainting, ControlNet conditioning, and multi-model scaling — as a parameterized backend service.",
+      "Supabase + EC2 route requests to a self-hosted home GPU server for training and inference. [Home lab write-up →](https://www.reddit.com/r/comfyui/comments/1pd072e/i_built_a_7gpu_ai_monster_rig_at_home_35090_44090/)",
+      "Ran 300+ customer fine-tunes in production — each person gets their own model, then studio-grade shoots from the same pipeline.",
+    ],
+    links: [
+      { label: "Console", href: "https://console.luxeai.studio" },
+      { label: "Treow", href: "https://www.treowintelligence.com/" },
+    ],
+  },
+  {
+    id: "homelab",
+    name: "Home lab",
+    kicker: "7 GPUs · training & inference",
     href: "https://www.reddit.com/r/comfyui/comments/1pd072e/i_built_a_7gpu_ai_monster_rig_at_home_35090_44090/",
     year: "2024 → now",
     role: "Designed, built & operated",
     summary:
-      "Self-built multi-GPU fleet behind Treow and LuxeAI — control the stack, kill the per-token bill, iterate at hardware speed.",
+      "No research lab nearby — so I built one at home. Seven GPUs behind Treow and LuxeAI: own the stack, cut the per-token bill, iterate at hardware speed.",
     metrics: [
       { k: "GPUs", v: "3× 5090 + 4× 4090" },
       { k: "workloads", v: "train + serve" },
@@ -168,20 +231,27 @@ export const projects: Project[] = [
     ],
     stack: ["multi-GPU", "Docker", "AWS EC2 / S3", "Cloudflare", "ComfyUI / vLLM"],
     bullets: [
-      "Assembled and run a 7-GPU training rig (3× RTX 5090 + 4× RTX 4090) — among the most powerful personal AI setups in North India.",
-      "Runs LuxeAI customer training/inference and Treow ASR/TTS/LLM jobs on owned hardware.",
+      "Assembled and run 3× RTX 5090 + 4× RTX 4090 — among the most powerful personal AI setups in North India. [Write-up →](https://www.reddit.com/r/comfyui/comments/1pd072e/i_built_a_7gpu_ai_monster_rig_at_home_35090_44090/)",
+      "Runs [LuxeAI](https://console.luxeai.studio) customer training/inference and [Treow](https://www.treowintelligence.com/) ASR/TTS/LLM jobs on owned hardware.",
+      "Hybrid topology: home GPUs for training/inference; AWS + Cloudflare for routing, storage, and public edges.",
       "Self-hosting as a moat: full control, lower marginal cost, faster experiment loops.",
+    ],
+    links: [
+      {
+        label: "Write-up",
+        href: "https://www.reddit.com/r/comfyui/comments/1pd072e/i_built_a_7gpu_ai_monster_rig_at_home_35090_44090/",
+      },
     ],
   },
   {
-    id: "babytracker",
-    name: "Baby Tracker",
-    kicker: "Parenting super-app · 100K+ DAU",
-    href: "https://play.google.com/store/apps/details?id=com.tickledmedia.ParentTown&hl=en_IN",
+    id: "parentinc",
+    name: "The Parentinc",
+    kicker: "theAsianparent · product, data & ML",
+    href: "https://theparentinc.com/",
     year: "2021 → 2024",
-    role: "Full-Stack → ML & Data · The Parentinc",
+    role: "Full-Stack → ML & Data Engineer",
     summary:
-      "Architected a feature used by 100K+ daily active users inside theAsianparent. Later owned analytics migration and an LLM recommendation engine.",
+      "Three years at Southeast Asia’s parenting super-app — from shipping mobile product at 100K+ DAU to owning analytics migrations and an LLM recommendation engine.",
     metrics: [
       { k: "scale", v: "100K+ DAU" },
       { k: "app size", v: "−30%" },
@@ -189,33 +259,45 @@ export const projects: Project[] = [
     ],
     stack: ["Flutter", "Airbyte", "Sigma", "LLM recsys", "CI/CD"],
     bullets: [
-      "Architected Baby Tracker (100K+ DAU); integrated Flutter into legacy Android/iOS codebases, cutting app size ~30%.",
-      "Led vendor evaluation and migrated Grow Analytics to Sigma; unified analytics via Airbyte while resolving cross-source consistency issues.",
-      "Built an LLM-based recommendation engine injecting in-shop product recommendations into thousands of existing articles; CI/CD with Mojito TMS auto-translation.",
+      "Architected Baby Tracker inside theAsianparent (100K+ DAU); integrated Flutter into decade-old Android/iOS codebases, cutting app size ~30%. [Play Store →](https://play.google.com/store/apps/details?id=com.tickledmedia.ParentTown&hl=en_IN)",
+      "Led vendor evaluation and migrated Grow Analytics to Sigma; unified analytics, production, and shopping-platform data via Airbyte while resolving cross-source consistency issues.",
+      "Built an LLM-based recommendation engine injecting in-shop product recommendations into thousands of existing articles.",
+      "CI/CD covering validation, build distribution, and auto-translation via Mojito TMS — [localization write-up](https://medium.com/@kdsingh.cyberdude/automate-the-process-of-localization-using-mojito-translation-management-system-tms-in-android-and-5c4d26953fb5).",
+    ],
+    links: [
+      { label: "The Parentinc", href: "https://theparentinc.com/" },
+      {
+        label: "Play Store",
+        href: "https://play.google.com/store/apps/details?id=com.tickledmedia.ParentTown&hl=en_IN",
+      },
+      {
+        label: "Mojito TMS blog",
+        href: "https://medium.com/@kdsingh.cyberdude/automate-the-process-of-localization-using-mojito-translation-management-system-tms-in-android-and-5c4d26953fb5",
+      },
     ],
   },
 ];
 
 export const traits: { title: string; proof: string }[] = [
   {
-    title: "Empirical first",
+    title: "Measure first",
     proof:
-      "LearningBench wasn’t a vibes eval — 135 programmatic tasks, programmatic ground truth, trajectory metrics. I measure learning, not just accuracy.",
+      "LearningBench wasn’t a vibes eval — 135 programmatic tasks, programmatic ground truth, trajectory metrics. I measure learning, not just accuracy. HARvestGym does the same for agent actions: provenance over outgoing parameters, not just “did the tool call look right.”",
   },
   {
     title: "First principles → thin experiment",
     proof:
-      "Find the one hard claim, define the observable, run the smallest test that could kill the idea. Then scale what survives.",
+      "Find the one hard claim, define the observable, run the smallest test that could kill the idea. Then scale what survives — same muscle for research questions and product bets.",
   },
   {
     title: "Full-stack ML depth",
     proof:
-      "Same person designs the eval, trains the model, stands up the GPU job queue, and ships the product surface.",
+      "Same person designs the eval, trains the model, stands up the GPU job queue, and ships the product surface. Fewer handoffs, fewer “someone else’s problem” gaps.",
   },
   {
     title: "High agency",
     proof:
-      "Built a 7-GPU fleet at home and sourced internet-scale regional speech when the corpus didn’t exist. When the tool is missing, I build it.",
+      "Built a 7-GPU home lab and sourced internet-scale regional speech when the corpus didn’t exist. When the tool or the lab is missing, I build it.",
   },
 ];
 
@@ -232,7 +314,7 @@ export type Job = {
 
 /** Arc summary shown above the timeline */
 export const trajectoryIntro =
-  "Full-stack product engineer → ML & data → research / training on owned infra. ~3 years shipping at theAsianparent (apps at 100K+ DAU, then company data + ML), then building Treow end-to-end — models, fleet, and product — plus LearningBench.";
+  "Full-stack product engineer → ML & data → research and training on owned infra. ~3 years at theAsianparent, then Treow end-to-end — models, home lab, and product — plus LearningBench.";
 
 export const timeline: Job[] = [
   {
@@ -242,12 +324,13 @@ export const timeline: Job[] = [
     duration: "~1 yr 10 mo",
     href: "https://www.treowintelligence.com/",
     summary:
-      "AI-native studio on self-hosted GPUs: consumer diffusion product (LuxeAI) + regional speech/LLM work (Treow AI). LearningBench Grand Prize in parallel.",
+      "AI-native studio on self-hosted GPUs: consumer diffusion product (LuxeAI) + regional speech/LLM work (Treow AI). LearningBench Grand Prize in parallel. Looking ahead: research labs and deep-tech teams where this loop scales beyond solo.",
     bullets: [
-      "Own the loop: dataset → train / fine-tune → eval → serve — on a 7-GPU fleet (3× 5090 + 4× 4090).",
-      "LuxeAI: crop-aware training, realtime generation, ComfyUI orchestration (1290+ nodes), full paid product surface.",
-      "Treow AI: ASR on 100K+ hrs (6.96–10.18% WER on IndicSUPERB), TTS, Punjabi small LLMs; internet-scale data pipelines.",
-      "LearningBench (Mar–Apr 2026): $25K DeepMind × Kaggle Grand Prize — inference-time learning benchmark.",
+      "Own the loop: dataset → train / fine-tune → eval → serve — on a 7-GPU home lab (3× 5090 + 4× 4090). [Write-up →](https://www.reddit.com/r/comfyui/comments/1pd072e/i_built_a_7gpu_ai_monster_rig_at_home_35090_44090/)",
+      "[LearningBench](https://learningbench-project-page-918170344855.us-west1.run.app/) (Mar–Apr 2026): $25K DeepMind × Kaggle Grand Prize — [writeup](https://www.kaggle.com/competitions/kaggle-measuring-agi/writeups/learningbench).",
+      "[Treow AI](https://www.treowintelligence.com/): ASR on 100K+ hrs (6.96–10.18% WER on IndicSUPERB), TTS, Punjabi small LLMs; internet-scale data pipelines. [Models on HF →](https://huggingface.co/kdcyberdude)",
+      "[LuxeAI](https://console.luxeai.studio): crop-aware training, realtime generation, ComfyUI orchestration (1290+ nodes), full paid product surface with 300+ fine-tuned diffusion models.",
+      "[HARvestGym](https://github.com/kdcyberdude/HARvestGym): open RL env + provenance checks for HTTP agents on live apps.",
     ],
   },
   {
@@ -272,9 +355,9 @@ export const timeline: Job[] = [
     summary:
       "Product engineering on mobile at scale. Overlapped the last months with the ML & Data role as I transitioned into recommendations and pipelines.",
     bullets: [
-      "Architected Baby Tracker — used by 100K+ daily active users inside theAsianparent.",
+      "Architected Baby Tracker — used by 100K+ daily active users inside theAsianparent. [Play Store →](https://play.google.com/store/apps/details?id=com.tickledmedia.ParentTown&hl=en_IN)",
       "Led Flutter integration into existing Android / iOS apps; cut app size ~30%.",
-      "Built CI/CD covering validation, build distribution, and auto-translation (Mojito TMS).",
+      "Built CI/CD covering validation, build distribution, and auto-translation ([Mojito TMS write-up](https://medium.com/@kdsingh.cyberdude/automate-the-process-of-localization-using-mojito-translation-management-system-tms-in-android-and-5c4d26953fb5)).",
     ],
   },
   {
@@ -295,41 +378,38 @@ export const education = {
   degree: "B.Tech — Computer Science",
   period: "2016 — 2020",
   gpa: "GPA 8.61 / 10",
+  transcript:
+    "https://drive.google.com/file/d/1szJOY22MkXPfj14TWwNdT-Rz7DxT0iFM/view?usp=sharing",
 };
 
-export const skills: { group: string; items: string[] }[] = [
+export const certifications: {
+  name: string;
+  issuer: string;
+  href: string;
+}[] = [
   {
-    group: "Research / Eval",
-    items: [
-      "benchmark design",
-      "inference-time learning",
-      "model evaluation",
-      "experiment design",
-      "dataset engineering",
-    ],
+    name: "Hacking and Patching",
+    issuer: "University of Colorado Boulder",
+    href: "https://www.coursera.org/account/accomplishments/verify/LT7GHY9TCMYG",
   },
   {
-    group: "AI / ML",
-    items: ["LLM fine-tuning", "ASR", "TTS", "diffusion / FLUX", "ComfyUI", "PyTorch"],
+    name: "Foundations of Cybersecurity",
+    issuer: "Google",
+    href: "https://www.coursera.org/account/accomplishments/verify/UC5E84KTNEMG",
   },
   {
-    group: "Infra / MLOps",
-    items: [
-      "multi-GPU training & inference",
-      "self-hosted fleets",
-      "AWS",
-      "Docker",
-      "Supabase",
-      "vLLM",
-    ],
+    name: "Cybersecurity and Mobility",
+    issuer: "Kennesaw State University",
+    href: "https://www.coursera.org/account/accomplishments/verify/SD6JM6HBPPR9",
   },
   {
-    group: "Product / Eng",
-    items: ["Python", "TypeScript", "Flutter", "full-stack", "Stripe / Razorpay"],
+    name: "Blockchain Specialization",
+    issuer: "University at Buffalo, SUNY · 4 courses",
+    href: "https://www.coursera.org/account/accomplishments/specialization/Z6CWVUGLSGRK",
   },
 ];
 
-export type ProbeStatus = "public" | "private" | "fork" | "probe";
+export type ProbeStatus = "public" | "private" | "fork" | "models";
 
 export type Probe = {
   id: string;
@@ -339,54 +419,61 @@ export type Probe = {
   blurb: string;
   stack: string[];
   href?: string;
-  host?: "github" | "bitbucket" | "local";
+  host?: "github" | "huggingface" | "medium";
 };
 
 export const probesIntro =
-  "Public GitHub is a slice. Private product and training repos live on the rig — curated samples below.";
+  "Repos and models you can open.";
 
 export const probes: Probe[] = [
   {
     id: "learningbench",
     name: "LearningBench",
-    kicker: "Inference-time learning eval",
+    kicker: "GitHub",
     status: "public",
     host: "github",
     href: "https://github.com/kdcyberdude/LearningBench",
-    blurb:
-      "135 tasks · 6 cognitive sub-abilities. DeepMind × Kaggle Grand Prize. Also on Kaggle’s official benchmarks.",
+    blurb: "Inference-time learning eval — DeepMind × Kaggle Grand Prize.",
     stack: ["eval", "in-context learning", "Kaggle"],
   },
   {
     id: "harvestgym",
     name: "HARvestGym",
-    kicker: "API agents · no browser",
+    kicker: "GitHub",
     status: "public",
     host: "github",
     href: "https://github.com/kdcyberdude/HARvestGym",
-    blurb:
-      "RL env: reverse-engineer a web app’s APIs and complete tasks over raw HTTP — URL + goal, no browser.",
-    stack: ["RL", "HTTP agents", "API reverse-engineering"],
+    blurb: "RL env for HTTP agents — plus provenance checks on outgoing requests.",
+    stack: ["RL", "HTTP agents", "security measurement"],
+  },
+  {
+    id: "open-models",
+    name: "Open models",
+    kicker: "Hugging Face",
+    status: "models",
+    host: "huggingface",
+    href: "https://huggingface.co/kdcyberdude",
+    blurb: "ASR, Punjabi TTS, and Punjabi Gemma SFT — trained on the home lab.",
+    stack: ["ASR", "TTS", "SFT", "Indic"],
   },
   {
     id: "punjabi-asr",
     name: "Punjabi ASR",
-    kicker: "Speech · public scratch",
+    kicker: "GitHub",
     status: "public",
     host: "github",
     href: "https://github.com/kdcyberdude/Punjabi_ASR",
-    blurb:
-      "Public notebooks into the larger Treow ASR corpus (100K+ hrs; 6.96–10.18% WER on IndicSUPERB).",
+    blurb: "Public notebooks into the larger Treow ASR corpus.",
     stack: ["ASR", "Punjabi", "IndicSUPERB"],
   },
   {
-    id: "tess",
-    name: "TESS",
-    kicker: "Personal agent stack",
-    status: "probe",
-    host: "github",
-    href: "https://github.com/kdcyberdude/tess-plugins",
-    blurb: "Agent environment — skills, manifests, hooks — for Cursor / Claude / Codex sessions.",
-    stack: ["agents", "hooks", "skills"],
+    id: "mojito-blog",
+    name: "Mojito TMS",
+    kicker: "Medium",
+    status: "public",
+    host: "medium",
+    href: "https://medium.com/@kdsingh.cyberdude/automate-the-process-of-localization-using-mojito-translation-management-system-tms-in-android-and-5c4d26953fb5",
+    blurb: "Automating localization across Android/iOS with Mojito TMS.",
+    stack: ["CI/CD", "localization", "mobile"],
   },
 ];

@@ -5,7 +5,7 @@ import { profile, projects, timeline, probes } from "../data/content";
 type Line = { type: "in" | "out" | "sys"; text: string };
 
 const BANNER = [
-  "kd@rig:~$ welcome. type a command or `help`.",
+  "kd@lab:~$ welcome. type a command or `help`.",
 ];
 
 function runCommand(cmd: string, close: () => void): Line[] {
@@ -26,7 +26,7 @@ function runCommand(cmd: string, close: () => void): Line[] {
         { type: "out", text: "  projects     selected work" },
         { type: "out", text: "  probes       agents, evals, forks" },
         { type: "out", text: "  experience   career timeline" },
-        { type: "out", text: "  stack        tools" },
+        { type: "out", text: "  stack        work / tools (in projects)" },
         { type: "out", text: "  hire         open roles" },
         { type: "out", text: "  contact      reach me" },
         { type: "out", text: "  resume       open résumé (pdf)" },
@@ -72,13 +72,20 @@ function runCommand(cmd: string, close: () => void): Line[] {
         ...(go("probes"), []),
       ];
     case "experience":
-      return timeline.map((j) => ({
-        type: "out" as const,
-        text: `  ${j.period.padEnd(22)} ${j.duration.padEnd(12)} ${j.role} · ${j.org}`,
-      }));
-    case "rig":
+    case "path":
       return [
-        { type: "out", text: "the rig — 7× GPU, self-hosted:" },
+        ...timeline.map((j) => ({
+          type: "out" as const,
+          text: `  ${j.period.padEnd(22)} ${j.duration.padEnd(12)} ${j.role} · ${j.org}`,
+        })),
+        { type: "sys", text: "→ opening path…" },
+        ...(go("experience"), []),
+      ];
+    case "rig":
+    case "lab-hw":
+    case "homelab":
+      return [
+        { type: "out", text: "home lab — 7× GPU, self-hosted:" },
         { type: "out", text: "  3× RTX 5090  +  4× RTX 4090" },
         { type: "out", text: "  runs treow + luxeai training & inference." },
         { type: "sys", text: "→ jumping to work…" },
@@ -86,12 +93,11 @@ function runCommand(cmd: string, close: () => void): Line[] {
       ];
     case "skills":
     case "stack":
-      return [{ type: "sys", text: "→ opening stack…" }, ...(go("stack"), [])];
+      return [{ type: "sys", text: "→ opening work…" }, ...(go("work"), [])];
     case "hire":
       return [
         { type: "out", text: "open to: " + profile.availability.roles.join(" / ") },
-        { type: "out", text: "geos: " + profile.availability.geos },
-        { type: "out", text: "empirical research + shipping systems." },
+        { type: "out", text: "measurement + shipping — research labs & deep-tech teams." },
         { type: "sys", text: "→ let's talk…" },
         ...(go("contact"), []),
       ];
@@ -193,7 +199,7 @@ export default function Terminal({ open, onClose }: { open: boolean; onClose: ()
             onMouseDown={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-2 px-4 py-2.5 border-b border-[var(--color-line)] bg-panel-2">
-              <span className="mono text-[11px] text-dim ml-1">kd@rig — zsh</span>
+              <span className="mono text-[11px] text-dim ml-1">kd@lab — zsh</span>
               <button
                 onClick={onClose}
                 className="ml-auto mono text-[11px] text-dim hover:text-txt"
@@ -220,7 +226,7 @@ export default function Terminal({ open, onClose }: { open: boolean; onClose: ()
                 >
                   {l.type === "in" ? (
                     <span>
-                      <span className="acid-text">kd@rig:~$</span> {l.text}
+                      <span className="acid-text">kd@lab:~$</span> {l.text}
                     </span>
                   ) : (
                     <span className="whitespace-pre-wrap">{l.text}</span>
@@ -228,7 +234,7 @@ export default function Terminal({ open, onClose }: { open: boolean; onClose: ()
                 </div>
               ))}
               <form onSubmit={submit} className="flex items-center gap-2 mt-1">
-                <span className="acid-text">kd@rig:~$</span>
+                <span className="acid-text">kd@lab:~$</span>
                 <input
                   ref={inputRef}
                   value={value}

@@ -2,7 +2,7 @@
    First-principles experiment scoper.
    Deterministic keyword match → hear → principles → hypothesize →
    measure → experiment → kill → receipts.
-   Illustrative of how Karandeep scopes empirical work — not an LLM.
+   Illustrative of how Karandeep scopes research and product work — not an LLM.
    Serves research labs and FDE / product audiences.
    ============================================================ */
 
@@ -31,7 +31,7 @@ export const presets: { label: string; prompt: string; kind: "research" | "build
   {
     label: "Reward hacking probe",
     prompt:
-      "How would you empirically test whether a model is reward-hacking a proxy metric instead of the intended goal?",
+      "How would you test whether a model is reward-hacking a proxy metric instead of the intended goal?",
     kind: "research",
   },
   {
@@ -114,7 +114,7 @@ const domains: Domain[] = [
     match:
       /reward.?hack|alignment|safety|red.?team|sycophan|decept|specimens|misuse|jailbreak|proxy metric|oversight/i,
     read: () =>
-      "an empirical safety / behaviour question — define the failure mode, then build the smallest test that would catch it.",
+      "a safety / behaviour question — define the failure mode, then build the smallest test that would catch it.",
     stages: [
       S("hear", [
         "You’re worried the system optimises a proxy while looking compliant on the intended goal.",
@@ -176,7 +176,7 @@ const domains: Domain[] = [
         "Ship a thin /transcribe API to real speakers; corrections become next train set.",
       ], [
         { label: "Treow AI — 100K+ hrs ASR", projectId: "treow" },
-        { label: "The Rig — 7-GPU fleet", projectId: "rig" },
+        { label: "Home lab — 7 GPUs self-hosted", projectId: "homelab" },
       ]),
       S("kill", [
         "Kill the language scope if holdout WER won’t move after clean data — pick a narrower domain.",
@@ -213,7 +213,7 @@ const domains: Domain[] = [
         "Then harden the couple/consistency path against real user rejects.",
       ], [
         { label: "LuxeAI — per-customer FLUX", projectId: "luxeai" },
-        { label: "The Rig — train + serve", projectId: "rig" },
+        { label: "Home lab — train + serve", projectId: "homelab" },
       ]),
       S("kill", [
         "Kill a vertical if fidelity won’t clear the bar at the target price.",
@@ -247,7 +247,7 @@ const domains: Domain[] = [
       S("experiment", [
         "Week 1: model pick + eval harness + serving prototype.",
         "Week 2: shadow traffic; decide cutover per route.",
-      ], [{ label: "The Rig — self-hosted train + serve", projectId: "rig" }]),
+      ], [{ label: "Home lab — self-hosted train + serve", projectId: "homelab" }]),
       S("kill", [
         "Kill self-host if quality gap won’t close without ruinous GPU count.",
         "Kill a model size if utilization can’t stay healthy.",
@@ -292,7 +292,7 @@ const generic: Domain = {
   key: "generic",
   match: /.*/,
   read: () =>
-    "an ambiguous problem — I’ll scope it the way I scope any empirical build: one hard claim, one measurable test.",
+    "an ambiguous problem — I’ll scope it the way I scope any build: one hard claim, one measurable test.",
   stages: [
     S("hear", [
       "Restate the goal as a claim that could be false. If it can’t be false, it isn’t a project yet.",
@@ -347,7 +347,7 @@ export function decompose(input: string): Brief {
     receipts.push(
       { label: "LearningBench — Grand Prize eval", projectId: "learningbench" },
       { label: "Treow AI — trained models", projectId: "treow" },
-      { label: "The Rig — self-hosted fleet", projectId: "rig" },
+      { label: "Home lab — self-hosted GPUs", projectId: "homelab" },
     );
   }
 

@@ -2,56 +2,52 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { projects, type Project } from "../data/content";
 import { useReducedMotion } from "../hooks";
+import { ExtLinks, LinkedText } from "./ui";
 
-function ProjectCard({ p, highlighted }: { p: Project; highlighted: boolean }) {
+function ProjectRow({ p, highlighted }: { p: Project; highlighted: boolean }) {
   const [open, setOpen] = useState(false);
   const reduced = useReducedMotion();
 
   return (
-    <div
+    <article
       id={`project-${p.id}`}
-      className={`border-t border-[var(--color-line-bright)] pt-5 md:pt-6 flex flex-col scroll-mt-28 transition-colors duration-500 ${
+      className={`border-t border-[var(--color-line)] py-10 md:py-12 scroll-mt-28 transition-colors duration-500 ${
         highlighted ? "border-[var(--color-acid)]" : ""
       }`}
     >
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <div className="label mb-1.5">{p.kicker}</div>
-          <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-txt">{p.name}</h3>
+      <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-2 md:gap-8">
+        <div className="min-w-0">
+          <h3 className="serif text-2xl md:text-[1.75rem] font-medium tracking-tight text-txt">
+            {p.name}
+          </h3>
+          <p className="mt-2 text-[14px] text-muted">{p.kicker}</p>
         </div>
-        {p.href && (
-          <a
-            href={p.href}
-            target="_blank"
-            rel="noreferrer"
-            className="mono text-[11px] text-dim hover:text-acid transition-colors whitespace-nowrap"
-          >
-            visit ↗
-          </a>
-        )}
+        <div className="mono text-[12px] text-dim shrink-0 md:text-right">
+          {p.year}
+          {p.href && (
+            <>
+              <span className="mx-2 text-[var(--color-line-bright)]">·</span>
+              <a
+                href={p.href}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-acid transition-colors"
+              >
+                open ↗
+              </a>
+            </>
+          )}
+        </div>
       </div>
 
-      <div className="mono text-[11px] text-dim mt-2">
-        {p.role} · {p.year}
-      </div>
-
-      <p className="mt-4 text-[14px] text-muted leading-relaxed">{p.summary}</p>
-
-      <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-        {p.metrics.map((m, i) => (
-          <span key={i} className="inline-flex items-baseline gap-1.5">
-            <span className="mono text-[10px] text-dim uppercase tracking-wide">{m.k}</span>
-            <span className="mono text-[12px] text-acid font-medium">{m.v}</span>
-          </span>
-        ))}
-      </div>
+      <p className="mt-5 max-w-2xl text-[15px] text-muted leading-relaxed">{p.summary}</p>
 
       <button
         onClick={() => setOpen((v) => !v)}
-        className="mt-5 self-start mono text-[12px] text-muted hover:text-acid transition-colors"
+        className="mt-6 self-start mono text-[12px] text-dim hover:text-acid transition-colors"
         aria-expanded={open}
       >
-        {open ? "− hide detail" : "+ how it was built"}
+        {open ? "Hide detail" : "More detail"}
       </button>
 
       <AnimatePresence initial={false}>
@@ -63,28 +59,19 @@ function ProjectCard({ p, highlighted }: { p: Project; highlighted: boolean }) {
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <ul className="mt-4 space-y-2.5 border-t border-[var(--color-line)] pt-4">
+            <p className="mt-6 mono text-[11px] text-dim">{p.role}</p>
+            <ul className="mt-4 space-y-3 max-w-2xl">
               {p.bullets.map((b, i) => (
-                <li key={i} className="flex gap-2.5 text-[13.5px] text-txt/85 leading-relaxed">
-                  <span className="acid-text mt-1 shrink-0">▸</span>
-                  <span>{b}</span>
+                <li key={i} className="text-[14px] text-txt/80 leading-relaxed">
+                  <LinkedText text={b} />
                 </li>
               ))}
             </ul>
-            <div className="mt-4 flex flex-wrap gap-1.5">
-              {p.stack.map((s) => (
-                <span
-                  key={s}
-                  className="mono text-[10.5px] text-muted border border-[var(--color-line)] rounded-sm px-2 py-0.5"
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
+            {p.links && <ExtLinks links={p.links} />}
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </article>
   );
 }
 
@@ -96,6 +83,15 @@ export default function EvidenceGrid() {
       const id = (e as CustomEvent).detail as string;
       if (id === "learningbench" || id === "harvestgym") {
         document.getElementById("research")?.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+      if (id === "babytracker") {
+        document.getElementById("project-parentinc")?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+        setFocus("parentinc");
+        window.setTimeout(() => setFocus(null), 2400);
         return;
       }
       setFocus(id);
@@ -112,9 +108,9 @@ export default function EvidenceGrid() {
   }, []);
 
   return (
-    <div className="grid md:grid-cols-2 gap-x-10 gap-y-2">
+    <div className="max-w-3xl">
       {projects.map((p) => (
-        <ProjectCard key={p.id} p={p} highlighted={focus === p.id} />
+        <ProjectRow key={p.id} p={p} highlighted={focus === p.id} />
       ))}
     </div>
   );
