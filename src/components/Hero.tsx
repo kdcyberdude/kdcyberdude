@@ -65,16 +65,15 @@ export default function Hero() {
         <motion.div {...rise(0.4)} className="mt-9 flex flex-wrap gap-3">
           <a
             href="#research"
-            className="inline-flex items-center rounded-sm bg-acid px-5 py-3 text-[14px] font-semibold on-acid hover:bg-acid-dim transition-colors"
-            style={{ boxShadow: "var(--shadow-glow)" }}
+            className="btn btn-primary"
           >
-            LearningBench →
+            View flagship work
           </a>
           <a
             href="#work"
-            className="inline-flex items-center rounded-sm border border-[var(--color-line-bright)] bg-panel px-5 py-3 text-[14px] font-medium text-txt hover:border-[var(--color-acid)]/50 transition-colors"
+            className="btn btn-secondary"
           >
-            Built & shipped
+            Selected work
           </a>
         </motion.div>
 

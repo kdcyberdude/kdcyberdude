@@ -21,7 +21,7 @@ function runCommand(cmd: string, close: () => void): Line[] {
       return [
         { type: "out", text: "available commands:" },
         { type: "out", text: "  whoami       who is karandeep" },
-        { type: "out", text: "  research     LearningBench" },
+        { type: "out", text: "  research     flagship benchmark" },
         { type: "out", text: "  lab          experiment scoper" },
         { type: "out", text: "  projects     selected work" },
         { type: "out", text: "  probes       agents, evals, forks" },
@@ -41,7 +41,7 @@ function runCommand(cmd: string, close: () => void): Line[] {
     case "research":
     case "learningbench":
       return [
-        { type: "out", text: "LearningBench — $25K DeepMind × Kaggle Grand Prize" },
+        { type: "out", text: "Flagship research — $25K DeepMind × Kaggle Grand Prize" },
         { type: "out", text: "inference-time learning eval · 135 tasks · 14 models" },
         { type: "sys", text: "→ opening research…" },
         ...(go("research"), []),

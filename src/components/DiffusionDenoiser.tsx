@@ -215,7 +215,7 @@ export default function DiffusionDenoiser() {
               setPlaying((p) => !p);
             }}
             disabled={reduced}
-            className="text-[13px] font-medium text-bg bg-acid rounded-md px-4 py-1.5 hover:bg-acid/90 transition-colors disabled:opacity-40"
+            className="btn btn-primary btn-sm"
           >
             {playing ? "❚❚ pause" : "▶ denoise"}
           </button>

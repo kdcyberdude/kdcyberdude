@@ -24,14 +24,13 @@ export default function Contact() {
         <div className="mt-8 flex flex-wrap gap-3">
           <a
             href={`mailto:${profile.links.email}`}
-            className="inline-flex items-center gap-2 rounded-sm bg-acid px-5 py-3 text-[15px] font-semibold on-acid hover:bg-acid-dim transition-colors"
-            style={{ boxShadow: "var(--shadow-glow)" }}
+            className="btn btn-primary"
           >
             Email me →
           </a>
           <a
             href={profile.links.resume}
-            className="inline-flex items-center gap-2 rounded-sm border border-[var(--color-line-bright)] bg-panel px-5 py-3 text-[15px] font-medium text-txt hover:border-[var(--color-acid)]/40 hover:text-acid transition-colors"
+            className="btn btn-secondary"
           >
             Download résumé
           </a>

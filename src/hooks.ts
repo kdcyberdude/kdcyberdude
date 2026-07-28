@@ -11,21 +11,21 @@ export function getStoredTheme(): Theme {
   } catch {
     /* ignore */
   }
-  return "dark";
+  return "light";
 }
 
 export function applyTheme(theme: Theme) {
   document.documentElement.setAttribute("data-theme", theme);
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute("content", theme === "dark" ? "#08090b" : "#f3f5f7");
+  if (meta) meta.setAttribute("content", theme === "dark" ? "#050505" : "#f5f5f7");
 }
 
-/** Dark-default theme with localStorage persistence. */
+/** Light-default theme with localStorage persistence. */
 export function useTheme() {
   const [theme, setThemeState] = useState<Theme>(() =>
     typeof document !== "undefined"
-      ? ((document.documentElement.getAttribute("data-theme") as Theme) || "dark")
-      : "dark",
+      ? ((document.documentElement.getAttribute("data-theme") as Theme) || "light")
+      : "light",
   );
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { learningBench } from "../data/content";
-import { ExtLinks, LinkedText, Reveal } from "./ui";
+import { LinkedText, Reveal } from "./ui";
 
 export default function LearningBench() {
   return (
@@ -22,9 +22,6 @@ export default function LearningBench() {
         </p>
         <p className="mt-5 max-w-2xl text-[15px] md:text-base text-muted leading-relaxed">
           {learningBench.summary}
-        </p>
-        <p className="mt-4 max-w-2xl text-[14px] md:text-[15px] text-dim leading-relaxed">
-          {learningBench.story}
         </p>
       </Reveal>
 
@@ -57,25 +54,17 @@ export default function LearningBench() {
               href={learningBench.href}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center rounded-sm bg-acid px-4 py-2.5 text-[13px] font-semibold on-acid hover:bg-acid-dim transition-colors"
+              className="btn btn-primary btn-sm"
             >
-              Project page ↗
+              Explore the case study ↗
             </a>
             <a
               href={learningBench.writeup}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center rounded-sm border border-[var(--color-line-bright)] bg-panel px-4 py-2.5 text-[13px] font-medium text-txt hover:border-[var(--color-acid)]/40 transition-colors"
+              className="btn btn-secondary btn-sm"
             >
               Kaggle writeup
-            </a>
-            <a
-              href={learningBench.benchmarks}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center rounded-sm border border-[var(--color-line-bright)] bg-panel px-4 py-2.5 text-[13px] font-medium text-txt hover:border-[var(--color-acid)]/40 transition-colors"
-            >
-              Kaggle benchmarks
             </a>
             <a
               href={learningBench.repo}
@@ -86,12 +75,6 @@ export default function LearningBench() {
               GitHub
             </a>
           </div>
-          <ExtLinks
-            links={[
-              { label: "Kaggle profile", href: learningBench.kaggleProfile },
-              { label: "Local press", href: learningBench.press },
-            ]}
-          />
         </Reveal>
 
         <Reveal delay={0.16}>

@@ -20,7 +20,7 @@ export const profile = {
     ],
   },
   summary:
-    "I design evaluations, train models, and run the hardware that makes the loop real. $25K Grand Prize winner (Google DeepMind × Kaggle) for LearningBench — a benchmark of inference-time learning. Built ASR/TTS/LLMs on 100K+ hours of speech (6.96–10.18% WER on IndicSUPERB), a 7-GPU home lab, and consumer AI products.",
+    "I design evaluations, train models, and run the hardware that makes the loop real. My work spans a $25K Google DeepMind × Kaggle Grand Prize, ASR/TTS/LLMs built on 100K+ hours of speech, a 7-GPU home lab, and consumer AI products.",
   links: {
     email: "kdsingh.cyberdude@gmail.com",
     phone: "+91 62871 18222",
@@ -88,8 +88,8 @@ export const platforms: {
 
 export const stats: { value: string; label: string; accent?: boolean }[] = [
   { value: "$25K", label: "DeepMind × Kaggle Grand Prize", accent: true },
-  { value: "135", label: "LearningBench tasks · 14 models", accent: true },
   { value: "100K+", label: "hrs speech · ASR corpus" },
+  { value: "6.96%", label: "best IndicSUPERB WER" },
   { value: "7", label: "GPUs · home lab" },
 ];
 
@@ -100,14 +100,11 @@ export const learningBench = {
   kicker: "Measuring inference-time learning in LLMs",
   year: "Mar – Apr 2026",
   summary:
-    "Existing benchmarks measure what models already know. LearningBench measures how they learn — from scratch, inside a single conversation, on systems that have never existed before. No memorisation can help. I built it as a solo, first-time Kaggle competitor and won the Grand Prize against 1,068 teams.",
-  story:
-    "The question that drove it: can a frontier model acquire a genuinely new system — rules it has never seen — inside one conversation, or is “intelligence” mostly retrieval of pretraining? LearningBench forces the former. Every task is programmatic, with ground truth and trajectory metrics, so the score reflects learning behavior rather than vibes.",
+    "Can a model acquire a genuinely new system inside one conversation, rather than retrieve something memorised? I built a benchmark to answer that question — solo, as a first-time Kaggle competitor — and won the Grand Prize against 1,068 teams.",
   bullets: [
-    "Won the $25,000 Grand Prize as a solo, first-time Kaggle competitor against 1,068 teams — Learning track in DeepMind’s “Measuring Progress Toward AGI: Cognitive Abilities.”",
-    "Featured on [Kaggle’s official benchmark page](https://www.kaggle.com/benchmarks); #2 most-voted community benchmark. [Project page →](https://learningbench-project-page-918170344855.us-west1.run.app/)",
-    "Presents frontier models with entirely new systems they must learn the rules of inside a single conversation — testing in-context learning, not pretrained knowledge recall.",
-    "135 programmatic tasks across 6 cognitive sub-abilities; evaluated 14 models from small to frontier.",
+    "Entirely new rule systems make pretraining recall useless; models have to learn from evidence in the conversation.",
+    "Programmatic ground truth and trajectory metrics separate genuine learning from plausible-looking final answers.",
+    "Featured on [Kaggle’s official benchmark page](https://www.kaggle.com/benchmarks) as the #2 most-voted community benchmark.",
   ],
   metrics: [
     { k: "tasks", v: "135" },
@@ -282,7 +279,7 @@ export const traits: { title: string; proof: string }[] = [
   {
     title: "Measure first",
     proof:
-      "LearningBench wasn’t a vibes eval — 135 programmatic tasks, programmatic ground truth, trajectory metrics. I measure learning, not just accuracy. HARvestGym does the same for agent actions: provenance over outgoing parameters, not just “did the tool call look right.”",
+      "Programmatic ground truth and trajectory metrics turn fuzzy claims into evidence. For agent actions, I use provenance over outgoing parameters — not just “did the tool call look right.”",
   },
   {
     title: "First principles → thin experiment",
@@ -314,7 +311,7 @@ export type Job = {
 
 /** Arc summary shown above the timeline */
 export const trajectoryIntro =
-  "Full-stack product engineer → ML & data → research and training on owned infra. ~3 years at theAsianparent, then Treow end-to-end — models, home lab, and product — plus LearningBench.";
+  "Full-stack product engineer → ML & data → independent research and training on owned infra. ~3 years at theAsianparent, then Treow end-to-end — models, home lab, and product.";
 
 export const timeline: Job[] = [
   {
@@ -324,10 +321,9 @@ export const timeline: Job[] = [
     duration: "~1 yr 10 mo",
     href: "https://www.treowintelligence.com/",
     summary:
-      "AI-native studio on self-hosted GPUs: consumer diffusion product (LuxeAI) + regional speech/LLM work (Treow AI). LearningBench Grand Prize in parallel. Looking ahead: research labs and deep-tech teams where this loop scales beyond solo.",
+      "AI-native studio on self-hosted GPUs: consumer diffusion product (LuxeAI) + regional speech/LLM work (Treow AI). Looking ahead: research labs and deep-tech teams where this loop scales beyond solo.",
     bullets: [
       "Own the loop: dataset → train / fine-tune → eval → serve — on a 7-GPU home lab (3× 5090 + 4× 4090). [Write-up →](https://www.reddit.com/r/comfyui/comments/1pd072e/i_built_a_7gpu_ai_monster_rig_at_home_35090_44090/)",
-      "[LearningBench](https://learningbench-project-page-918170344855.us-west1.run.app/) (Mar–Apr 2026): $25K DeepMind × Kaggle Grand Prize — [writeup](https://www.kaggle.com/competitions/kaggle-measuring-agi/writeups/learningbench).",
       "[Treow AI](https://www.treowintelligence.com/): ASR on 100K+ hrs (6.96–10.18% WER on IndicSUPERB), TTS, Punjabi small LLMs; internet-scale data pipelines. [Models on HF →](https://huggingface.co/kdcyberdude)",
       "[LuxeAI](https://console.luxeai.studio): crop-aware training, realtime generation, ComfyUI orchestration (1290+ nodes), full paid product surface with 300+ fine-tuned diffusion models.",
       "[HARvestGym](https://github.com/kdcyberdude/HARvestGym): open RL env + provenance checks for HTTP agents on live apps.",
@@ -426,16 +422,6 @@ export const probesIntro =
   "Repos and models you can open.";
 
 export const probes: Probe[] = [
-  {
-    id: "learningbench",
-    name: "LearningBench",
-    kicker: "GitHub",
-    status: "public",
-    host: "github",
-    href: "https://github.com/kdcyberdude/LearningBench",
-    blurb: "Inference-time learning eval — DeepMind × Kaggle Grand Prize.",
-    stack: ["eval", "in-context learning", "Kaggle"],
-  },
   {
     id: "harvestgym",
     name: "HARvestGym",

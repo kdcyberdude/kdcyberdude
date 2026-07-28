@@ -184,7 +184,7 @@ export default function BriefSimulator() {
             </div>
             <button
               type="submit"
-              className="shrink-0 rounded-sm bg-acid px-5 py-2.5 text-[14px] font-semibold on-acid hover:bg-acid-dim transition-colors self-stretch sm:self-auto"
+              className="btn btn-primary shrink-0 self-stretch sm:self-auto"
             >
               Scope it →
             </button>
@@ -203,7 +203,7 @@ export default function BriefSimulator() {
                       setInput(p.prompt);
                       run(p.prompt);
                     }}
-                    className="text-[12.5px] text-muted border border-[var(--color-line)] rounded-sm px-3 py-1.5 hover:border-[var(--color-acid)]/45 hover:text-acid transition-colors"
+                    className="min-h-8 rounded-[7px] border border-[var(--color-line)] bg-panel px-3 py-1.5 text-[12.5px] text-muted transition-colors hover:border-[var(--color-acid)]/45 hover:text-acid"
                   >
                     {p.label}
                   </button>
@@ -220,7 +220,7 @@ export default function BriefSimulator() {
                       setInput(p.prompt);
                       run(p.prompt);
                     }}
-                    className="text-[12.5px] text-muted border border-[var(--color-line)] rounded-sm px-3 py-1.5 hover:border-[var(--color-acid)]/45 hover:text-acid transition-colors"
+                    className="min-h-8 rounded-[7px] border border-[var(--color-line)] bg-panel px-3 py-1.5 text-[12.5px] text-muted transition-colors hover:border-[var(--color-acid)]/45 hover:text-acid"
                   >
                     {p.label}
                   </button>
@@ -302,7 +302,7 @@ export default function BriefSimulator() {
                 <>
                   <button
                     onClick={reset}
-                    className="text-[13px] font-medium on-acid bg-acid rounded-sm px-4 py-2 hover:bg-acid-dim transition-colors"
+                    className="btn btn-primary btn-sm"
                   >
                     ↺ Another problem
                   </button>
