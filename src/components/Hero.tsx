@@ -67,7 +67,7 @@ export default function Hero() {
             href="#research"
             className="btn btn-primary"
           >
-            View flagship work
+            Start here
           </a>
           <a
             href="#work"
