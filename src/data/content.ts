@@ -142,15 +142,15 @@ export const pokemonResearch = {
   name: "Pokémon TCG AI Battle",
   year: "June – Sep 2026",
   summary:
-    "Trained a game-playing AI through self-play to make decisions with hidden information. The technical report covers its training, deck choices, and robustness tests.",
+    "Can an AI compete when it cannot see its opponent’s cards? I trained a Pokémon TCG agent through self-play, specialized it for two decks, and tested how reliably it performed across repeated games, matchups, and starting conditions.",
   metrics: [
     { k: "Simulation", v: "19th / 6,807 teams" },
     { k: "Strategy", v: "12th" },
   ],
   links: [
     { label: "Technical report", href: "https://kdcyberdude.com/blogs/how-to-build-a-pokemon-tcg-agent/" },
-    { label: "Simulation result", href: "https://www.kaggle.com/competitions/pokemon-tcg-ai-battle/leaderboard?episodeId=82017244&submissionId=54072877" },
-    { label: "Strategy result", href: "https://www.kaggle.com/competitions/pokemon-tcg-ai-battle-challenge-strategy/discussion/742692#3528717" },
+    { label: "Simulation result", href: "https://www.kaggle.com/competitions/pokemon-tcg-ai-battle/leaderboard" },
+    { label: "Strategy result", href: "https://www.kaggle.com/competitions/pokemon-tcg-ai-battle-challenge-strategy/discussion/742692" },
   ],
 };
 
@@ -402,6 +402,11 @@ export const certifications: {
     name: "Hacking and Patching",
     issuer: "University of Colorado Boulder",
     href: "https://www.coursera.org/account/accomplishments/verify/LT7GHY9TCMYG",
+  },
+  {
+    name: "Foundations of Cybersecurity",
+    issuer: "Google",
+    href: "https://www.coursera.org/account/accomplishments/verify/UC5E84KTNEMG",
   },
   {
     name: "Blockchain Specialization",
