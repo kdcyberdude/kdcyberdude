@@ -13,12 +13,13 @@ export default function Contact() {
       <div className="border-t border-[var(--color-line-bright)] pt-12 md:pt-16">
         <div className="sec-tag mb-4">07 / contact</div>
         <h2 className="serif text-3xl md:text-5xl font-medium tracking-tight leading-[1.05] max-w-2xl">
-          Open to labs and teams doing{" "}
-          <span className="acid-text">serious work</span>.
+          Open to teams taking AI from{" "}
+          <span className="acid-text">research to real use</span>.
         </h2>
         <p className="mt-5 max-w-xl text-muted text-[15px] md:text-base leading-relaxed">
-          Researcher, applied ML, engineering, or forward-deployed. If the problems are hard
-          and the bar is high, I’d like to hear about it.
+          I’m interested in research engineering, applied ML, and forward-deployed engineering
+          roles. I like working with users to define the problem, build the system, and measure
+          how well it works.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">

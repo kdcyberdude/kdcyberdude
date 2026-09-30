@@ -1,0 +1,496 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="3190" viewBox="0 0 1600 3190" role="img" aria-label="Potential Final Ranks Among the Top 23 Teams" aria-describedby="description">
+<desc id="description">The top 23 teams are ordered by their average Kaggle rating over time, highest first. Adjacent teams have overlapping middle-50% rating ranges, grouped only while every member Q25–Q75 box has a common overlap. This proposed ranking gives teams in the same Shared Rank equal standing and equal claim to awards on rank alone; awarding more requires other judging criteria. The # beside each name is that team's mean-rating order among 23, numbered 1 through 23. The median, mean, official-final, and three model-reference markers share each row centerline.</desc>
+<style>text{font-family:Inter,"Noto Sans CJK JP","Noto Sans",Arial,sans-serif;fill:#1d1d1f;font-size:18px}.muted{fill:#6e6e73}.small{font-size:16px}.team{font-size:23px}.calloutTitle{font-size:26px;font-weight:700;fill:#1d1d1f}.calloutBody{font-size:20px;fill:#1d1d1f}.group{font-size:16px;font-weight:650;letter-spacing:.5px}.number{font-variant-numeric:tabular-nums}.grid{stroke:#e2e2e7;stroke-width:1}.frame{stroke:#e2e2e7;stroke-width:1}.rowRule{stroke:#e2e2e7;stroke-width:1}</style>
+<rect width="1600" height="3190" fill="#fff"/>
+<text x="42" y="68" style="font-size:33px;font-weight:650">Potential Final Ranks Among the Top 23 Teams</text>
+<text x="42" y="108" class="muted">Top 23 teams · ordered by average Kaggle rating over time, highest first</text>
+<g data-shared-rank-callout="true">
+<rect x="34" y="140" width="1520" height="122" rx="6" fill="#e9f1ff"/>
+<rect x="34" y="140" width="6" height="122" rx="2" fill="#1768ce"/>
+<text x="56" y="176" class="calloutTitle">Shared rank, equal standing</text>
+<text x="56" y="210" class="calloutBody">We propose equal standing for teams in the same Shared Rank among the top 23.</text>
+<text x="56" y="240" class="calloutBody">On rank alone, they deserve equal awards; differences need other judging criteria.</text>
+</g>
+<line x1="44" x2="44" y1="308" y2="334" stroke="#1d1d1f" stroke-width="3"/>
+<text x="58" y="328" class="small">median</text>
+<circle cx="156" cy="322" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<text x="170" y="328" class="small">mean</text>
+<polygon points="259,314.5 266.5,322 259,329.5 251.5,322" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<text x="274" y="328" class="small">official final</text>
+<circle cx="44" cy="392" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/>
+<text x="61" y="387" class="small">Bayesian posterior-predictive tournament</text>
+<text x="61" y="408" class="muted small">simulation rank · 100-team field</text>
+<polygon points="560,387 565,397 555,397" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/>
+<text x="577" y="387" class="small">Robust mean-reverting AR(1)</text>
+<text x="577" y="408" class="muted small">rating-forecast rank · 23-team field</text>
+<rect x="1036" y="388" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/>
+<text x="1057" y="387" class="small">Regularized batch Bradley–Terry</text>
+<text x="1057" y="408" class="muted small">paired-comparison rank · 100-team field</text>
+<text x="42" y="464" class="muted small">MEAN # · TEAM · MEAN · σ · WIN RATE</text>
+<text x="500" y="464" class="muted small">KAGGLE RATING · 1000–1400</text>
+<line x1="510" x2="510" y1="516" y2="3134" class="grid"/>
+<text x="510" y="492" text-anchor="middle" class="muted small number">1000</text>
+<text x="510" y="3159" text-anchor="middle" class="muted small number">1000</text>
+<line x1="638.75" x2="638.75" y1="516" y2="3134" class="grid"/>
+<text x="638.75" y="492" text-anchor="middle" class="muted small number">1050</text>
+<text x="638.75" y="3159" text-anchor="middle" class="muted small number">1050</text>
+<line x1="767.5" x2="767.5" y1="516" y2="3134" class="grid"/>
+<text x="767.5" y="492" text-anchor="middle" class="muted small number">1100</text>
+<text x="767.5" y="3159" text-anchor="middle" class="muted small number">1100</text>
+<line x1="896.25" x2="896.25" y1="516" y2="3134" class="grid"/>
+<text x="896.25" y="492" text-anchor="middle" class="muted small number">1150</text>
+<text x="896.25" y="3159" text-anchor="middle" class="muted small number">1150</text>
+<line x1="1025" x2="1025" y1="516" y2="3134" class="grid"/>
+<text x="1025" y="492" text-anchor="middle" class="muted small number">1200</text>
+<text x="1025" y="3159" text-anchor="middle" class="muted small number">1200</text>
+<line x1="1153.75" x2="1153.75" y1="516" y2="3134" class="grid"/>
+<text x="1153.75" y="492" text-anchor="middle" class="muted small number">1250</text>
+<text x="1153.75" y="3159" text-anchor="middle" class="muted small number">1250</text>
+<line x1="1282.5" x2="1282.5" y1="516" y2="3134" class="grid"/>
+<text x="1282.5" y="492" text-anchor="middle" class="muted small number">1300</text>
+<text x="1282.5" y="3159" text-anchor="middle" class="muted small number">1300</text>
+<line x1="1411.25" x2="1411.25" y1="516" y2="3134" class="grid"/>
+<text x="1411.25" y="492" text-anchor="middle" class="muted small number">1350</text>
+<text x="1411.25" y="3159" text-anchor="middle" class="muted small number">1350</text>
+<line x1="1540" x2="1540" y1="516" y2="3134" class="grid"/>
+<text x="1540" y="492" text-anchor="middle" class="muted small number">1400</text>
+<text x="1540" y="3159" text-anchor="middle" class="muted small number">1400</text>
+<line x1="500" x2="1550" y1="516" y2="516" class="frame"/>
+<g data-shared-rank-group="SR1" data-common-q25-q75="1313.18–1353.92">
+<rect x="34" y="524" width="1520" height="62" fill="#f5f5f7"/>
+<text x="48" y="562" class="group">SHARED RANK #SR1</text>
+<text x="250" y="562" class="muted small">1 team · Kaggle rating range 1313.18–1353.92</text>
+<rect data-common-overlap-corridor="SR1" x="1316.4385000000002" y="586" width="104.90549999999985" height="100" fill="#7b8697" opacity="0.05"/>
+<g data-team-score-range="16448747" data-shared-rank="SR1">
+<rect data-mean-rank-badge="1" x="64" y="592" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="612" class="team" text-anchor="middle" data-mean-rank="1">#1</text>
+<text x="128" y="612" class="team">Luca</text>
+<text x="128" y="638" class="small number muted">Mean 1335.0 · σ 25.2</text>
+<text x="128" y="662" class="small number muted">Win rate 70.77%</text>
+<line x1="1230.8455000000001" x2="1535.4165" y1="636" y2="636" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M1230.8455000000001 630v12 M1535.4165 630v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16448747" x="1316.4385000000002" y="627" width="104.90549999999985" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="636" x1="1375.0455000000002" x2="1375.0455000000002" y1="624" y2="648" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="1" data-population="100" data-rank-aligned-rating="1398.20" data-centerline-marker="posterior-predictive" data-centerline-y="636"><circle cx="1535.3650000000002" cy="636" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="1" data-population="23" data-rank-aligned-rating="1398.22" data-centerline-marker="ar1" data-centerline-y="636"><polygon points="1535.4165,631 1540.4165,641 1530.4165,641" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="1" data-population="100" data-rank-aligned-rating="1398.20" data-centerline-marker="batch-bradley-terry" data-centerline-y="636"><rect x="1531.3650000000002" y="632" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="636" points="1535.4165,628.5 1542.9165,636 1535.4165,643.5 1527.9165,636" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="636" cx="1372.7022499999998" cy="636" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="686" y2="686" class="rowRule"/>
+</g>
+<line data-common-overlap-boundary="start" x1="1316.4385000000002" x2="1316.4385000000002" y1="586" y2="686" stroke="#7b8697" stroke-width="1.6" stroke-dasharray="6 4" stroke-opacity="0.22"/>
+<line data-common-overlap-boundary="end" x1="1421.344" x2="1421.344" y1="586" y2="686" stroke="#7b8697" stroke-width="1.6" stroke-dasharray="6 4" stroke-opacity="0.22"/>
+<path data-common-overlap-bracket="SR1" d="M1316.4385000000002 592v-6H1421.344v6" fill="none" stroke="#7b8697" stroke-width="1.6" stroke-opacity="0.22"/>
+</g>
+<g data-shared-rank-group="SR2" data-common-q25-q75="1239.00–1239.51">
+<rect x="34" y="686" width="1520" height="62" fill="#f5f5f7"/>
+<text x="48" y="724" class="group">SHARED RANK #SR2</text>
+<text x="250" y="724" class="muted small">6 teams · Kaggle rating range 1203.65–1275.53</text>
+<rect data-common-overlap-corridor="SR2" x="1125.4250000000002" y="748" width="1.313249999999698" height="600" fill="#7b8697" opacity="0.05"/>
+<g data-team-score-range="16375635" data-shared-rank="SR2">
+<rect data-mean-rank-badge="2" x="64" y="754" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="774" class="team" text-anchor="middle" data-mean-rank="2">#2</text>
+<text x="128" y="774" class="team">palsystem</text>
+<text x="128" y="800" class="small number muted">Mean 1256.5 · σ 25.0</text>
+<text x="128" y="824" class="small number muted">Win rate 59.69%</text>
+<line x1="992.0142500000002" x2="1311.46875" y1="798" y2="798" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M992.0142500000002 792v12 M1311.46875 792v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16375635" x="1125.4250000000002" y="789" width="91.6957499999994" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="798" x1="1172.4959999999999" x2="1172.4959999999999" y1="786" y2="810" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="3" data-population="100" data-rank-aligned-rating="1280.50" data-centerline-marker="posterior-predictive" data-centerline-y="798"><circle cx="1232.2875" cy="798" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="3" data-population="23" data-rank-aligned-rating="1280.54" data-centerline-marker="ar1" data-centerline-y="798"><polygon points="1232.3905,793 1237.3905,803 1227.3905,803" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="3" data-population="100" data-rank-aligned-rating="1280.50" data-centerline-marker="batch-bradley-terry" data-centerline-y="798"><rect x="1228.2875" y="794" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="798" points="1277.0410000000002,790.5 1284.5410000000002,798 1277.0410000000002,805.5 1269.5410000000002,798" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="798" cx="1170.5904999999998" cy="798" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="848" y2="848" class="rowRule"/>
+</g>
+<g data-team-score-range="16581741" data-shared-rank="SR2">
+<rect data-mean-rank-badge="3" x="64" y="854" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="874" class="team" text-anchor="middle" data-mean-rank="3">#3</text>
+<text x="128" y="874" class="team">Unown Gradiant</text>
+<text x="128" y="900" class="small number muted">Mean 1255.3 · σ 28.5</text>
+<text x="128" y="924" class="small number muted">Win rate 60.35%</text>
+<line x1="975.3025000000001" x2="1358.5140000000001" y1="898" y2="898" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M975.3025000000001 892v12 M1358.5140000000001 892v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16581741" x="1113.0135" y="889" width="106.47624999999994" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="898" x1="1181.6629999999998" x2="1181.6629999999998" y1="886" y2="910" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="6" data-population="100" data-rank-aligned-rating="1229.50" data-centerline-marker="posterior-predictive" data-centerline-y="898"><circle cx="1100.9625" cy="898" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="2" data-population="23" data-rank-aligned-rating="1297.88" data-centerline-marker="ar1" data-centerline-y="898"><polygon points="1277.0410000000002,893 1282.0410000000002,903 1272.0410000000002,903" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="2" data-population="100" data-rank-aligned-rating="1297.80" data-centerline-marker="batch-bradley-terry" data-centerline-y="898"><rect x="1272.835" y="894" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="898" points="1232.3905,890.5 1239.8905,898 1232.3905,905.5 1224.8905,898" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="898" cx="1167.4232499999998" cy="898" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="948" y2="948" class="rowRule"/>
+</g>
+<g data-team-score-range="16380946" data-shared-rank="SR2">
+<rect data-mean-rank-badge="4" x="64" y="954" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="974" class="team" text-anchor="middle" data-mean-rank="4">#4</text>
+<text x="128" y="974" class="team">flg</text>
+<text x="128" y="1000" class="small number muted">Mean 1250.5 · σ 30.7</text>
+<text x="128" y="1024" class="small number muted">Win rate 59.99%</text>
+<line x1="977.7230000000002" x2="1344.6862500000002" y1="998" y2="998" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M977.7230000000002 992v12 M1344.6862500000002 992v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16380946" x="1084.328" y="989" width="128.20924999999988" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="998" x1="1171.5175000000004" x2="1171.5175000000004" y1="986" y2="1010" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="5" data-population="100" data-rank-aligned-rating="1257.30" data-centerline-marker="posterior-predictive" data-centerline-y="998"><circle cx="1172.5475" cy="998" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="4" data-population="23" data-rank-aligned-rating="1266.20" data-centerline-marker="ar1" data-centerline-y="998"><polygon points="1195.4650000000001,993 1200.4650000000001,1003 1190.4650000000001,1003" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="4" data-population="100" data-rank-aligned-rating="1266.10" data-centerline-marker="batch-bradley-terry" data-centerline-y="998"><rect x="1191.2074999999998" y="994" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="998" points="1195.4650000000001,990.5 1202.9650000000001,998 1195.4650000000001,1005.5 1187.9650000000001,998" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="998" cx="1155.11475" cy="998" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="1048" y2="1048" class="rowRule"/>
+</g>
+<g data-team-score-range="16373946" data-shared-rank="SR2">
+<rect data-mean-rank-badge="5" x="64" y="1054" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="1074" class="team" text-anchor="middle" data-mean-rank="5">#5</text>
+<text x="128" y="1074" class="team">KawattaTaido</text>
+<text x="128" y="1100" class="small number muted">Mean 1247.5 · σ 25.6</text>
+<text x="128" y="1124" class="small number muted">Win rate 58.93%</text>
+<line x1="982.9502500000001" x2="1305.3402499999997" y1="1098" y2="1098" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M982.9502500000001 1092v12 M1305.3402499999997 1092v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16373946" x="1097.2802499999998" y="1089" width="94.42525000000023" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="1098" x1="1145.43275" x2="1145.43275" y1="1086" y2="1110" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="5" data-population="100" data-rank-aligned-rating="1257.30" data-centerline-marker="posterior-predictive" data-centerline-y="1098"><circle cx="1172.5475" cy="1098" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="5" data-population="23" data-rank-aligned-rating="1257.37" data-centerline-marker="ar1" data-centerline-y="1098"><polygon points="1172.7277499999996,1093 1177.7277499999996,1103 1167.7277499999996,1103" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="5" data-population="100" data-rank-aligned-rating="1257.30" data-centerline-marker="batch-bradley-terry" data-centerline-y="1098"><rect x="1168.5475" y="1094" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="1098" points="1101.1942499999998,1090.5 1108.6942499999998,1098 1101.1942499999998,1105.5 1093.6942499999998,1098" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="1098" cx="1147.33825" cy="1098" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="1148" y2="1148" class="rowRule"/>
+</g>
+<g data-team-score-range="16416261" data-shared-rank="SR2">
+<rect data-mean-rank-badge="6" x="64" y="1154" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="1174" class="team" text-anchor="middle" data-mean-rank="6">#6</text>
+<text x="128" y="1174" class="team">Petit Canard</text>
+<text x="128" y="1200" class="small number muted">Mean 1231.1 · σ 20.8</text>
+<text x="128" y="1224" class="small number muted">Win rate 59.39%</text>
+<line x1="970.95075" x2="1275.9852500000002" y1="1198" y2="1198" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M970.95075 1192v12 M1275.9852500000002 1192v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16416261" x="1068.23425" y="1189" width="70.52925000000005" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="1198" x1="1097.5635000000002" x2="1097.5635000000002" y1="1186" y2="1210" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="5" data-population="100" data-rank-aligned-rating="1257.30" data-centerline-marker="posterior-predictive" data-centerline-y="1198"><circle cx="1172.5475" cy="1198" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="6" data-population="23" data-rank-aligned-rating="1229.59" data-centerline-marker="ar1" data-centerline-y="1198"><polygon points="1101.1942499999998,1193 1106.1942499999998,1203 1096.1942499999998,1203" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="7" data-population="100" data-rank-aligned-rating="1226.60" data-centerline-marker="batch-bradley-terry" data-centerline-y="1198"><rect x="1089.495" y="1194" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="1198" points="1172.7277499999996,1190.5 1180.2277499999996,1198 1172.7277499999996,1205.5 1165.2277499999996,1198" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="1198" cx="1105.1082499999998" cy="1198" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="1248" y2="1248" class="rowRule"/>
+</g>
+<g data-team-score-range="16381624" data-shared-rank="SR2">
+<rect data-mean-rank-badge="7" x="64" y="1254" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="1274" class="team" text-anchor="middle" data-mean-rank="7">#7</text>
+<text x="128" y="1274" class="team">LumenLiquidity</text>
+<text x="128" y="1300" class="small number muted">Mean 1220.3 · σ 24.7</text>
+<text x="128" y="1324" class="small number muted">Win rate 58.67%</text>
+<line x1="870.7832499999997" x2="1240.8622499999997" y1="1298" y2="1298" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M870.7832499999997 1292v12 M1240.8622499999997 1292v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16381624" x="1034.3987500000003" y="1289" width="92.33949999999959" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="1298" x1="1079.20375" x2="1079.20375" y1="1286" y2="1310" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="5" data-population="100" data-rank-aligned-rating="1257.30" data-centerline-marker="posterior-predictive" data-centerline-y="1298"><circle cx="1172.5475" cy="1298" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="7" data-population="23" data-rank-aligned-rating="1226.64" data-centerline-marker="ar1" data-centerline-y="1298"><polygon points="1093.5980000000002,1293 1098.5980000000002,1303 1088.5980000000002,1303" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="6" data-population="100" data-rank-aligned-rating="1229.50" data-centerline-marker="batch-bradley-terry" data-centerline-y="1298"><rect x="1096.9625" y="1294" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="1298" points="1093.5980000000002,1290.5 1101.0980000000002,1298 1093.5980000000002,1305.5 1086.0980000000002,1298" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="1298" cx="1077.2467499999998" cy="1298" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="1348" y2="1348" class="rowRule"/>
+</g>
+<line data-common-overlap-boundary="start" x1="1125.4250000000002" x2="1125.4250000000002" y1="748" y2="1348" stroke="#7b8697" stroke-width="1.6" stroke-dasharray="6 4" stroke-opacity="0.22"/>
+<line data-common-overlap-boundary="end" x1="1126.7382499999999" x2="1126.7382499999999" y1="748" y2="1348" stroke="#7b8697" stroke-width="1.6" stroke-dasharray="6 4" stroke-opacity="0.22"/>
+<path data-common-overlap-bracket="SR2" d="M1125.4250000000002 754v-6H1126.7382499999999v6" fill="none" stroke="#7b8697" stroke-width="1.6" stroke-opacity="0.22"/>
+</g>
+<g data-shared-rank-group="SR3" data-common-q25-q75="1174.42–1180.42">
+<rect x="34" y="1348" width="1520" height="62" fill="#f5f5f7"/>
+<text x="48" y="1386" class="group">SHARED RANK #SR3</text>
+<text x="250" y="1386" class="muted small">12 teams · Kaggle rating range 1135.52–1218.38</text>
+<rect data-common-overlap-corridor="SR3" x="959.1315000000002" y="1410" width="15.450000000000045" height="1200" fill="#7b8697" opacity="0.05"/>
+<g data-team-score-range="16462035" data-shared-rank="SR3">
+<rect data-mean-rank-badge="8" x="64" y="1416" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="1436" class="team" text-anchor="middle" data-mean-rank="8">#8</text>
+<text x="128" y="1436" class="team">Azat Akhtyamov</text>
+<text x="128" y="1462" class="small number muted">Mean 1194.5 · σ 27.4</text>
+<text x="128" y="1486" class="small number muted">Win rate 57.37%</text>
+<line x1="841.8917500000002" x2="1169.4832499999998" y1="1460" y2="1460" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M841.8917500000002 1454v12 M1169.4832499999998 1454v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16462035" x="959.1315000000002" y="1451" width="113.19700000000012" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="1460" x1="1002.6232499999999" x2="1002.6232499999999" y1="1448" y2="1472" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="9" data-population="100" data-rank-aligned-rating="1200.00" data-centerline-marker="posterior-predictive" data-centerline-y="1460"><circle cx="1025" cy="1460" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="8" data-population="23" data-rank-aligned-rating="1214.21" data-centerline-marker="ar1" data-centerline-y="1460"><polygon points="1061.5907500000003,1455 1066.5907500000003,1465 1056.5907500000003,1465" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="8" data-population="100" data-rank-aligned-rating="1214.20" data-centerline-marker="batch-bradley-terry" data-centerline-y="1460"><rect x="1057.565" y="1456" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="1460" points="1012.9747499999999,1452.5 1020.4747499999999,1460 1012.9747499999999,1467.5 1005.4747499999999,1460" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="1460" cx="1010.8375000000001" cy="1460" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="1510" y2="1510" class="rowRule"/>
+</g>
+<g data-team-score-range="16561259" data-shared-rank="SR3">
+<rect x="34" y="1511" width="1520" height="98" rx="4" fill="#e9f1ff"/>
+<rect data-mean-rank-badge="9" x="64" y="1516" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="1536" class="team" text-anchor="middle" data-mean-rank="9">#9</text>
+<text x="128" y="1536" class="team" font-weight="650">@kdcyberdude</text>
+<text x="128" y="1562" class="small number muted">Mean 1188.0 · σ 26.5</text>
+<text x="128" y="1586" class="small number muted">Win rate 57.76%</text>
+<line x1="837.4370000000001" x2="1168.40175" y1="1560" y2="1560" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M837.4370000000001 1554v12 M1168.40175 1554v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16561259" x="944.5827499999999" y="1551" width="97.79849999999999" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="1560" x1="992.4519999999998" x2="992.4519999999998" y1="1548" y2="1572" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="11" data-population="100" data-rank-aligned-rating="1194.80" data-centerline-marker="posterior-predictive" data-centerline-y="1560"><circle cx="1011.6099999999999" cy="1560" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="10" data-population="23" data-rank-aligned-rating="1195.33" data-centerline-marker="ar1" data-centerline-y="1560"><polygon points="1012.9747499999999,1555 1017.9747499999999,1565 1007.9747499999999,1565" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="9" data-population="100" data-rank-aligned-rating="1200.00" data-centerline-marker="batch-bradley-terry" data-centerline-y="1560"><rect x="1021" y="1556" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="1560" points="925.9912499999998,1552.5 933.4912499999998,1560 925.9912499999998,1567.5 918.4912499999998,1560" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="1560" cx="993.97125" cy="1560" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="1610" y2="1610" class="rowRule"/>
+</g>
+<g data-team-score-range="16374395" data-shared-rank="SR3">
+<rect data-mean-rank-badge="10" x="64" y="1616" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="1636" class="team" text-anchor="middle" data-mean-rank="10">#10</text>
+<text x="128" y="1636" class="team">Majkel1337</text>
+<text x="128" y="1662" class="small number muted">Mean 1185.0 · σ 37.4</text>
+<text x="128" y="1686" class="small number muted">Win rate 59.83%</text>
+<line x1="663.5987500000002" x2="1140.6175000000003" y1="1660" y2="1660" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M663.5987500000002 1654v12 M1140.6175000000003 1654v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16374395" x="951.2777499999997" y="1651" width="102.81975000000011" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="1660" x1="1003.3957499999997" x2="1003.3957499999997" y1="1648" y2="1672" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="14" data-population="100" data-rank-aligned-rating="1182.70" data-centerline-marker="posterior-predictive" data-centerline-y="1660"><circle cx="980.4525000000001" cy="1660" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="9" data-population="23" data-rank-aligned-rating="1200.04" data-centerline-marker="ar1" data-centerline-y="1660"><polygon points="1025.1029999999998,1655 1030.1029999999998,1665 1020.1029999999998,1665" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="13" data-population="100" data-rank-aligned-rating="1186.30" data-centerline-marker="batch-bradley-terry" data-centerline-y="1660"><rect x="985.7224999999999" y="1656" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="1660" points="990.2117499999999,1652.5 997.7117499999999,1660 990.2117499999999,1667.5 982.7117499999999,1660" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="1660" cx="986.3235" cy="1660" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="1710" y2="1710" class="rowRule"/>
+</g>
+<g data-team-score-range="16371703" data-shared-rank="SR3">
+<rect data-mean-rank-badge="11" x="64" y="1716" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="1736" class="team" text-anchor="middle" data-mean-rank="11">#11</text>
+<text x="128" y="1736" class="team">やる気元気ミワハルキ</text>
+<text x="128" y="1762" class="small number muted">Mean 1181.4 · σ 23.2</text>
+<text x="128" y="1786" class="small number muted">Win rate 58.37%</text>
+<line x1="777.9029999999999" x2="1119.6055000000001" y1="1760" y2="1760" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M777.9029999999999 1754v12 M1119.6055000000001 1754v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16371703" x="949.57825" y="1751" width="65.35349999999971" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="1760" x1="985.9372499999997" x2="985.9372499999997" y1="1748" y2="1772" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="12" data-population="100" data-rank-aligned-rating="1186.40" data-centerline-marker="posterior-predictive" data-centerline-y="1760"><circle cx="989.9800000000002" cy="1760" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="11" data-population="23" data-rank-aligned-rating="1194.84" data-centerline-marker="ar1" data-centerline-y="1760"><polygon points="1011.7129999999997,1755 1016.7129999999997,1765 1006.7129999999997,1765" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="14" data-population="100" data-rank-aligned-rating="1182.70" data-centerline-marker="batch-bradley-terry" data-centerline-y="1760"><rect x="976.4525000000001" y="1756" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="1760" points="1061.5907500000003,1752.5 1069.0907500000003,1760 1061.5907500000003,1767.5 1054.0907500000003,1760" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="1760" cx="977.0792500000002" cy="1760" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="1810" y2="1810" class="rowRule"/>
+</g>
+<g data-team-score-range="16463316" data-shared-rank="SR3">
+<rect data-mean-rank-badge="12" x="64" y="1816" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="1836" class="team" text-anchor="middle" data-mean-rank="12">#12</text>
+<text x="128" y="1836" class="team">LiamK</text>
+<text x="128" y="1862" class="small number muted">Mean 1179.8 · σ 25.4</text>
+<text x="128" y="1886" class="small number muted">Win rate 57.43%</text>
+<line x1="830.9480000000003" x2="1162.299" y1="1860" y2="1860" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M830.9480000000003 1854v12 M1162.299 1854v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16463316" x="920.73825" y="1851" width="100.37350000000004" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="1860" x1="967.7835" x2="967.7835" y1="1848" y2="1872" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="12" data-population="100" data-rank-aligned-rating="1186.40" data-centerline-marker="posterior-predictive" data-centerline-y="1860"><circle cx="989.9800000000002" cy="1860" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="12" data-population="23" data-rank-aligned-rating="1186.49" data-centerline-marker="ar1" data-centerline-y="1860"><polygon points="990.2117499999999,1855 995.2117499999999,1865 985.2117499999999,1865" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="15" data-population="100" data-rank-aligned-rating="1178.00" data-centerline-marker="batch-bradley-terry" data-centerline-y="1860"><rect x="964.35" y="1856" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="1860" points="989.9285000000002,1852.5 997.4285000000002,1860 989.9285000000002,1867.5 982.4285000000002,1860" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="1860" cx="972.9592499999999" cy="1860" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="1910" y2="1910" class="rowRule"/>
+</g>
+<g data-team-score-range="16375647" data-shared-rank="SR3">
+<rect data-mean-rank-badge="13" x="64" y="1916" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="1936" class="team" text-anchor="middle" data-mean-rank="13">#13</text>
+<text x="128" y="1936" class="team">James Cox &amp; Henry Chao</text>
+<text x="128" y="1962" class="small number muted">Mean 1178.2 · σ 28.0</text>
+<text x="128" y="1986" class="small number muted">Win rate 58.67%</text>
+<line x1="767.0622499999998" x2="1131.5792500000002" y1="1960" y2="1960" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M767.0622499999998 1954v12 M1131.5792500000002 1954v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16375647" x="929.7507499999999" y="1951" width="90.0992500000001" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="1960" x1="971.3627500000002" x2="971.3627500000002" y1="1948" y2="1972" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="12" data-population="100" data-rank-aligned-rating="1186.40" data-centerline-marker="posterior-predictive" data-centerline-y="1960"><circle cx="989.9800000000002" cy="1960" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="16" data-population="23" data-rank-aligned-rating="1167.02" data-centerline-marker="ar1" data-centerline-y="1960"><polygon points="940.0764999999999,1955 945.0764999999999,1965 935.0764999999999,1965" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="11" data-population="100" data-rank-aligned-rating="1194.80" data-centerline-marker="batch-bradley-terry" data-centerline-y="1960"><rect x="1007.6099999999999" y="1956" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="1960" points="940.0764999999999,1952.5 947.5764999999999,1960 940.0764999999999,1967.5 932.5764999999999,1960" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="1960" cx="968.8650000000001" cy="1960" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="2010" y2="2010" class="rowRule"/>
+</g>
+<g data-team-score-range="16452116" data-shared-rank="SR3">
+<rect data-mean-rank-badge="14" x="64" y="2016" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="2036" class="team" text-anchor="middle" data-mean-rank="14">#14</text>
+<text x="128" y="2036" class="team">Sixth Sense</text>
+<text x="128" y="2062" class="small number muted">Mean 1176.0 · σ 35.2</text>
+<text x="128" y="2086" class="small number muted">Win rate 58.18%</text>
+<line x1="738.3252500000002" x2="1155.4237500000004" y1="2060" y2="2060" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M738.3252500000002 2054v12 M1155.4237500000004 2054v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16452116" x="898.6705000000002" y="2051" width="133.84850000000006" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="2060" x1="973.3197500000001" x2="973.3197500000001" y1="2048" y2="2072" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="16" data-population="100" data-rank-aligned-rating="1167.00" data-centerline-marker="posterior-predictive" data-centerline-y="2060"><circle cx="940.025" cy="2060" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="13" data-population="23" data-rank-aligned-rating="1186.38" data-centerline-marker="ar1" data-centerline-y="2060"><polygon points="989.9285000000002,2055 994.9285000000002,2065 984.9285000000002,2065" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="17" data-population="100" data-rank-aligned-rating="1164.60" data-centerline-marker="batch-bradley-terry" data-centerline-y="2060"><rect x="929.8449999999998" y="2056" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="2060" points="915.2277499999998,2052.5 922.7277499999998,2060 915.2277499999998,2067.5 907.7277499999998,2060" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="2060" cx="963.2" cy="2060" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="2110" y2="2110" class="rowRule"/>
+</g>
+<g data-team-score-range="16375519" data-shared-rank="SR3">
+<rect data-mean-rank-badge="15" x="64" y="2116" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="2136" class="team" text-anchor="middle" data-mean-rank="15">#15</text>
+<text x="128" y="2136" class="team">Klein Houmani</text>
+<text x="128" y="2162" class="small number muted">Mean 1170.7 · σ 34.7</text>
+<text x="128" y="2186" class="small number muted">Win rate 58.07%</text>
+<line x1="735.1580000000001" x2="1131.7595000000001" y1="2160" y2="2160" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M735.1580000000001 2154v12 M1131.7595000000001 2154v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16375519" x="896.5847500000003" y="2151" width="119.66024999999945" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="2160" x1="957.9212500000001" x2="957.9212500000001" y1="2148" y2="2172" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="16" data-population="100" data-rank-aligned-rating="1167.00" data-centerline-marker="posterior-predictive" data-centerline-y="2160"><circle cx="940.025" cy="2160" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="17" data-population="23" data-rank-aligned-rating="1164.66" data-centerline-marker="ar1" data-centerline-y="2160"><polygon points="933.9995000000001,2155 938.9995000000001,2165 928.9995000000001,2165" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="12" data-population="100" data-rank-aligned-rating="1186.40" data-centerline-marker="batch-bradley-terry" data-centerline-y="2160"><rect x="985.9800000000002" y="2156" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="2160" points="928.3860000000001,2152.5 935.8860000000001,2160 928.3860000000001,2167.5 920.8860000000001,2160" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="2160" cx="949.4237500000003" cy="2160" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="2210" y2="2210" class="rowRule"/>
+</g>
+<g data-team-score-range="16371829" data-shared-rank="SR3">
+<rect data-mean-rank-badge="16" x="64" y="2216" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="2236" class="team" text-anchor="middle" data-mean-rank="16">#16</text>
+<text x="128" y="2236" class="team">e-toppo + kurupical</text>
+<text x="128" y="2262" class="small number muted">Mean 1167.8 · σ 47.0</text>
+<text x="128" y="2286" class="small number muted">Win rate 60.09%</text>
+<line x1="648.8182500000003" x2="1182.899" y1="2260" y2="2260" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M648.8182500000003 2254v12 M1182.899 2254v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16371829" x="867.5387499999997" y="2251" width="158.10500000000025" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="2260" x1="954.4964999999997" x2="954.4964999999997" y1="2248" y2="2272" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="15" data-population="100" data-rank-aligned-rating="1178.00" data-centerline-marker="posterior-predictive" data-centerline-y="2260"><circle cx="968.35" cy="2260" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="15" data-population="23" data-rank-aligned-rating="1178.09" data-centerline-marker="ar1" data-centerline-y="2260"><polygon points="968.5817499999998,2255 973.5817499999998,2265 963.5817499999998,2265" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="10" data-population="100" data-rank-aligned-rating="1195.30" data-centerline-marker="batch-bradley-terry" data-centerline-y="2260"><rect x="1008.8974999999999" y="2256" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="2260" points="1011.7129999999997,2252.5 1019.2129999999997,2260 1011.7129999999997,2267.5 1004.2129999999997,2260" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="2260" cx="941.982" cy="2260" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="2310" y2="2310" class="rowRule"/>
+</g>
+<g data-team-score-range="16425135" data-shared-rank="SR3">
+<rect data-mean-rank-badge="17" x="64" y="2316" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="2336" class="team" text-anchor="middle" data-mean-rank="17">#17</text>
+<text x="128" y="2336" class="team">Rmy</text>
+<text x="128" y="2362" class="small number muted">Mean 1162.6 · σ 29.3</text>
+<text x="128" y="2386" class="small number muted">Win rate 57.04%</text>
+<line x1="768.4012499999998" x2="1112.1894999999997" y1="2360" y2="2360" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M768.4012499999998 2354v12 M1112.1894999999997 2354v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16425135" x="859.3245000000002" y="2351" width="128.72424999999998" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="2360" x1="939.8190000000002" x2="939.8190000000002" y1="2348" y2="2372" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="16" data-population="100" data-rank-aligned-rating="1167.00" data-centerline-marker="posterior-predictive" data-centerline-y="2360"><circle cx="940.025" cy="2360" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="14" data-population="23" data-rank-aligned-rating="1182.79" data-centerline-marker="ar1" data-centerline-y="2360"><polygon points="980.6842499999999,2355 985.6842499999999,2365 975.6842499999999,2365" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="19" data-population="100" data-rank-aligned-rating="1161.50" data-centerline-marker="batch-bradley-terry" data-centerline-y="2360"><rect x="921.8625" y="2356" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="2360" points="1025.1029999999998,2352.5 1032.6029999999998,2360 1025.1029999999998,2367.5 1017.6029999999998,2360" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="2360" cx="928.6434999999998" cy="2360" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="2410" y2="2410" class="rowRule"/>
+</g>
+<g data-team-score-range="16371653" data-shared-rank="SR3">
+<rect data-mean-rank-badge="18" x="64" y="2416" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="2436" class="team" text-anchor="middle" data-mean-rank="18">#18</text>
+<text x="128" y="2436" class="team">Preferred 213tubo</text>
+<text x="128" y="2462" class="small number muted">Mean 1158.5 · σ 31.5</text>
+<text x="128" y="2486" class="small number muted">Win rate 57.66%</text>
+<line x1="669.2122499999998" x2="1068.3372499999998" y1="2460" y2="2460" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M669.2122499999998 2454v12 M1068.3372499999998 2454v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16371653" x="876.3195" y="2451" width="98.26200000000028" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="2460" x1="935.3900000000001" x2="935.3900000000001" y1="2448" y2="2472" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="15" data-population="100" data-rank-aligned-rating="1178.00" data-centerline-marker="posterior-predictive" data-centerline-y="2460"><circle cx="968.35" cy="2460" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="19" data-population="23" data-rank-aligned-rating="1161.55" data-centerline-marker="ar1" data-centerline-y="2460"><polygon points="925.9912499999998,2455 930.9912499999998,2465 920.9912499999998,2465" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="18" data-population="100" data-rank-aligned-rating="1162.40" data-centerline-marker="batch-bradley-terry" data-centerline-y="2460"><rect x="924.1800000000003" y="2456" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="2460" points="980.6842499999999,2452.5 988.1842499999999,2460 980.6842499999999,2467.5 973.1842499999999,2460" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="2460" cx="918.0087500000002" cy="2460" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="2510" y2="2510" class="rowRule"/>
+</g>
+<g data-team-score-range="16372168" data-shared-rank="SR3">
+<rect data-mean-rank-badge="19" x="64" y="2516" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="2536" class="team" text-anchor="middle" data-mean-rank="19">#19</text>
+<text x="128" y="2536" class="team">goonew</text>
+<text x="128" y="2562" class="small number muted">Mean 1156.8 · σ 40.9</text>
+<text x="128" y="2586" class="small number muted">Win rate 56.90%</text>
+<line x1="594.7432500000002" x2="1098.6964999999998" y1="2560" y2="2560" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M594.7432500000002 2554v12 M1098.6964999999998 2554v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16372168" x="858.9639999999999" y="2551" width="136.6809999999998" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="2560" x1="936.3942499999998" x2="936.3942499999998" y1="2548" y2="2572" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="16" data-population="100" data-rank-aligned-rating="1167.00" data-centerline-marker="posterior-predictive" data-centerline-y="2560"><circle cx="940.025" cy="2560" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="18" data-population="23" data-rank-aligned-rating="1162.48" data-centerline-marker="ar1" data-centerline-y="2560"><polygon points="928.3860000000001,2555 933.3860000000001,2565 923.3860000000001,2565" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="16" data-population="100" data-rank-aligned-rating="1167.00" data-centerline-marker="batch-bradley-terry" data-centerline-y="2560"><rect x="936.025" y="2556" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="2560" points="933.9995000000001,2552.5 941.4995000000001,2560 933.9995000000001,2567.5 926.4995000000001,2560" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="2560" cx="913.6827499999999" cy="2560" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="2610" y2="2610" class="rowRule"/>
+</g>
+<line data-common-overlap-boundary="start" x1="959.1315000000002" x2="959.1315000000002" y1="1410" y2="2610" stroke="#7b8697" stroke-width="1.6" stroke-dasharray="6 4" stroke-opacity="0.22"/>
+<line data-common-overlap-boundary="end" x1="974.5815000000002" x2="974.5815000000002" y1="1410" y2="2610" stroke="#7b8697" stroke-width="1.6" stroke-dasharray="6 4" stroke-opacity="0.22"/>
+<path data-common-overlap-bracket="SR3" d="M959.1315000000002 1416v-6H974.5815000000002v6" fill="none" stroke="#7b8697" stroke-width="1.6" stroke-opacity="0.22"/>
+</g>
+<g data-shared-rank-group="SR4" data-common-q25-q75="1131.04–1150.67">
+<rect x="34" y="2610" width="1520" height="62" fill="#f5f5f7"/>
+<text x="48" y="2648" class="group">SHARED RANK #SR4</text>
+<text x="250" y="2648" class="muted small">3 teams · Kaggle rating range 1116.86–1156.14</text>
+<rect data-common-overlap-corridor="SR4" x="847.4279999999999" y="2672" width="50.547250000000304" height="300" fill="#7b8697" opacity="0.05"/>
+<g data-team-score-range="16461850" data-shared-rank="SR4">
+<rect data-mean-rank-badge="20" x="64" y="2678" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="2698" class="team" text-anchor="middle" data-mean-rank="20">#20</text>
+<text x="128" y="2698" class="team">MissingNo.</text>
+<text x="128" y="2724" class="small number muted">Mean 1145.0 · σ 17.6</text>
+<text x="128" y="2748" class="small number muted">Win rate 58.13%</text>
+<line x1="780.8385000000002" x2="1024.8712500000001" y1="2722" y2="2722" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M780.8385000000002 2716v12 M1024.8712500000001 2716v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16461850" x="847.4279999999999" y="2713" width="64.63250000000039" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="2722" x1="881.8557500000002" x2="881.8557500000002" y1="2710" y2="2734" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="21" data-population="100" data-rank-aligned-rating="1152.90" data-centerline-marker="posterior-predictive" data-centerline-y="2722"><circle cx="903.7175000000002" cy="2722" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="20" data-population="23" data-rank-aligned-rating="1157.37" data-centerline-marker="ar1" data-centerline-y="2722"><polygon points="915.2277499999998,2717 920.2277499999998,2727 910.2277499999998,2727" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="21" data-population="100" data-rank-aligned-rating="1152.90" data-centerline-marker="batch-bradley-terry" data-centerline-y="2722"><rect x="899.7175000000002" y="2718" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="2722" points="903.7947500000001,2714.5 911.2947500000001,2722 903.7947500000001,2729.5 896.2947500000001,2722" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="2722" cx="883.4779999999998" cy="2722" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="2772" y2="2772" class="rowRule"/>
+</g>
+<g data-team-score-range="16404352" data-shared-rank="SR4">
+<rect data-mean-rank-badge="21" x="64" y="2778" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="2798" class="team" text-anchor="middle" data-mean-rank="21">#21</text>
+<text x="128" y="2798" class="team">Oshbocker</text>
+<text x="128" y="2824" class="small number muted">Mean 1136.9 · σ 30.2</text>
+<text x="128" y="2848" class="small number muted">Win rate 57.43%</text>
+<line x1="690.0955000000001" x2="1100.0612500000002" y1="2822" y2="2822" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M690.0955000000001 2816v12 M1100.0612500000002 2816v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16404352" x="810.9144999999997" y="2813" width="93.70425000000023" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="2822" x1="850.5695000000001" x2="850.5695000000001" y1="2810" y2="2834" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="21" data-population="100" data-rank-aligned-rating="1152.90" data-centerline-marker="posterior-predictive" data-centerline-y="2822"><circle cx="903.7175000000002" cy="2822" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="21" data-population="23" data-rank-aligned-rating="1152.93" data-centerline-marker="ar1" data-centerline-y="2822"><polygon points="903.7947500000001,2817 908.7947500000001,2827 898.7947500000001,2827" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="20" data-population="100" data-rank-aligned-rating="1157.30" data-centerline-marker="batch-bradley-terry" data-centerline-y="2822"><rect x="911.0474999999999" y="2818" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="2822" points="847.0675000000002,2814.5 854.5675000000002,2822 847.0675000000002,2829.5 839.5675000000002,2822" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="2822" cx="862.5432500000002" cy="2822" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="2872" y2="2872" class="rowRule"/>
+</g>
+<g data-team-score-range="16536318" data-shared-rank="SR4">
+<rect data-mean-rank-badge="22" x="64" y="2878" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="2898" class="team" text-anchor="middle" data-mean-rank="22">#22</text>
+<text x="128" y="2898" class="team">李秉叡（ntumlnoob）</text>
+<text x="128" y="2924" class="small number muted">Mean 1131.4 · σ 25.6</text>
+<text x="128" y="2948" class="small number muted">Win rate 58.02%</text>
+<line x1="662.3627500000002" x2="1013.1550000000002" y1="2922" y2="2922" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M662.3627500000002 2916v12 M1013.1550000000002 2916v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16536318" x="813.7985000000001" y="2913" width="84.17675000000008" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="2922" x1="845.5482499999998" x2="845.5482499999998" y1="2910" y2="2934" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="22" data-population="100" data-rank-aligned-rating="1134.80" data-centerline-marker="posterior-predictive" data-centerline-y="2922"><circle cx="857.1099999999999" cy="2922" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="22" data-population="23" data-rank-aligned-rating="1134.83" data-centerline-marker="ar1" data-centerline-y="2922"><polygon points="857.1872499999997,2917 862.1872499999997,2927 852.1872499999997,2927" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="22" data-population="100" data-rank-aligned-rating="1134.80" data-centerline-marker="batch-bradley-terry" data-centerline-y="2922"><rect x="853.1099999999999" y="2918" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="2922" points="968.5817499999998,2914.5 976.0817499999998,2922 968.5817499999998,2929.5 961.0817499999998,2922" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="2922" cx="848.4580000000001" cy="2922" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="2972" y2="2972" class="rowRule"/>
+</g>
+<line data-common-overlap-boundary="start" x1="847.4279999999999" x2="847.4279999999999" y1="2672" y2="2972" stroke="#7b8697" stroke-width="1.6" stroke-dasharray="6 4" stroke-opacity="0.22"/>
+<line data-common-overlap-boundary="end" x1="897.9752500000002" x2="897.9752500000002" y1="2672" y2="2972" stroke="#7b8697" stroke-width="1.6" stroke-dasharray="6 4" stroke-opacity="0.22"/>
+<path data-common-overlap-bracket="SR4" d="M847.4279999999999 2678v-6H897.9752500000002v6" fill="none" stroke="#7b8697" stroke-width="1.6" stroke-opacity="0.22"/>
+</g>
+<g data-shared-rank-group="SR5" data-common-q25-q75="1086.98–1124.21">
+<rect x="34" y="2972" width="1520" height="62" fill="#f5f5f7"/>
+<text x="48" y="3010" class="group">SHARED RANK #SR5</text>
+<text x="250" y="3010" class="muted small">1 team · Kaggle rating range 1086.98–1124.21</text>
+<rect data-common-overlap-corridor="SR5" x="733.9735000000001" y="3034" width="95.86725000000001" height="100" fill="#7b8697" opacity="0.05"/>
+<g data-team-score-range="16421599" data-shared-rank="SR5">
+<rect data-mean-rank-badge="23" x="64" y="3040" width="54" height="28" rx="5" fill="#eef0f3" fill-opacity="0.5"/>
+<text x="91" y="3060" class="team" text-anchor="middle" data-mean-rank="23">#23</text>
+<text x="128" y="3060" class="team">熱異常</text>
+<text x="128" y="3086" class="small number muted">Mean 1105.2 · σ 27.6</text>
+<text x="128" y="3110" class="small number muted">Win rate 58.48%</text>
+<line x1="623.5574999999998" x2="958.4105000000002" y1="3084" y2="3084" stroke="#7b8697" stroke-width="1.6"/>
+<path d="M623.5574999999998 3078v12 M958.4105000000002 3078v12" stroke="#7b8697" stroke-width="1.6"/>
+<rect data-observed-rating-box="16421599" x="733.9735000000001" y="3075" width="95.86725000000001" height="18" rx="2" fill="#eef0f3" stroke="#7b8697"/>
+<line data-summary-marker="median" data-centerline-marker="median" data-centerline-y="3084" x1="776.1004999999998" x2="776.1004999999998" y1="3072" y2="3096" stroke="#1d1d1f" stroke-width="3"/>
+<g data-method-rank="posterior-predictive" data-rank="26" data-population="100" data-rank-aligned-rating="1123.70" data-centerline-marker="posterior-predictive" data-centerline-y="3084"><circle cx="828.5275000000001" cy="3084" r="6" fill="none" stroke="#7952b3" stroke-width="1.3"/></g>
+<g data-method-rank="ar1" data-rank="23" data-population="23" data-rank-aligned-rating="1130.90" data-centerline-marker="ar1" data-centerline-y="3084"><polygon points="847.0675000000002,3079 852.0675000000002,3089 842.0675000000002,3089" fill="none" stroke="#c25a25" stroke-width="1.25" stroke-linejoin="round"/></g>
+<g data-method-rank="batch-bradley-terry" data-rank="28" data-population="100" data-rank-aligned-rating="1115.60" data-centerline-marker="batch-bradley-terry" data-centerline-y="3084"><rect x="803.6699999999997" y="3080" width="8" height="8" rx="0.5" fill="none" stroke="#137a53" stroke-width="1.3"/></g>
+<polygon data-summary-marker="final" data-centerline-marker="official-final" data-centerline-y="3084" points="857.1872499999997,3076.5 864.6872499999997,3084 857.1872499999997,3091.5 849.6872499999997,3084" fill="#1768ce" stroke="#fff" stroke-width="0.9"/>
+<circle data-summary-marker="mean" data-centerline-marker="mean" data-centerline-y="3084" cx="780.9415000000001" cy="3084" r="6" fill="#7b8697" stroke="#fff" stroke-width="1.8"/>
+<line x1="34" x2="1554" y1="3134" y2="3134" class="rowRule"/>
+</g>
+<line data-common-overlap-boundary="start" x1="733.9735000000001" x2="733.9735000000001" y1="3034" y2="3134" stroke="#7b8697" stroke-width="1.6" stroke-dasharray="6 4" stroke-opacity="0.22"/>
+<line data-common-overlap-boundary="end" x1="829.8407500000001" x2="829.8407500000001" y1="3034" y2="3134" stroke="#7b8697" stroke-width="1.6" stroke-dasharray="6 4" stroke-opacity="0.22"/>
+<path data-common-overlap-bracket="SR5" d="M733.9735000000001 3040v-6H829.8407500000001v6" fill="none" stroke="#7b8697" stroke-width="1.6" stroke-opacity="0.22"/>
+</g>
+</svg>

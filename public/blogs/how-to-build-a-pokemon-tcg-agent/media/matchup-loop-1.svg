@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="403.2pt" height="381.6pt" viewBox="0 0 403.2 381.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <title>Observed matchup loop 1</title>
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Observed matchup loop 1</dc:title>
+    <dc:description>Loop 1, 3 archetypes. Lucario–Hariyama is highlighted in pale blue. Alakazam / Dudunsparce → Slowking / Kangaskhan: 82.3% game score, n=68; Slowking / Kangaskhan → Lucario–Hariyama: 79.1% game score, n=91; Lucario–Hariyama → Alakazam / Dudunsparce: 79.3% game score, n=29.</dc:description>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 381.6
+L 403.2 381.6
+L 403.2 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 13.3056 378.5472
+L 389.8944 378.5472
+Q 399.9744 378.5472 399.9744 369.0072
+L 399.9744 12.5928
+Q 399.9744 3.0528 389.8944 3.0528
+L 13.3056 3.0528
+Q 3.2256 3.0528 3.2256 12.5928
+L 3.2256 369.0072
+Q 3.2256 378.5472 13.3056 378.5472
+z
+" clip-path="url(#pd43bda0f34)" style="fill: #ffffff; stroke: #e2e2e7; stroke-width: 0.85; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 500; font-size: 11px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: start; fill: #6e6e73" x="22.176" y="31.477422" transform="rotate(-0 22.176 31.477422)">01</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 600; font-size: 13px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: start; fill: #1d1d1f" x="60.48" y="31.997461" transform="rotate(-0 60.48 31.997461)">Loop 1 · 3 archetypes</text>
+   </g>
+   <g id="axes_2">
+    <g id="patch_3">
+     <path d="M 157.752 116.36892
+L 245.448 116.36892
+Q 252.46368 116.36892 252.46368 110.03436
+L 252.46368 81.52884
+Q 252.46368 75.19428 245.448 75.19428
+L 157.752 75.19428
+Q 150.73632 75.19428 150.73632 81.52884
+L 150.73632 110.03436
+Q 150.73632 116.36892 157.752 116.36892
+z
+" clip-path="url(#p09689e13a7)" style="fill: #f5f5f7; stroke: #e2e2e7; stroke-width: 0.85; stroke-linejoin: miter"/>
+    </g>
+    <g id="patch_4">
+     <path d="M 261.039871 282.65112
+L 348.735871 282.65112
+Q 355.751551 282.65112 355.751551 276.31656
+L 355.751551 247.81104
+Q 355.751551 241.47648 348.735871 241.47648
+L 261.039871 241.47648
+Q 254.024191 241.47648 254.024191 247.81104
+L 254.024191 276.31656
+Q 254.024191 282.65112 261.039871 282.65112
+z
+" clip-path="url(#p09689e13a7)" style="fill: #f5f5f7; stroke: #e2e2e7; stroke-width: 0.85; stroke-linejoin: miter"/>
+    </g>
+    <g id="lucario-node">
+     <path d="M 54.464129 282.65112
+L 142.160129 282.65112
+Q 149.175809 282.65112 149.175809 276.31656
+L 149.175809 247.81104
+Q 149.175809 241.47648 142.160129 241.47648
+L 54.464129 241.47648
+Q 47.448449 241.47648 47.448449 247.81104
+L 47.448449 276.31656
+Q 47.448449 282.65112 54.464129 282.65112
+z
+" clip-path="url(#p09689e13a7)" style="fill: #eaf2ff; stroke: #e2e2e7; stroke-width: 0.85; stroke-linejoin: miter"/>
+    </g>
+    <g id="patch_5">
+     <path d="M 216.748888 120.169656
+Q 253.243935 178.9227 289.031065 236.536072
+" clip-path="url(#p09689e13a7)" style="fill: none; stroke: #1d1d1f; stroke-width: 1.2; stroke-linecap: round"/>
+     <path d="M 288.495876 230.746981
+L 289.031065 236.536072
+L 284.078679 233.490768
+z
+" clip-path="url(#p09689e13a7)" style="fill: #1d1d1f; stroke: #1d1d1f; stroke-width: 1.2; stroke-linecap: round"/>
+    </g>
+    <g id="patch_6">
+     <path d="M 249.814783 262.0638
+Q 201.6 262.0638 154.726858 262.0638
+" clip-path="url(#p09689e13a7)" style="fill: none; stroke: #1d1d1f; stroke-width: 1.2; stroke-linecap: round"/>
+     <path d="M 159.926858 264.6638
+L 154.726858 262.0638
+L 159.926858 259.4638
+z
+" clip-path="url(#p09689e13a7)" style="fill: #1d1d1f; stroke: #1d1d1f; stroke-width: 1.2; stroke-linecap: round"/>
+    </g>
+    <g id="patch_7">
+     <path d="M 113.461017 237.675744
+Q 149.956065 178.9227 185.743194 121.309328
+" clip-path="url(#p09689e13a7)" style="fill: none; stroke: #1d1d1f; stroke-width: 1.2; stroke-linecap: round"/>
+     <path d="M 180.790808 124.354632
+L 185.743194 121.309328
+L 185.208006 127.098419
+z
+" clip-path="url(#p09689e13a7)" style="fill: #1d1d1f; stroke: #1d1d1f; stroke-width: 1.2; stroke-linecap: round"/>
+    </g>
+    <g id="text_3">
+     <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Arial', sans-serif; fill: #1d1d1f" transform="translate(168.507187 91.983788)">Alakazam /</text>
+     <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Arial', sans-serif; fill: #1d1d1f" transform="translate(161.826562 106.89285)">Dudunsparce</text>
+    </g>
+    <g id="text_4">
+     <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Arial', sans-serif; fill: #1d1d1f" transform="translate(274.152871 257.57505)">Slowking /</text>
+     <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Arial', sans-serif; fill: #1d1d1f" transform="translate(268.210996 273.17505)">Kangaskhan</text>
+    </g>
+    <g id="text_5">
+     <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Arial', sans-serif; fill: #1d1d1f" transform="translate(73.490879 258.73755)">Lucario–</text>
+     <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Arial', sans-serif; fill: #1d1d1f" transform="translate(69.240254 273.17505)">Hariyama</text>
+    </g>
+    <g id="text_6">
+     <text style="font-weight: 500; font-size: 12px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #1d1d1f" x="303.32736" y="173.329867" transform="rotate(-0 303.32736 173.329867)">82.3%</text>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #6e6e73" x="303.32736" y="188.906502" transform="rotate(-0 303.32736 188.906502)">n=68</text>
+    </g>
+    <g id="text_8">
+     <text style="font-weight: 500; font-size: 12px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #1d1d1f" x="201.6" y="290.519227" transform="rotate(-0 201.6 290.519227)">79.1%</text>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #6e6e73" x="201.6" y="306.095862" transform="rotate(-0 201.6 306.095862)">n=91</text>
+    </g>
+    <g id="text_10">
+     <text style="font-weight: 500; font-size: 12px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #1d1d1f" x="99.87264" y="173.329867" transform="rotate(-0 99.87264 173.329867)">79.3%</text>
+    </g>
+    <g id="text_11">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Arial', sans-serif; text-anchor: middle; fill: #6e6e73" x="99.87264" y="188.906502" transform="rotate(-0 99.87264 188.906502)">n=29</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pd43bda0f34">
+   <rect x="0" y="0" width="403.2" height="381.6"/>
+  </clipPath>
+  <clipPath id="p09689e13a7">
+   <rect x="26.208" y="32.436" width="350.784" height="316.728"/>
+  </clipPath>
+ </defs>
+</svg>

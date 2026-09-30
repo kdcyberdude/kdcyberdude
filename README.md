@@ -18,6 +18,13 @@ All copy, metrics, projects, and links live in one file:
 
 `src/data/content.ts`
 
+## Standalone article
+
+The [Pokémon TCG agent article](public/blogs/how-to-build-a-pokemon-tcg-agent/index.html)
+and its assets live in `public/blogs/how-to-build-a-pokemon-tcg-agent/`.
+Vite copies that directory into `dist/` so the article remains available at
+`/blogs/how-to-build-a-pokemon-tcg-agent/` after every site deploy.
+
 ## Deploy (Netlify + Namecheap)
 
 1. Push this repo to GitHub.

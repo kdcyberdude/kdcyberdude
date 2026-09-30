@@ -11,7 +11,7 @@ export const profile = {
     "Model training & evaluation · self-hosted GPU infra · 0→1 product.",
   location: "Jalandhar, India · open to relocation",
   availability: {
-    status: "Open to research labs & deep-tech teams",
+    status: "Open to research, applied ML & forward-deployed engineering",
     roles: [
       "Researcher / Research Engineer",
       "Applied ML Engineer",
@@ -162,7 +162,7 @@ export const projects: Project[] = [
     name: "Pokémon TCG AI Battle",
     kicker: "An agent learning to play under uncertainty",
     href: "https://kdcyberdude.com/blogs/how-to-build-a-pokemon-tcg-agent/",
-    year: "2026",
+    year: "June – Sep 2026",
     role: "Research & engineering · The Pokémon Company / Kaggle",
     summary:
       "Built a Pokémon TCG agent trained through self-play to make decisions with hidden information. Finished 19th of 6,807 teams in Simulation and 12th in Strategy; the technical report covers its training, deck choices, and robustness tests.",
@@ -346,12 +346,11 @@ export const timeline: Job[] = [
     duration: "~1 yr 10 mo",
     href: "https://www.treowintelligence.com/",
     summary:
-      "AI-native studio on self-hosted GPUs: consumer diffusion product (LuxeAI) + regional speech/LLM work (Treow AI). Looking ahead: research labs and deep-tech teams where this loop scales beyond solo.",
+      "AI-native studio on self-hosted GPUs: consumer diffusion product (LuxeAI) + regional speech/LLM work (Treow AI).",
     bullets: [
       "Own the loop: dataset → train / fine-tune → eval → serve — on a 7-GPU home lab (3× 5090 + 4× 4090). [Write-up →](https://www.reddit.com/r/comfyui/comments/1pd072e/i_built_a_7gpu_ai_monster_rig_at_home_35090_44090/)",
       "[Treow AI](https://www.treowintelligence.com/): ASR on 100K+ hrs (6.96–10.18% WER on IndicSUPERB), TTS, Punjabi small LLMs; internet-scale data pipelines. [Models on HF →](https://huggingface.co/kdcyberdude)",
       "[LuxeAI](https://console.luxeai.studio): crop-aware training, realtime generation, ComfyUI orchestration (1290+ nodes), full paid product surface with 300+ fine-tuned diffusion models.",
-      "[HARvestGym](https://github.com/kdcyberdude/HARvestGym): open RL env + provenance checks for HTTP agents on live apps.",
     ],
   },
   {
