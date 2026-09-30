@@ -138,6 +138,22 @@ export const learningBench = {
   press: "https://prabhattimes.com/news/er-karandeep-singh-google-deepmind",
 };
 
+export const pokemonResearch = {
+  name: "Pokémon TCG AI Battle",
+  year: "June – Sep 2026",
+  summary:
+    "Trained a game-playing AI through self-play to make decisions with hidden information. The technical report covers its training, deck choices, and robustness tests.",
+  metrics: [
+    { k: "Simulation", v: "19th / 6,807 teams" },
+    { k: "Strategy", v: "12th" },
+  ],
+  links: [
+    { label: "Technical report", href: "https://kdcyberdude.com/blogs/how-to-build-a-pokemon-tcg-agent/" },
+    { label: "Simulation result", href: "https://www.kaggle.com/competitions/pokemon-tcg-ai-battle/leaderboard?episodeId=82017244&submissionId=54072877" },
+    { label: "Strategy result", href: "https://www.kaggle.com/competitions/pokemon-tcg-ai-battle-challenge-strategy/discussion/742692#3528717" },
+  ],
+};
+
 /* ---- Selected work ---- */
 export type ExtLink = { label: string; href: string };
 
@@ -157,31 +173,6 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  {
-    id: "pokemon-tcg-agent",
-    name: "Pokémon TCG AI Battle",
-    kicker: "An agent learning to play under uncertainty",
-    href: "https://kdcyberdude.com/blogs/how-to-build-a-pokemon-tcg-agent/",
-    year: "June – Sep 2026",
-    role: "Research & engineering · The Pokémon Company / Kaggle",
-    summary:
-      "Built a Pokémon TCG agent trained through self-play to make decisions with hidden information. Finished 19th of 6,807 teams in Simulation and 12th in Strategy; the technical report covers its training, deck choices, and robustness tests.",
-    metrics: [
-      { k: "Simulation", v: "19th / 6,807 teams" },
-      { k: "Strategy", v: "12th" },
-    ],
-    stack: ["reinforcement learning", "Transformer", "self-play", "evaluation"],
-    bullets: [
-      "Built a Transformer policy that combines the visible game state, legal moves, the agent's own deck, and estimates of hidden opponent cards.",
-      "Trained with PPO self-play, then specialized the policy for the two submitted decks.",
-      "Evaluated performance across repeated games, matchups, starting conditions, and deck changes. The [technical report](https://kdcyberdude.com/blogs/how-to-build-a-pokemon-tcg-agent/) explains the evidence and limitations.",
-    ],
-    links: [
-      { label: "Technical report", href: "https://kdcyberdude.com/blogs/how-to-build-a-pokemon-tcg-agent/" },
-      { label: "Simulation result", href: "https://www.kaggle.com/competitions/pokemon-tcg-ai-battle/leaderboard?episodeId=82017244&submissionId=54072877" },
-      { label: "Strategy result", href: "https://www.kaggle.com/competitions/pokemon-tcg-ai-battle-challenge-strategy/discussion/742692#3528717" },
-    ],
-  },
   {
     id: "treow",
     name: "Treow AI",
@@ -411,11 +402,6 @@ export const certifications: {
     name: "Hacking and Patching",
     issuer: "University of Colorado Boulder",
     href: "https://www.coursera.org/account/accomplishments/verify/LT7GHY9TCMYG",
-  },
-  {
-    name: "Foundations of Cybersecurity",
-    issuer: "Google",
-    href: "https://www.coursera.org/account/accomplishments/verify/UC5E84KTNEMG",
   },
   {
     name: "Blockchain Specialization",

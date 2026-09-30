@@ -53,6 +53,8 @@ export default function Nav() {
           ))}
           <a
             href={profile.links.resume}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-primary btn-sm ml-2"
           >
             Résumé
@@ -102,6 +104,8 @@ export default function Nav() {
             <div className="mt-2 flex gap-2">
               <a
                 href={profile.links.resume}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-primary btn-sm w-full"
               >
                 Résumé

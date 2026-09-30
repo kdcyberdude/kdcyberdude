@@ -112,7 +112,7 @@ function runCommand(cmd: string, close: () => void): Line[] {
       ];
     case "resume":
     case "cv":
-      window.open(profile.links.resume, "_blank");
+      window.open(profile.links.resume, "_blank", "noopener,noreferrer");
       return [{ type: "sys", text: "→ opening résumé.pdf…" }];
     case "clear":
     case "cls":

@@ -31,9 +31,11 @@ export default function Contact() {
           </a>
           <a
             href={profile.links.resume}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-secondary"
           >
-            Download résumé
+            View résumé ↗
           </a>
         </div>
 

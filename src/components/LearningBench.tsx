@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { learningBench } from "../data/content";
+import { learningBench, pokemonResearch } from "../data/content";
 import { LinkedText, Reveal } from "./ui";
 
 export default function LearningBench() {
@@ -96,6 +96,42 @@ export default function LearningBench() {
           </div>
         </Reveal>
       </div>
+
+      <Reveal delay={0.12}>
+        <article id="pokemon-research" className="mt-16 border-t border-[var(--color-line-bright)] pt-10 scroll-mt-28">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <p className="label text-acid">Agent research · The Pokémon Company / Kaggle</p>
+            <span className="mono text-[12px] text-dim">{pokemonResearch.year}</span>
+          </div>
+          <h3 className="serif mt-3 text-2xl md:text-3xl font-medium tracking-tight">
+            {pokemonResearch.name}
+          </h3>
+          <p className="mt-4 max-w-2xl text-[15px] text-muted leading-relaxed">
+            {pokemonResearch.summary}
+          </p>
+          <div className="mt-6 flex flex-wrap gap-x-12 gap-y-4">
+            {pokemonResearch.metrics.map((m) => (
+              <div key={m.k}>
+                <div className="serif text-xl md:text-2xl text-txt">{m.v}</div>
+                <div className="label mt-1">{m.k}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-7 flex flex-wrap gap-3">
+            {pokemonResearch.links.map((link, i) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`btn btn-sm ${i === 0 ? "btn-primary" : "btn-secondary"}`}
+              >
+                {link.label} ↗
+              </a>
+            ))}
+          </div>
+        </article>
+      </Reveal>
     </section>
   );
 }
